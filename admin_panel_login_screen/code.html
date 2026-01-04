@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>ACM NMIET Admin Panel</title>
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#118dd4", // ACM Blue
+            "background-light": "#f8fafc", // Very light slate/blueish gray for freshness
+            "surface": "#ffffff",
+          },
+          fontFamily: {
+            "display": ["Inter", "Noto Sans", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "2xl": "1rem"
+          },
+          boxShadow: {
+            'soft': '0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03)',
+            'card': '0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01)',
+          }
+        },
+      },
+    }
+  </script>
+</head>
+
+<body
+  class="bg-background-light font-display min-h-screen flex flex-col items-center justify-center p-4 antialiased selection:bg-primary/20 selection:text-primary">
+  <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+    <div class="absolute -top-[20%] -left-[10%] w-[50%] h-[50%] rounded-full bg-blue-100/60 blur-3xl opacity-60"></div>
+    <div class="absolute top-[20%] -right-[10%] w-[40%] h-[40%] rounded-full bg-sky-100/60 blur-3xl opacity-60"></div>
+  </div>
+  <main
+    class="relative z-10 w-full max-w-[420px] bg-surface rounded-2xl shadow-card border border-slate-100 overflow-hidden">
+    <div class="px-8 pt-10 pb-6 flex flex-col items-center text-center">
+      <div
+        class="w-14 h-14 bg-blue-50 text-primary rounded-xl flex items-center justify-center mb-6 ring-4 ring-blue-50/50">
+        <span class="material-symbols-outlined !text-[32px]">admin_panel_settings</span>
+      </div>
+      <h1 class="text-slate-900 text-2xl font-bold leading-tight tracking-tight mb-2">
+        Admin Login
+      </h1>
+      <p class="text-slate-500 text-sm font-medium leading-relaxed">
+        Enter your credentials to access the<br />ACM NMIET Admin Panel.
+      </p>
+    </div>
+    <div class="px-8 pb-10 w-full">
+      <form action="../admin_panel_dashboard/code.html" class="flex flex-col gap-5" method="GET">
+        <div class="flex flex-col gap-1.5">
+          <label class="text-slate-700 text-sm font-semibold leading-normal ml-1" for="email">
+            Email Address
+          </label>
+          <div class="relative group">
+            <span
+              class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-primary transition-colors !text-[20px]">mail</span>
+            <input
+              class="form-input flex w-full min-w-0 resize-none rounded-lg text-slate-900 border border-slate-200 bg-slate-50 focus:bg-white focus:border-primary focus:ring-4 focus:ring-primary/10 h-11 pl-10 pr-4 text-sm font-medium transition-all placeholder:text-slate-400 outline-none"
+              id="email" placeholder="admin@acm-nmiet.org" type="email" />
+          </div>
+        </div>
+        <div class="flex flex-col gap-1.5">
+          <div class="flex justify-between items-center ml-1">
+            <label class="text-slate-700 text-sm font-semibold leading-normal" for="password">
+              Password
+            </label>
+          </div>
+          <div class="relative group">
+            <span
+              class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-primary transition-colors !text-[20px]">lock</span>
+            <input
+              class="form-input flex w-full min-w-0 resize-none rounded-lg text-slate-900 border border-slate-200 bg-slate-50 focus:bg-white focus:border-primary focus:ring-4 focus:ring-primary/10 h-11 pl-10 pr-10 text-sm font-medium transition-all placeholder:text-slate-400 outline-none"
+              id="password" placeholder="Enter your password" type="password" />
+            <button
+              class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 transition-colors cursor-pointer flex items-center justify-center p-1 rounded-full hover:bg-slate-100"
+              type="button">
+              <span class="material-symbols-outlined !text-[20px]">visibility</span>
+            </button>
+          </div>
+        </div>
+        <div class="flex justify-end">
+          <a class="text-primary hover:text-blue-700 text-xs font-semibold transition-colors" href="#">
+            Forgot Password?
+          </a>
+        </div>
+        <button
+          class="mt-2 flex w-full cursor-pointer items-center justify-center rounded-lg h-11 px-5 bg-primary hover:bg-[#0e7ab8] active:scale-[0.98] text-white text-sm font-bold tracking-wide transition-all shadow-md shadow-blue-500/20 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+          type="submit">
+          Login
+        </button>
+        <div class="relative flex py-2 items-center">
+          <div class="flex-grow border-t border-slate-100"></div>
+        </div>
+        <div class="text-center">
+          <a class="inline-flex items-center gap-2 text-slate-500 hover:text-slate-800 text-sm font-medium transition-colors group"
+            href="#">
+            <span
+              class="material-symbols-outlined !text-[16px] transition-transform group-hover:-translate-x-1">arrow_back</span>
+            Back to Website
+          </a>
+        </div>
+      </form>
+    </div>
+  </main>
+  <footer class="fixed bottom-6 w-full text-center pointer-events-none">
+    <p class="text-slate-400 text-xs font-medium">© 2024 ACM NMIET Chapter. All rights reserved.</p>
+  </footer>
+
+</body>
+
+</html>

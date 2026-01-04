@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Our Team - ACM NMIET</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap"
+    rel="stylesheet" />
+  <!-- Material Symbols -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <!-- Theme Configuration -->
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#0085cc",
+            "background-light": "#f5f7f8",
+            "background-dark": "#0f1c23",
+            "card-light": "#ffffff",
+            "card-dark": "#1a2c35",
+            "border-light": "#e6eff4",
+            "border-dark": "#2a3c45",
+          },
+          fontFamily: {
+            "display": ["Inter", "sans-serif"]
+          },
+          borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+        },
+      },
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+
+    .material-symbols-outlined {
+      font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+    }
+  </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white transition-colors duration-200">
+  <div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
+    <!-- Header -->
+    <header
+      class="sticky top-0 z-50 w-full bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md border-b border-[#e6eff4] dark:border-gray-800">
+      <div class="max-w-[1280px] mx-auto px-4 sm:px-10 py-3">
+        <div class="flex items-center justify-between">
+          <!-- Logo -->
+          <div class="flex items-center gap-3">
+            <div class="size-8 text-primary">
+              <svg class="w-full h-full" fill="currentColor" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M4 42.4379C4 42.4379 14.0962 36.0744 24 41.1692C35.0664 46.8624 44 42.2078 44 42.2078L44 7.01134C44 7.01134 35.068 11.6577 24.0031 5.96913C14.0971 0.876274 4 7.27094 4 7.27094L4 42.4379Z">
+                </path>
+              </svg>
+            </div>
+            <h2 class="text-text-main dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">ACM NMIET
+            </h2>
+          </div>
+          <!-- Desktop Nav Links -->
+          <nav class="hidden md:flex flex-1 justify-end gap-8 items-center">
+            <div class="flex items-center gap-6">
+              <a class="text-text-main dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium"
+                href="../home_page/code.html">Home</a>
+              <a class="text-text-main dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium"
+                href="../acm_nmiet_page/code.html">About</a>
+              <a class="text-text-main dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium"
+                href="../upcoming_activities_page/code.html">Events</a>
+              <a class="text-primary font-bold text-sm" href="../our_team_page/code.html">Team</a>
+              <a class="text-text-main dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium"
+                href="../contact_page/code.html">Contact</a>
+            </div>
+            <a class="flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-6 bg-primary hover:bg-primary-dark transition-colors text-white text-sm font-bold"
+              href="../join_acm_page/code.html">
+              <span>Join ACM</span>
+            </a>
+          </nav>
+          <!-- Mobile Menu Button -->
+          <button class="md:hidden text-text-main dark:text-white">
+            <span class="material-symbols-outlined">menu</span>
+          </button>
+        </div>
+      </div>
+    </header>
+    <main class="flex-grow">
+      <!-- Hero Section -->
+      <section
+        class="relative flex flex-col items-center justify-center py-20 px-4 lg:px-40 bg-cover bg-center bg-no-repeat"
+        data-alt="Abstract blue geometric pattern background representing technology and connectivity"
+        style='background-image: linear-gradient(rgba(15, 28, 35, 0.8), rgba(15, 28, 35, 0.9)), url("https://lh3.googleusercontent.com/aida-public/AB6AXuBiKFJS2Md5p-BRFhUzL-yC-bRV-yMC2Ioh7fE6eH_C5lfwJ1Y_olsK28-3yj0HfZ3DlyZFIAF-rTHc0nG_O4tcJISEA9BNc0TWsmRI4a_1QqqEl3bdjBBaEeqP8ll1ZV6zywEkc4A8uz4jMBoqHCmrA8JsMsasKEppNBoUwPdjAV2TTi-0YOQ8uBMsHchqMsmIlmpUhBA-jjaDVkDPH9-X1WXFc6lnTBZAwOaLsF6Wpf_XePk7FW38hj5jkXE4HWl087g7MacGqpke");'>
+        <div class="max-w-[800px] text-center space-y-4 animate-fade-in-up">
+          <span
+            class="inline-block py-1 px-3 rounded-full bg-primary/20 text-primary text-xs font-bold uppercase tracking-wider border border-primary/20 backdrop-blur-sm">
+            Community First
+          </span>
+          <h1 class="text-white text-4xl md:text-5xl lg:text-6xl font-black leading-tight tracking-[-0.033em]">
+            Meet Our Team
+          </h1>
+          <p class="text-slate-200 text-lg md:text-xl font-normal max-w-2xl mx-auto leading-relaxed">
+            The founding members, visionaries, and hard workers building the future of ACM NMIET.
+          </p>
+        </div>
+      </section>
+      <!-- Faculty Sponsor Section -->
+      <section class="py-16 px-4 lg:px-40 bg-white dark:bg-[#13222b]">
+        <div class="max-w-[1200px] mx-auto">
+          <div class="text-center mb-12">
+            <h2 class="text-slate-900 dark:text-white text-3xl font-bold tracking-tight mb-2">Faculty Sponsor</h2>
+            <div class="h-1 w-20 bg-primary mx-auto rounded-full"></div>
+          </div>
+          <div class="flex justify-center">
+            <div
+              class="flex flex-col md:flex-row items-center gap-8 bg-background-light dark:bg-card-dark p-8 rounded-2xl shadow-sm border border-border-light dark:border-border-dark max-w-3xl w-full hover:shadow-lg transition-shadow duration-300">
+              <div class="shrink-0">
+                <div
+                  class="w-40 h-40 md:w-48 md:h-48 rounded-full bg-cover bg-center border-4 border-white dark:border-border-dark shadow-md"
+                  data-alt="Portrait of Dr. Faculty Sponsor smiling professionally"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCRAMvYG6ilxPmuxxf16iA0hrtmj6M575axYBvF_WansT6BiMZcx4_ahymSn5Iqp2EXXa-cfkUhEkHpIqnPcykNca5p95YK-dXvr8O--_QKb4JuP6zGBrQYMLcisezzbTEagq6tJ2BrrjVTxem4MG5sdsYBMrwotnEZgXcNFvFyHPHBzEDro8KUsq3ajZQYpDJEodeYbZk6Mla9ZYBascBYjF5vkEPs6te2H14fOH5nD0Fsl9n_BEtuCcD3d_wFirxIP7C7qvCI_4yA");'>
+                </div>
+              </div>
+              <div class="flex flex-col items-center md:items-start text-center md:text-left space-y-3 w-full">
+                <div>
+                  <h3 class="text-2xl font-bold text-slate-900 dark:text-white">Dr. Robert Smith</h3>
+                  <p class="text-primary text-lg font-semibold">Faculty Sponsor</p>
+                </div>
+                <div class="space-y-1 text-slate-600 dark:text-slate-300">
+                  <p class="flex items-center gap-2 justify-center md:justify-start">
+                    <span class="material-symbols-outlined text-[20px]">school</span>
+                    Ph.D. in Computer Science
+                  </p>
+                  <p class="flex items-center gap-2 justify-center md:justify-start">
+                    <span class="material-symbols-outlined text-[20px]">apartment</span>
+                    Dept. of Computer Science &amp; Engineering
+                  </p>
+                </div>
+                <div class="pt-4 w-full md:w-auto">
+                  <a class="inline-flex items-center justify-center gap-2 w-full md:w-auto px-6 py-2.5 bg-white dark:bg-[#1f3642] border border-border-light dark:border-border-dark rounded-lg text-slate-700 dark:text-slate-200 font-medium hover:border-primary hover:text-primary dark:hover:text-primary transition-colors group shadow-sm"
+                    href="#">
+                    <span>View Profile</span>
+                    <span
+                      class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_outward</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Executive Committee Section -->
+      <section class="py-16 px-4 lg:px-40 bg-background-light dark:bg-background-dark">
+        <div class="max-w-[1200px] mx-auto">
+          <div
+            class="flex flex-col md:flex-row justify-between items-end mb-10 border-b border-border-light dark:border-border-dark pb-4 gap-4">
+            <div>
+              <h2 class="text-slate-900 dark:text-white text-3xl font-bold tracking-tight">Executive Committee</h2>
+              <p class="text-slate-600 dark:text-slate-400 mt-2">Leading the chapter's vision and strategy</p>
+            </div>
+            <a class="text-primary font-bold text-sm flex items-center gap-1 hover:underline" href="#">
+              View Organization Chart <span class="material-symbols-outlined text-[18px]">chevron_right</span>
+            </a>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Card 1 -->
+            <div
+              class="group bg-white dark:bg-card-dark rounded-xl p-6 border border-border-light dark:border-border-dark shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center">
+              <div class="relative w-28 h-28 mb-4">
+                <div
+                  class="w-full h-full rounded-full bg-cover bg-center border-2 border-primary/20 group-hover:border-primary transition-colors"
+                  data-alt="Portrait of Sarah Johnson, Chapter Chair"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBQqEHygHJikMI-rWCidUxvbcthfJNBiLayqZctXb7uRQUmCZzeN6uspRrywd-JJXYb6nxuwex98kuQnqRCK7Y-IZK2wJBaV-M4BIhm8fQJG61RbEJwtSSuql2dXEpWSjT74mub0hTMb04lm3THo85eBQAxEOWbHhDfqnrcxiHWNu1_SSLvHFUBQgXZ_pPJexDDu2eVK5qtynh-dJ3kqZNL6gszjaxEZdP9tA03jJ1obEXdxetVAnifBfJjihtq_r3GhNIthK-2Shib");'>
+                </div>
+                <div class="absolute bottom-0 right-0 bg-primary text-white p-1 rounded-full shadow-sm">
+                  <span class="material-symbols-outlined text-[16px] block">verified</span>
+                </div>
+              </div>
+              <h3 class="text-lg font-bold text-slate-900 dark:text-white">Sarah Johnson</h3>
+              <p class="text-primary font-medium text-sm mb-4">Chairperson</p>
+              <div class="flex gap-3 mt-auto">
+                <a aria-label="LinkedIn"
+                  class="p-2 rounded-full bg-background-light dark:bg-[#1f3642] text-slate-600 dark:text-slate-300 hover:text-primary hover:bg-primary/10 transition-colors"
+                  href="#">
+                  <span class="material-symbols-outlined text-[20px]">link</span>
+                </a>
+                <a aria-label="GitHub"
+                  class="p-2 rounded-full bg-background-light dark:bg-[#1f3642] text-slate-600 dark:text-slate-300 hover:text-primary hover:bg-primary/10 transition-colors"
+                  href="#">
+                  <span class="material-symbols-outlined text-[20px]">code</span>
+                </a>
+              </div>
+            </div>
+            <!-- Card 2 -->
+            <div
+              class="group bg-white dark:bg-card-dark rounded-xl p-6 border border-border-light dark:border-border-dark shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center">
+              <div
+                class="w-28 h-28 mb-4 rounded-full bg-cover bg-center border-2 border-primary/20 group-hover:border-primary transition-colors"
+                data-alt="Portrait of Michael Chen, Vice Chair"
+                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBYoc4CgIUwjiwzhrGYqzYRPfMDNdITGIodXr0mHVJDq5eztz1jNxdpfaJ6fxJ1Q-TrmjwPyNGGxBhggdPbq96ZFYlEGDbl72KXseji6nL9SF_4sb12klXALv0F-M1tKqj9n1F-ERrr9dEM5UwlkGOTsgpA6gsxR95cdUL27NAHCU7uLibRXkFlb2FpNiqiAfVNymDu-5lh4Nh3WZmkSGikb177NPW33_XdUIt0gz15NPyqbv2FqTz69eKhrigwcGUtKPu45FNUY8T1");'>
+              </div>
+              <h3 class="text-lg font-bold text-slate-900 dark:text-white">Michael Chen</h3>
+              <p class="text-primary font-medium text-sm mb-4">Vice Chairperson</p>
+              <div class="flex gap-3 mt-auto">
+                <a aria-label="LinkedIn"
+                  class="p-2 rounded-full bg-background-light dark:bg-[#1f3642] text-slate-600 dark:text-slate-300 hover:text-primary hover:bg-primary/10 transition-colors"
+                  href="#">
+                  <span class="material-symbols-outlined text-[20px]">link</span>
+                </a>
+                <a aria-label="GitHub"
+                  class="p-2 rounded-full bg-background-light dark:bg-[#1f3642] text-slate-600 dark:text-slate-300 hover:text-primary hover:bg-primary/10 transition-colors"
+                  href="#">
+                  <span class="material-symbols-outlined text-[20px]">code</span>
+                </a>
+              </div>
+            </div>
+            <!-- Card 3 -->
+            <div
+              class="group bg-white dark:bg-card-dark rounded-xl p-6 border border-border-light dark:border-border-dark shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center">
+              <div
+                class="w-28 h-28 mb-4 rounded-full bg-cover bg-center border-2 border-primary/20 group-hover:border-primary transition-colors"
+                data-alt="Portrait of Priya Patel, Secretary"
+                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBlk7-6qOc1m04nQ1D1q2gFdT82uyJzngyXCC4VX5IC05lueSBNtIeBHpRQII0EkfYbX0gMI4eEr8rPwpVM0QjRQsZ8yHNKnk8KyECKVRYGsb--jdKSCnp9BWWsVJp1q3mfwFkzu6GaheHtHZ7TxRaToXK2F3Jcd3T7wFLIo_MlLaevOoY7Q7AOmIuv8OZr_CDYCQKy5z7voGYQpSYVoTJspkAKDxAEkqtOVd3WfhOUrxjuOPvKA2tBFrU7NHUUnKHfPbx04nekUxP3");'>
+              </div>
+              <h3 class="text-lg font-bold text-slate-900 dark:text-white">Priya Patel</h3>
+              <p class="text-primary font-medium text-sm mb-4">Secretary</p>
+              <div class="flex gap-3 mt-auto">
+                <a aria-label="LinkedIn"
+                  class="p-2 rounded-full bg-background-light dark:bg-[#1f3642] text-slate-600 dark:text-slate-300 hover:text-primary hover:bg-primary/10 transition-colors"
+                  href="#">
+                  <span class="material-symbols-outlined text-[20px]">link</span>
+                </a>
+              </div>
+            </div>
+            <!-- Card 4 -->
+            <div
+              class="group bg-white dark:bg-card-dark rounded-xl p-6 border border-border-light dark:border-border-dark shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center">
+              <div
+                class="w-28 h-28 mb-4 rounded-full bg-cover bg-center border-2 border-primary/20 group-hover:border-primary transition-colors"
+                data-alt="Portrait of David Kim, Treasurer"
+                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDozYor0xYgl7lyHaK8oq7O4B1QMB1E611C7vzis-fF-re9z71cj1eVk1biE2ZvdccL8ghtkQhmlfeusoeMEUjtKfmWhkyltZm9YAh000OGDMboZQaqh095tKDAKh8wjNR4Oof2GOI1S6tMYs7ls0nWaIA24-B59nfKuJf_xXeTlClnaQA0ypD7GFv1yMAXlJuDxUFZd9giJpv9RYj7BfLhTC90KCoHi3W5NlGt9j-tmm22N0J3bCVg0-NEZCB1OeRNpH6USt3MHBcA");'>
+              </div>
+              <h3 class="text-lg font-bold text-slate-900 dark:text-white">David Kim</h3>
+              <p class="text-primary font-medium text-sm mb-4">Treasurer</p>
+              <div class="flex gap-3 mt-auto">
+                <a aria-label="LinkedIn"
+                  class="p-2 rounded-full bg-background-light dark:bg-[#1f3642] text-slate-600 dark:text-slate-300 hover:text-primary hover:bg-primary/10 transition-colors"
+                  href="#">
+                  <span class="material-symbols-outlined text-[20px]">link</span>
+                </a>
+                <a aria-label="GitHub"
+                  class="p-2 rounded-full bg-background-light dark:bg-[#1f3642] text-slate-600 dark:text-slate-300 hover:text-primary hover:bg-primary/10 transition-colors"
+                  href="#">
+                  <span class="material-symbols-outlined text-[20px]">code</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Core Committee Section -->
+      <section class="py-16 px-4 lg:px-40 bg-white dark:bg-[#13222b]">
+        <div class="max-w-[1200px] mx-auto">
+          <div
+            class="flex flex-col md:flex-row justify-between items-end mb-10 border-b border-border-light dark:border-border-dark pb-4 gap-4">
+            <div>
+              <h2 class="text-slate-900 dark:text-white text-3xl font-bold tracking-tight">Core Committee</h2>
+              <p class="text-slate-600 dark:text-slate-400 mt-2">The driving force behind our technical events and
+                workshops</p>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <!-- Reusable Member Card Style -->
+            <!-- Member 1 -->
+            <div
+              class="flex flex-col items-center p-4 rounded-lg bg-background-light dark:bg-card-dark border border-border-light dark:border-border-dark hover:border-primary/50 transition-colors group">
+              <div
+                class="w-20 h-20 mb-3 rounded-full bg-cover bg-center grayscale group-hover:grayscale-0 transition-all duration-300"
+                data-alt="Portrait of Tech Lead"
+                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAvbZPjyYtcTYI2bKX_aENxS2-HB_p_N6K_6rF6EagsEe31Q7iJqY4XB3eNUYASMwjuEgb1oDcAsXGueJ4fr5ifMW6R_iu4voRpUuzMlfSe-C8ZTpHu3YbuhPzXaAtZEyt4VM52V-t3ydr2I3HS3d9gX9aAK5OfyI4LhhfVksc5WlnrTmG6DsiJa9_prGpC9F82PGO6S8G3XpUEXoJaOHmUVP-7GvSZL1mNsKfEhtN__yMsr4DaWxlvmTVpCgJM1HGMTQw8UrEaVmBk");'>
+              </div>
+              <h3 class="font-bold text-slate-900 dark:text-white text-center">James Wilson</h3>
+              <p class="text-xs text-primary font-semibold uppercase tracking-wide mb-3">Technical Lead</p>
+              <div class="flex gap-2">
+                <a class="text-slate-400 hover:text-primary transition-colors" href="#"><span
+                    class="material-symbols-outlined text-[18px]">link</span></a>
+                <a class="text-slate-400 hover:text-primary transition-colors" href="#"><span
+                    class="material-symbols-outlined text-[18px]">code</span></a>
+              </div>
+            </div>
+            <!-- Member 2 -->
+            <div
+              class="flex flex-col items-center p-4 rounded-lg bg-background-light dark:bg-card-dark border border-border-light dark:border-border-dark hover:border-primary/50 transition-colors group">
+              <div
+                class="w-20 h-20 mb-3 rounded-full bg-cover bg-center grayscale group-hover:grayscale-0 transition-all duration-300"
+                data-alt="Portrait of Event Lead"
+                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD_Vtznxsv3TOAhgC_wAyFDZHoBIgGBxiQfx2a6oegJYCpXIh6tPPKPK8-DpIaPayqvHAQmNziNc46Qye-W_Ds7XSJzAYbUkb6lEgJ9csUizLz2c0RPTNL0XAZmlyYIuM14XuvWOAUQq01qOMP7rB6n5kTT0kCAf4Z9P-g47ebDJQkyI8tQTdDt1k3x5HGxPi2KZHGVD88P10JFdzTbHhMwUnAXvcjdoU1Kh_vvmoMECvZhDGHVlYLsc2ZaP1NEONtmnQ30W2nm2tp_");'>
+              </div>
+              <h3 class="font-bold text-slate-900 dark:text-white text-center">Anita Roy</h3>
+              <p class="text-xs text-primary font-semibold uppercase tracking-wide mb-3">Event Lead</p>
+              <div class="flex gap-2">
+                <a class="text-slate-400 hover:text-primary transition-colors" href="#"><span
+                    class="material-symbols-outlined text-[18px]">link</span></a>
+              </div>
+            </div>
+            <!-- Member 3 -->
+            <div
+              class="flex flex-col items-center p-4 rounded-lg bg-background-light dark:bg-card-dark border border-border-light dark:border-border-dark hover:border-primary/50 transition-colors group">
+              <div
+                class="w-20 h-20 mb-3 rounded-full bg-cover bg-center grayscale group-hover:grayscale-0 transition-all duration-300"
+                data-alt="Portrait of Design Lead"
+                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDjcest5RTShjBGTAw-Z3xx7T7uiw6mV8lYT4Ip8iAHJqPXd5_ZGkcFu8pUAouSpLlYSgtpyxqwzzT0TO4faYId-ElL2yepF1sIHgDKRgtbhG7Ync43hphEVFmDl4HUonUh25F8cszwJBwN-K-K76n21eYxl37FMBsCtCSZ_PVI2Ij4DNjg43V_6rR-oBYTpruD6mfzts33O-BKXxS0DRCIAznSiLjaFcRm4I_RBVPauHWBbPAss4eLbXkENWtdyB9S5UjUbjHygrcB");'>
+              </div>
+              <h3 class="font-bold text-slate-900 dark:text-white text-center">Maria Garcia</h3>
+              <p class="text-xs text-primary font-semibold uppercase tracking-wide mb-3">Design Lead</p>
+              <div class="flex gap-2">
+                <a class="text-slate-400 hover:text-primary transition-colors" href="#"><span
+                    class="material-symbols-outlined text-[18px]">link</span></a>
+                <a class="text-slate-400 hover:text-primary transition-colors" href="#"><span
+                    class="material-symbols-outlined text-[18px]">brush</span></a>
+              </div>
+            </div>
+            <!-- Member 4 -->
+            <div
+              class="flex flex-col items-center p-4 rounded-lg bg-background-light dark:bg-card-dark border border-border-light dark:border-border-dark hover:border-primary/50 transition-colors group">
+              <div
+                class="w-20 h-20 mb-3 rounded-full bg-cover bg-center grayscale group-hover:grayscale-0 transition-all duration-300"
+                data-alt="Portrait of PR Lead"
+                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC4-9vIhQjmoPknKASCC2Tk-_KXBpNJM3-I1bzL2e3YUX8EvDbI5WSRDJA-0rZOaWSv6UR94gmCeGjEZqEpIci4GfoDShJUBaI78eEYwSXhjWLnzUxvg0Df-b8_xou33xKrKJGGg_1opw8Y1DdudL_h9ova_ZuJzWfs6MgplyMH0CUQ8ChibhHXTMi2qtRJ4mxdipW4_JYf3nBO3-z48FiXaeRkq2YJ5F024LyKDw3Ttj1ejswKzRxcuvw0ockmSOg9boS9zgyMwX3-");'>
+              </div>
+              <h3 class="font-bold text-slate-900 dark:text-white text-center">Alex Turner</h3>
+              <p class="text-xs text-primary font-semibold uppercase tracking-wide mb-3">PR Lead</p>
+              <div class="flex gap-2">
+                <a class="text-slate-400 hover:text-primary transition-colors" href="#"><span
+                    class="material-symbols-outlined text-[18px]">link</span></a>
+              </div>
+            </div>
+            <!-- Member 5 -->
+            <div
+              class="flex flex-col items-center p-4 rounded-lg bg-background-light dark:bg-card-dark border border-border-light dark:border-border-dark hover:border-primary/50 transition-colors group">
+              <div
+                class="w-20 h-20 mb-3 rounded-full bg-cover bg-center grayscale group-hover:grayscale-0 transition-all duration-300"
+                data-alt="Portrait of Web Master"
+                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDYJYxd-i2tevzmexOE6KvvMytyF6vDBKtm-Ggki2yKDCL9UzFAeQC7uJpnemDqtVm2ewXb-Sz_MuqeHlfVQOk5SccLv-Na90sFkBlBSt7EzWCQhz9NvvgteVNW2tiV2Hc45klllqn-IsjA0_1CoXiimbmRQZnNK0VHX6G6UPz5sD2RBhLi8W37EJscFXIf3VF3wwIn7JjD5gXR-h7lPbZonmR1sFIZeuYrZo3rz4piiDZ5Ar59j8xKiIQSFlfon3TmSXRhm2TPsMl-");'>
+              </div>
+              <h3 class="font-bold text-slate-900 dark:text-white text-center">Jordan Lee</h3>
+              <p class="text-xs text-primary font-semibold uppercase tracking-wide mb-3">Web Master</p>
+              <div class="flex gap-2">
+                <a class="text-slate-400 hover:text-primary transition-colors" href="#"><span
+                    class="material-symbols-outlined text-[18px]">link</span></a>
+                <a class="text-slate-400 hover:text-primary transition-colors" href="#"><span
+                    class="material-symbols-outlined text-[18px]">code</span></a>
+              </div>
+            </div>
+            <!-- Member 6 -->
+            <div
+              class="flex flex-col items-center p-4 rounded-lg bg-background-light dark:bg-card-dark border border-border-light dark:border-border-dark hover:border-primary/50 transition-colors group">
+              <div
+                class="w-20 h-20 mb-3 rounded-full bg-cover bg-center grayscale group-hover:grayscale-0 transition-all duration-300"
+                data-alt="Portrait of Content Lead"
+                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCVq0dQ1E29r2tvlGQG1Wm0TvRQnpjljZBrJx0G0YmUhLeavLxIB43EhAwfvgYm1BcsTPRzkUa8wp32hXExGz4ZBO1GAWFlMtIzgi9OW47XKlpDy2GepDMHp1-SLi3d6MZrfQengGjDyMRAmC6QEq2kt1QUfy8ItBiBrADTrCNou_z0riKx8t9hSVU8PawDJ_yzZo5SSWrixpkim5CjsE3ILfluoKPG9Bt5Azt2Om8vc06k0LipQLKq-J5MSu9n7S1s_XtvUCReOHhL");'>
+              </div>
+              <h3 class="font-bold text-slate-900 dark:text-white text-center">Sophie Chen</h3>
+              <p class="text-xs text-primary font-semibold uppercase tracking-wide mb-3">Content Lead</p>
+              <div class="flex gap-2">
+                <a class="text-slate-400 hover:text-primary transition-colors" href="#"><span
+                    class="material-symbols-outlined text-[18px]">link</span></a>
+              </div>
+            </div>
+            <!-- Member 7 -->
+            <div
+              class="flex flex-col items-center p-4 rounded-lg bg-background-light dark:bg-card-dark border border-border-light dark:border-border-dark hover:border-primary/50 transition-colors group">
+              <div
+                class="w-20 h-20 mb-3 rounded-full bg-cover bg-center grayscale group-hover:grayscale-0 transition-all duration-300"
+                data-alt="Portrait of Membership Chair"
+                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAbUXGgGjqRy1hSMqBhMFxxO8XDiTGgAO8YTpQ1S4KKwHmNAD2B6CnjhtI4G_w-TqGfJm4ELIzPtrfOo2myrbEHt_kIQCs6abStXfJ2m4k0s4hV6DaXq3EBO9CCJDFHGp47im2LJ_Vls2qv4CUj5wSOq8GDdM69GqQiPC4RSbKRPLtIWATgIRp_CPs1tZAx60JUjOeCkMscVmnADEEYLNI4LNBV35u0M2aY_y7ynSVCGBVBHg_LbmBnKSm2CrYJVXl6SUL-4qI3DZaE");'>
+              </div>
+              <h3 class="font-bold text-slate-900 dark:text-white text-center">Ryan Black</h3>
+              <p class="text-xs text-primary font-semibold uppercase tracking-wide mb-3">Membership Chair</p>
+              <div class="flex gap-2">
+                <a class="text-slate-400 hover:text-primary transition-colors" href="#"><span
+                    class="material-symbols-outlined text-[18px]">link</span></a>
+              </div>
+            </div>
+            <!-- Member 8 -->
+            <div
+              class="flex flex-col items-center p-4 rounded-lg bg-background-light dark:bg-card-dark border border-border-light dark:border-border-dark hover:border-primary/50 transition-colors group">
+              <div
+                class="w-20 h-20 mb-3 rounded-full bg-cover bg-center grayscale group-hover:grayscale-0 transition-all duration-300"
+                data-alt="Portrait of Outreach Lead"
+                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCQpYpQ_IOgu91TKDGOVZtzQnLwh9releK8TUzFG7U4soSspW5M1xxeakBEmxyiEChVeWCKocLSIrKY54ypNGPo3qN592RhC1TBAOu1lpouyshrfXXz82UdzmxI3-7a9aY0E2bTRnzgXZQ527IOQ9plxp7KOatxXHEF3VnT8Ls54di5tPrmjGgjZtCsSxkEgYcgxr0k3BUv2xUDQbAzoXhz-GwvwrAdRrT22MOGX3dgdt0z8az0JkA-nvcjQZNCTNY3oG0ewOyOiUjH");'>
+              </div>
+              <h3 class="font-bold text-slate-900 dark:text-white text-center">Daniel Park</h3>
+              <p class="text-xs text-primary font-semibold uppercase tracking-wide mb-3">Outreach Lead</p>
+              <div class="flex gap-2">
+                <a class="text-slate-400 hover:text-primary transition-colors" href="#"><span
+                    class="material-symbols-outlined text-[18px]">link</span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Recruitment CTA -->
+      <section class="py-20 px-4 bg-primary text-white">
+        <div class="max-w-[800px] mx-auto text-center">
+          <span class="material-symbols-outlined text-5xl mb-4 text-white/80">group_add</span>
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">Interested in being part of the future?</h2>
+          <p class="text-blue-100 text-lg mb-8 max-w-2xl mx-auto">We are always looking for passionate individuals to
+            join our community. Whether you are a developer, designer, or just enthusiastic about tech.</p>
+          <button
+            class="bg-white text-primary hover:bg-slate-100 font-bold py-3 px-8 rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 text-lg">
+            Get in Touch
+          </button>
+        </div>
+      </section>
+    </main>
+    <!-- Footer (Simplified) -->
+    <footer
+      class="bg-background-light dark:bg-background-dark border-t border-border-light dark:border-border-dark py-8 px-4 lg:px-40">
+      <div class="max-w-[1200px] mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-primary">terminal</span>
+          <span class="text-slate-700 dark:text-slate-300 font-bold">ACM NMIET</span>
+        </div>
+        <p class="text-slate-500 dark:text-slate-400 text-sm">© 2023 ACM Student Chapter. All rights reserved.</p>
+        <div class="flex gap-4">
+          <a class="text-slate-400 hover:text-primary transition-colors" href="#"><span
+              class="material-symbols-outlined">link</span></a>
+          <a class="text-slate-400 hover:text-primary transition-colors" href="#"><span
+              class="material-symbols-outlined">mail</span></a>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+
+</html>

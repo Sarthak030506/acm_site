@@ -1,0 +1,430 @@
+ <!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>ACM NMIET Student Chapter</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Icons -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Theme Configuration -->
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0085cc",
+                        "primary-dark": "#006fa3",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#0f1c23",
+                        "card-light": "#ffffff",
+                        "card-dark": "#162631",
+                        "text-main": "#0c171d",
+                        "text-muted": "#4581a1",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    animation: {
+                        'bounce-slow': 'bounce 2s infinite',
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        /* Smooth scrolling for anchor links */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-text-main dark:text-white font-display overflow-x-hidden antialiased">
+    <!-- Header -->
+    <header
+        class="sticky top-0 z-50 w-full bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md border-b border-[#e6eff4] dark:border-gray-800">
+        <div class="max-w-[1280px] mx-auto px-4 sm:px-10 py-3">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center gap-3">
+                    <div class="size-8 text-primary">
+                        <svg class="w-full h-full" fill="currentColor" viewbox="0 0 48 48"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M4 42.4379C4 42.4379 14.0962 36.0744 24 41.1692C35.0664 46.8624 44 42.2078 44 42.2078L44 7.01134C44 7.01134 35.068 11.6577 24.0031 5.96913C14.0971 0.876274 4 7.27094 4 7.27094L4 42.4379Z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h2 class="text-text-main dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">ACM
+                        NMIET</h2>
+                </div>
+                <!-- Desktop Nav Links -->
+                <nav class="hidden md:flex flex-1 justify-end gap-8 items-center">
+                    <div class="flex items-center gap-6">
+                        <a class="text-primary font-bold text-sm" href="../home_page/code.html">Home</a>
+                        <a class="text-text-main dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium"
+                            href="../acm_nmiet_page/code.html">About</a>
+                        <a class="text-text-main dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium"
+                            href="../upcoming_activities_page/code.html">Events</a>
+                        <a class="text-text-main dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium"
+                            href="../our_team_page/code.html">Team</a>
+                        <a class="text-text-main dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium"
+                            href="../contact_page/code.html">Contact</a>
+                    </div>
+                    <a class="flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-6 bg-primary hover:bg-primary-dark transition-colors text-white text-sm font-bold"
+                        href="../join_acm_page/code.html">
+                        <span>Join ACM</span>
+                    </a>
+                </nav>
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-text-main dark:text-white">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <!-- Hero Section -->
+    <section
+        class="relative flex min-h-screen w-full flex-col justify-center items-center overflow-hidden -mt-[65px] pt-[65px]">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
+            data-alt="Group of students collaborating on laptops in a modern tech environment"
+            style='background-image: linear-gradient(rgba(15, 28, 35, 0.7), rgba(15, 28, 35, 0.85)), url("https://lh3.googleusercontent.com/aida-public/AB6AXuDCP3rhJJDCFkKoHbJEXoaigDhzJ4Sgu87Bd6C9WyYIpYpkPJulMA6A9cDBeFC1B0-16pZrfM6yKJa5vKkB_xr1e9zcxPHeOdI3ya3XZOK4eFap4V5n9XSU72N2OL0wmjMRB8H1cmaF6nErqKExgLgSCW_MvkYpCXa_0GxBaVAxYr7TNVTmJXlUp6yOsUzmvHWfQsym892kfBr4VFsjG02u7s0v3Uk3pptT5cKjpFhALCNFxn7WUgMuM4qkFpphTUSDv4v0S1phvcg9");'>
+        </div>
+        <div class="layout-container flex h-full grow flex-col z-10 w-full">
+            <div class="flex flex-1 justify-center items-center py-20 px-4">
+                <div class="layout-content-container flex flex-col max-w-[960px] flex-1 text-center items-center gap-8">
+                    <div class="flex flex-col gap-4 max-w-[800px]">
+                        <h1
+                            class="text-white text-4xl sm:text-5xl md:text-6xl font-black leading-tight tracking-tight drop-shadow-lg">
+                            ACM NMIET Student Chapter
+                        </h1>
+                        <h2
+                            class="text-gray-200 text-lg sm:text-xl font-normal leading-relaxed max-w-2xl mx-auto drop-shadow-md">
+                            Empowering students through technology, innovation, and community. Join us to shape the
+                            future of computing.
+                        </h2>
+                    </div>
+                    <div class="flex flex-wrap gap-4 justify-center mt-4">
+                        <a class="flex min-w-[140px] cursor-pointer items-center justify-center rounded-lg h-12 px-6 bg-primary hover:bg-primary-dark transition-all text-white text-base font-bold shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+                            href="../join_acm_page/code.html">
+                            Join ACM
+                        </a>
+                        <a class="flex min-w-[140px] cursor-pointer items-center justify-center rounded-lg h-12 px-6 bg-transparent border-2 border-white text-white hover:bg-white hover:text-primary transition-all text-base font-bold shadow-lg"
+                            href="#introduction">
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 animate-bounce-slow text-white/80">
+            <span class="material-symbols-outlined text-4xl">keyboard_arrow_down</span>
+        </div>
+    </section>
+    <!-- Introduction Section -->
+    <section class="py-20 md:py-28 px-4 bg-background-light dark:bg-background-dark" id="introduction">
+        <div class="max-w-[960px] mx-auto text-center flex flex-col gap-6">
+            <h2 class="text-text-main dark:text-white text-3xl md:text-4xl font-bold leading-tight">
+                Welcome to ACM NMIET
+            </h2>
+            <div class="w-20 h-1 bg-primary mx-auto rounded-full"></div>
+            <p class="text-text-main/80 dark:text-gray-300 text-lg font-normal leading-relaxed max-w-3xl mx-auto">
+                We are a vibrant community dedicated to advancing computing as a science and profession.
+                Our chapter serves as a hub for creativity and technical excellence, providing students with unique
+                opportunities
+                to grow, learn, and connect with industry leaders and like-minded peers.
+            </p>
+            <p class="text-text-main/70 dark:text-gray-400 text-base font-normal leading-relaxed max-w-3xl mx-auto">
+                Through workshops, hackathons, and guest lectures, we bridge the gap between academic theory and
+                real-world application.
+                Whether you are just starting your journey in technology or looking to master advanced concepts, ACM
+                NMIET is your platform to excel.
+            </p>
+        </div>
+    </section>
+    <!-- Quick Links Section -->
+    <section class="py-20 px-4 bg-white dark:bg-card-dark border-y border-gray-100 dark:border-gray-800">
+        <div class="max-w-[1280px] mx-auto">
+            <div class="flex flex-col gap-4 mb-12 text-center md:text-left">
+                <h2 class="text-text-main dark:text-white text-3xl font-bold leading-tight">
+                    Explore Our Chapter
+                </h2>
+                <p class="text-text-muted dark:text-gray-400 text-base max-w-[720px]">
+                    Discover what makes us unique and how we strive for excellence in every endeavor.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Card 1 -->
+                <div
+                    class="group flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-gray-700 bg-background-light dark:bg-[#1a2c38] p-6 hover:border-primary/50 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                    <div
+                        class="size-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+                        <span class="material-symbols-outlined text-3xl">info</span>
+                    </div>
+                    <div class="flex flex-col gap-2 flex-1">
+                        <h3 class="text-text-main dark:text-white text-lg font-bold">What is ACM</h3>
+                        <p class="text-text-muted dark:text-gray-400 text-sm leading-relaxed">The world's largest
+                            educational and scientific computing society.</p>
+                    </div>
+                    <a class="text-primary font-semibold text-sm flex items-center gap-1 group-hover:gap-2 transition-all"
+                        href="../what_is_acm_page/code.html">
+                        Learn More <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    </a>
+                </div>
+                <!-- Card 2 -->
+                <div
+                    class="group flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-gray-700 bg-background-light dark:bg-[#1a2c38] p-6 hover:border-primary/50 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                    <div
+                        class="size-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+                        <span class="material-symbols-outlined text-3xl">target</span>
+                    </div>
+                    <div class="flex flex-col gap-2 flex-1">
+                        <h3 class="text-text-main dark:text-white text-lg font-bold">Vision &amp; Mission</h3>
+                        <p class="text-text-muted dark:text-gray-400 text-sm leading-relaxed">Fostering knowledge and
+                            innovation in the student community.</p>
+                    </div>
+                    <a class="text-primary font-semibold text-sm flex items-center gap-1 group-hover:gap-2 transition-all"
+                        href="../acm_nmiet_page/code.html#vision">
+                        Learn More <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    </a>
+                </div>
+                <!-- Card 3 -->
+                <div
+                    class="group flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-gray-700 bg-background-light dark:bg-[#1a2c38] p-6 hover:border-primary/50 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                    <div
+                        class="size-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+                        <span class="material-symbols-outlined text-3xl">memory</span>
+                    </div>
+                    <div class="flex flex-col gap-2 flex-1">
+                        <h3 class="text-text-main dark:text-white text-lg font-bold">Focus Areas</h3>
+                        <p class="text-text-muted dark:text-gray-400 text-sm leading-relaxed">AI, Web Development,
+                            Cybersecurity, and Data Science.</p>
+                    </div>
+                    <a class="text-primary font-semibold text-sm flex items-center gap-1 group-hover:gap-2 transition-all"
+                        href="../focus_areas_page/code.html">
+                        Learn More <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    </a>
+                </div>
+                <!-- Card 4 -->
+                <div
+                    class="group flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-gray-700 bg-background-light dark:bg-[#1a2c38] p-6 hover:border-primary/50 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                    <div
+                        class="size-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+                        <span class="material-symbols-outlined text-3xl">group_add</span>
+                    </div>
+                    <div class="flex flex-col gap-2 flex-1">
+                        <h3 class="text-text-main dark:text-white text-lg font-bold">Join ACM</h3>
+                        <p class="text-text-muted dark:text-gray-400 text-sm leading-relaxed">Unlock exclusive benefits
+                            and network with global peers.</p>
+                    </div>
+                    <a class="text-primary font-semibold text-sm flex items-center gap-1 group-hover:gap-2 transition-all"
+                        href="../join_acm_page/code.html">
+                        Learn More <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Upcoming Highlights Section -->
+    <section class="py-20 px-4 bg-background-light dark:bg-background-dark">
+        <div class="max-w-[1280px] mx-auto">
+            <div
+                class="flex flex-col md:flex-row justify-between items-end gap-6 mb-12 border-b border-gray-200 dark:border-gray-800 pb-4">
+                <div class="flex flex-col gap-2">
+                    <h2 class="text-text-main dark:text-white text-3xl font-bold leading-tight">What's Coming Up</h2>
+                    <p class="text-text-muted dark:text-gray-400 text-base">Stay updated with our latest workshops,
+                        hackathons, and seminars.</p>
+                </div>
+                <a class="hidden md:flex items-center gap-2 text-primary font-bold hover:text-primary-dark transition-colors"
+                    href="../upcoming_activities_page/code.html">
+                    View All Activities <span class="material-symbols-outlined">arrow_right_alt</span>
+                </a>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Activity Card 1 -->
+                <div
+                    class="flex flex-col overflow-hidden rounded-xl bg-white dark:bg-card-dark shadow-sm hover:shadow-md transition-shadow border border-gray-100 dark:border-gray-800 h-full">
+                    <div class="h-48 bg-gray-200 dark:bg-gray-700 relative">
+                        <!-- Image Placeholder -->
+                        <div class="absolute inset-0 bg-cover bg-center"
+                            data-alt="Code on a screen representing a coding workshop"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCWMDM1BgSTBkCEe4ZJFl8yDgUnt2rghq8yHPn8BmmmDaiGY_yvRjoDJHFsEvHBtaGQjPplV2O-9kW98od-DY-AZuZl65qSQOfs_K0NpWJk5ixkbR3HK29eSqPAyE1jkGzqbUWVqGHNWkOaxKjpkc4UfKdqRWhBZmtl0KWOxz7KUYfbKNj6rNNu8S3kN5dXj-TMKAH5ls8gTOK_cE9kzzIHqR2uRUxNL1Asm3RG4FkXIRh2mP0JWU2yjfFubtzSfq_92dTgtbi69WRB");'>
+                        </div>
+                        <div
+                            class="absolute top-4 left-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                            Workshop
+                        </div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-1">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span
+                                class="flex items-center gap-1 text-xs font-medium text-emerald-600 bg-emerald-50 dark:bg-emerald-900/30 dark:text-emerald-400 px-2 py-0.5 rounded">
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Upcoming
+                            </span>
+                            <span class="text-xs text-gray-500 dark:text-gray-400">Oct 25, 2023</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-text-main dark:text-white mb-2">Introduction to Cloud
+                            Computing</h3>
+                        <p class="text-text-muted dark:text-gray-400 text-sm mb-6 flex-1">
+                            Join us for a hands-on session on AWS and Azure basics. Perfect for beginners looking to
+                            start their cloud journey.
+                        </p>
+                        <button
+                            class="w-full py-2.5 rounded-lg border border-gray-200 dark:border-gray-700 text-text-main dark:text-white font-semibold hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                            View Details
+                        </button>
+                    </div>
+                </div>
+                <!-- Activity Card 2 -->
+                <div
+                    class="flex flex-col overflow-hidden rounded-xl bg-white dark:bg-card-dark shadow-sm hover:shadow-md transition-shadow border border-gray-100 dark:border-gray-800 h-full">
+                    <div class="h-48 bg-gray-200 dark:bg-gray-700 relative">
+                        <!-- Image Placeholder -->
+                        <div class="absolute inset-0 bg-cover bg-center" data-alt="People networking at an event"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBwlHfaSxxr9_ZeTBUY9Z7BL-ZdXnK-yJeHr7h4VlrKVPDZ8B74WV6IL_xtdKJwdgxu0dJJeZqfSFhSAGpyasAzHa3J2q0gfP5FBUL6980rjgzI77fd8CLbEKcnMQB8Pb5TGo_RXxMfCN0NGTMmz8Myz1DEw-aOJ5pu4yHe4t_VWOas9ozfS-NiiAQOyF2aMZbe6ztYpZm9c5NRpArhkE-AVAjeCGB2Sh29qJ34jsf6dReqQ9-x7CEhFuI3gOrOxRXxA-z4j9Kk0NCX");'>
+                        </div>
+                        <div
+                            class="absolute top-4 left-4 bg-indigo-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                            Seminar
+                        </div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-1">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span
+                                class="flex items-center gap-1 text-xs font-medium text-emerald-600 bg-emerald-50 dark:bg-emerald-900/30 dark:text-emerald-400 px-2 py-0.5 rounded">
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Upcoming
+                            </span>
+                            <span class="text-xs text-gray-500 dark:text-gray-400">Nov 02, 2023</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-text-main dark:text-white mb-2">AI in Healthcare: Future
+                            Trends</h3>
+                        <p class="text-text-muted dark:text-gray-400 text-sm mb-6 flex-1">
+                            An expert talk featuring industry leaders discussing how Artificial Intelligence is
+                            transforming patient care.
+                        </p>
+                        <button
+                            class="w-full py-2.5 rounded-lg border border-gray-200 dark:border-gray-700 text-text-main dark:text-white font-semibold hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                            View Details
+                        </button>
+                    </div>
+                </div>
+                <!-- Activity Card 3 -->
+                <div
+                    class="flex flex-col overflow-hidden rounded-xl bg-white dark:bg-card-dark shadow-sm hover:shadow-md transition-shadow border border-gray-100 dark:border-gray-800 h-full">
+                    <div class="h-48 bg-gray-200 dark:bg-gray-700 relative">
+                        <!-- Image Placeholder -->
+                        <div class="absolute inset-0 bg-cover bg-center" data-alt="Collaborative meeting in a workspace"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDhJd7sX9etdP4yL4DctgSUsjqefeTu8d4QteeaxWBlOmZcw5Htep_z--VkpIZYjuEX1h261XwCZGCpuQ28ZRrKFwnIs-nJaCaEED4e3Rr82LjjMhBBvRDYfcVqEKenqP9PjCCDUvycpkrUIw88mIYmsR5hhQGz1B4eQjRXmpRXzU6aMP4XO-3uRAiisWYeloP6ZQTzOIUYNp1sKnPgUIxbXC55Vbom1_WytVY1IeVaggUxe9zdw-ED2k-sIhN7Kc_fafjhngNw6DHK");'>
+                        </div>
+                        <div
+                            class="absolute top-4 left-4 bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                            Hackathon
+                        </div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-1">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span
+                                class="flex items-center gap-1 text-xs font-medium text-blue-600 bg-blue-50 dark:bg-blue-900/30 dark:text-blue-400 px-2 py-0.5 rounded">
+                                <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span> Registration Open
+                            </span>
+                            <span class="text-xs text-gray-500 dark:text-gray-400">Nov 15, 2023</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-text-main dark:text-white mb-2">NMIET CodeFest 2023</h3>
+                        <p class="text-text-muted dark:text-gray-400 text-sm mb-6 flex-1">
+                            Our annual 24-hour coding marathon. Gather your team, build innovative solutions, and win
+                            exciting prizes.
+                        </p>
+                        <button
+                            class="w-full py-2.5 rounded-lg border border-gray-200 dark:border-gray-700 text-text-main dark:text-white font-semibold hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                            View Details
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 text-center md:hidden">
+                <a class="inline-flex items-center gap-2 text-primary font-bold hover:text-primary-dark transition-colors"
+                    href="../upcoming_activities_page/code.html">
+                    View All Activities <span class="material-symbols-outlined">arrow_right_alt</span>
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- Call-to-Action Section -->
+    <section class="py-24 px-4 bg-primary relative overflow-hidden">
+        <!-- Abstract Background Pattern -->
+        <div class="absolute inset-0 opacity-10 pointer-events-none"
+            style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 32px 32px;">
+        </div>
+        <div class="max-w-[800px] mx-auto text-center relative z-10">
+            <h2 class="text-white text-3xl md:text-5xl font-black mb-6 tracking-tight">Ready to Join ACM?</h2>
+            <p class="text-white/90 text-lg md:text-xl font-medium mb-10 leading-relaxed">
+                Become a part of the world's largest computing society. Unlock access to the digital library, career
+                resources, and a global network of professionals.
+            </p>
+            <a class="inline-flex min-w-[200px] cursor-pointer items-center justify-center rounded-lg h-14 px-8 bg-white text-primary text-lg font-bold hover:bg-gray-100 hover:shadow-lg hover:-translate-y-0.5 transition-all"
+                href="../join_acm_page/code.html">
+                Become a Member
+            </a>
+        </div>
+    </section>
+    <!-- Simple Footer -->
+    <footer class="bg-background-light dark:bg-background-dark py-8 px-4 border-t border-gray-200 dark:border-gray-800">
+        <div
+            class="max-w-[1280px] mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
+            <p class="text-text-muted dark:text-gray-500 text-sm">
+                © 2023 ACM NMIET Student Chapter. All rights reserved.
+                <span class="mx-2">|</span>
+                <a href="../admin_panel_login_screen/code.html"
+                    class="text-text-muted dark:text-gray-500 hover:text-primary dark:hover:text-white transition-colors">Admin
+                    Login</a>
+            </p>
+            <div class="flex gap-6">
+                <a class="text-text-muted dark:text-gray-500 hover:text-primary dark:hover:text-white transition-colors"
+                    href="#">
+                    <span class="sr-only">Twitter</span>
+                    <!-- Simple SVG icon for social media placeholder -->
+                    <svg class="h-5 w-5 fill-current" viewbox="0 0 24 24">
+                        <path
+                            d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z">
+                        </path>
+                    </svg>
+                </a>
+                <a class="text-text-muted dark:text-gray-500 hover:text-primary dark:hover:text-white transition-colors"
+                    href="#">
+                    <span class="sr-only">GitHub</span>
+                    <svg class="h-5 w-5 fill-current" viewbox="0 0 24 24">
+                        <path
+                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z">
+                        </path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

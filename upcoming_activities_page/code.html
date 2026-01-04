@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Upcoming Activities - ACM NMIET</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0085cc",
+                        "background-light": "#f8fbfc",
+                        "background-dark": "#0f1c23",
+                        "card-light": "#ffffff",
+                        "card-dark": "#182830",
+                        "text-main-light": "#0c171d",
+                        "text-main-dark": "#ffffff",
+                        "text-sub-light": "#4581a1",
+                        "text-sub-dark": "#a0b3c0",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.5rem", "lg": "0.75rem", "xl": "1rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark font-display min-h-screen flex flex-col text-text-main-light dark:text-text-main-dark antialiased transition-colors duration-200">
+    <!-- Header -->
+    <header
+        class="sticky top-0 z-50 w-full bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md border-b border-[#e6eff4] dark:border-gray-800">
+        <div class="max-w-[1280px] mx-auto px-4 sm:px-10 py-3">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center gap-3">
+                    <div class="size-8 text-primary">
+                        <svg class="w-full h-full" fill="currentColor" viewbox="0 0 48 48"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M4 42.4379C4 42.4379 14.0962 36.0744 24 41.1692C35.0664 46.8624 44 42.2078 44 42.2078L44 7.01134C44 7.01134 35.068 11.6577 24.0031 5.96913C14.0971 0.876274 4 7.27094 4 7.27094L4 42.4379Z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h2 class="text-text-main dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">ACM
+                        NMIET</h2>
+                </div>
+                <!-- Desktop Nav Links -->
+                <nav class="hidden md:flex flex-1 justify-end gap-8 items-center">
+                    <div class="flex items-center gap-6">
+                        <a class="text-text-main dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium"
+                            href="../home_page/code.html">Home</a>
+                        <a class="text-text-main dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium"
+                            href="../acm_nmiet_page/code.html">About</a>
+                        <a class="text-primary font-bold text-sm"
+                            href="../upcoming_activities_page/code.html">Events</a>
+                        <a class="text-text-main dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium"
+                            href="../our_team_page/code.html">Team</a>
+                        <a class="text-text-main dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium"
+                            href="../contact_page/code.html">Contact</a>
+                    </div>
+                    <a class="flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-6 bg-primary hover:bg-primary-dark transition-colors text-white text-sm font-bold"
+                        href="../join_acm_page/code.html">
+                        <span>Join ACM</span>
+                    </a>
+                </nav>
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-text-main dark:text-white">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <main class="flex-grow w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12">
+        <!-- Page Hero -->
+        <section class="flex flex-col gap-4 pt-8 pb-4">
+            <h1 class="text-4xl md:text-5xl font-black leading-tight tracking-tight">
+                Upcoming Activities
+            </h1>
+            <p class="text-text-sub-light dark:text-text-sub-dark text-lg max-w-2xl">
+                Exciting initiatives we're planning for the semester. Stay ahead of the curve with our technical
+                roadmap.
+            </p>
+        </section>
+        <!-- Intro / Newsletter Section (CTA Section) -->
+        <section class="@container">
+            <div
+                class="bg-card-light dark:bg-card-dark border border-[#e6eff4] dark:border-[#2a3b47] rounded-xl p-8 md:p-12 flex flex-col md:flex-row gap-8 items-center justify-between shadow-sm relative overflow-hidden">
+                <!-- Abstract decorative background element -->
+                <div
+                    class="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-primary/5 rounded-full blur-3xl pointer-events-none">
+                </div>
+                <div class="flex flex-col gap-4 max-w-xl z-10">
+                    <div class="flex items-center gap-2 text-primary font-bold text-sm uppercase tracking-wider">
+                        <span class="material-symbols-outlined text-lg">campaign</span>
+                        <span>Note from the team</span>
+                    </div>
+                    <h2 class="text-2xl md:text-3xl font-bold leading-tight">What's in the pipeline?</h2>
+                    <p class="text-text-sub-light dark:text-text-sub-dark">
+                        We are currently curating a series of technical workshops and hackathons. Sign up to get
+                        notified as soon as dates are confirmed.
+                    </p>
+                </div>
+                <div class="w-full max-w-md z-10">
+                    <label class="flex flex-col w-full">
+                        <div class="flex w-full items-stretch rounded-lg shadow-sm">
+                            <input
+                                class="flex-1 rounded-l-lg border border-r-0 border-[#e6eff4] dark:border-[#2a3b47] bg-[#f8fbfc] dark:bg-[#0f1c23] px-4 py-3 text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none min-w-0"
+                                placeholder="Enter your email address" type="email" />
+                            <button
+                                class="bg-primary hover:bg-primary/90 text-white font-bold px-6 py-3 rounded-r-lg text-sm whitespace-nowrap transition-all flex items-center gap-2">
+                                <span>Notify Me</span>
+                                <span class="material-symbols-outlined text-[18px]">send</span>
+                            </button>
+                        </div>
+                        <p class="text-xs text-text-sub-light dark:text-text-sub-dark mt-2 ml-1">
+                            No spam, just updates on upcoming tech events.
+                        </p>
+                    </label>
+                </div>
+            </div>
+        </section>
+        <!-- Filters & Title -->
+        <section class="space-y-6">
+            <div
+                class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#e6eff4] dark:border-[#2a3b47] pb-4">
+                <h3 class="text-2xl font-bold">Planned Activities</h3>
+                <!-- Chips / Filters -->
+                <div class="flex flex-wrap gap-2">
+                    <button
+                        class="flex items-center gap-2 px-4 py-2 rounded-full bg-primary text-white shadow-md text-sm font-medium transition-transform hover:scale-105">
+                        <span class="material-symbols-outlined text-[18px]">star</span>
+                        All
+                    </button>
+                    <button
+                        class="flex items-center gap-2 px-4 py-2 rounded-full bg-card-light dark:bg-card-dark border border-[#e6eff4] dark:border-[#2a3b47] text-text-sub-light dark:text-text-sub-dark hover:text-primary hover:border-primary text-sm font-medium transition-all hover:shadow-sm">
+                        <span class="material-symbols-outlined text-[18px]">code</span>
+                        Workshops
+                    </button>
+                    <button
+                        class="flex items-center gap-2 px-4 py-2 rounded-full bg-card-light dark:bg-card-dark border border-[#e6eff4] dark:border-[#2a3b47] text-text-sub-light dark:text-text-sub-dark hover:text-primary hover:border-primary text-sm font-medium transition-all hover:shadow-sm">
+                        <span class="material-symbols-outlined text-[18px]">trophy</span>
+                        Competitions
+                    </button>
+                    <button
+                        class="flex items-center gap-2 px-4 py-2 rounded-full bg-card-light dark:bg-card-dark border border-[#e6eff4] dark:border-[#2a3b47] text-text-sub-light dark:text-text-sub-dark hover:text-primary hover:border-primary text-sm font-medium transition-all hover:shadow-sm">
+                        <span class="material-symbols-outlined text-[18px]">mic</span>
+                        Guest Lectures
+                    </button>
+                </div>
+            </div>
+            <!-- Activity Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Card 1: Workshop (Coming Soon) -->
+                <article
+                    class="group relative flex flex-col bg-card-light dark:bg-card-dark rounded-xl border border-[#e6eff4] dark:border-[#2a3b47] overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                    <div
+                        class="h-48 w-full bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-slate-800 dark:to-slate-900 relative p-6 flex items-center justify-center">
+                        <!-- Placeholder for event image -->
+                        <div class="absolute inset-0 bg-cover bg-center opacity-30"
+                            data-alt="React code on a monitor screen"
+                            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBPSLoYmHu678DkUPPgfLHU6ZGXwQJ3REljC7puqLEpOzot_2b9AyyhsuuZ6KOok__mx7QkrR_wVG3oQ1vc93b9X4Yho1rOqSn946vCK_F0H8ETYoG1zQIWktACw9tk5oDJuNj-pNXgaow9Sn7nyZMPkhRYba9KKgUNHVq5PKNvVzpvbjoM_3JiFUb97k4kR6rzdHpDhaWYalgO74Neh-RV85SEDIxOIUGSMLIWzKcQD3k8xV1nnH-yYgiQmdZsfARgkd4JVrU06glu');">
+                        </div>
+                        <div
+                            class="size-16 bg-white dark:bg-slate-800 rounded-full flex items-center justify-center shadow-md relative z-10 text-primary">
+                            <span class="material-symbols-outlined text-3xl">code_blocks</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-col flex-1 p-5 gap-3">
+                        <div class="flex justify-between items-start">
+                            <span
+                                class="inline-flex items-center rounded-md bg-blue-50 dark:bg-blue-900/30 px-2 py-1 text-xs font-medium text-blue-700 dark:text-blue-300 ring-1 ring-inset ring-blue-700/10">Coming
+                                Soon</span>
+                            <span
+                                class="text-xs font-medium text-text-sub-light dark:text-text-sub-dark flex items-center gap-1">
+                                <span class="material-symbols-outlined text-sm">calendar_month</span>
+                                Oct 2023 (Tentative)
+                            </span>
+                        </div>
+                        <h3
+                            class="text-lg font-bold text-text-main-light dark:text-text-main-dark group-hover:text-primary transition-colors">
+                            Intro to React Workshop</h3>
+                        <p class="text-sm text-text-sub-light dark:text-text-sub-dark line-clamp-2">
+                            Dive into modern web development. Learn the basics of hooks, components, and state
+                            management in this hands-on session.
+                        </p>
+                        <div class="mt-auto pt-4 flex items-center gap-2">
+                            <span
+                                class="inline-flex items-center gap-1 rounded-full bg-slate-100 dark:bg-slate-800 px-2.5 py-0.5 text-xs font-medium text-slate-600 dark:text-slate-300">
+                                #workshop
+                            </span>
+                            <span
+                                class="inline-flex items-center gap-1 rounded-full bg-slate-100 dark:bg-slate-800 px-2.5 py-0.5 text-xs font-medium text-slate-600 dark:text-slate-300">
+                                #frontend
+                            </span>
+                        </div>
+                    </div>
+                </article>
+                <!-- Card 2: Competition (Planned) -->
+                <article
+                    class="group relative flex flex-col bg-card-light dark:bg-card-dark rounded-xl border border-[#e6eff4] dark:border-[#2a3b47] overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                    <div
+                        class="h-48 w-full bg-gradient-to-br from-amber-50 to-orange-100 dark:from-slate-800 dark:to-slate-900 relative p-6 flex items-center justify-center">
+                        <div class="absolute inset-0 bg-cover bg-center opacity-30"
+                            data-alt="People working together on laptops during a hackathon"
+                            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB7KO9pkuTIxqgUXU5K0szT9LoWHFSAvf1bT0rijiyP6FK-2YGrmKDlEVzDvf1LE5LQ29pSGjhyKib9g44G-BAFLEAC45hxFYSThm_c9uxrikVNSRkkXIEj7ij8EB6tFBnQZct4u6hIvKXLor_mrJqMX4QXVN9vTOwh08gh2JASmz6ONDqsJ7YQaSJ1IgG_yPeYgIkjR_GtJVJaVTNiDyt5XuHouliBCyxvw3T2RkYLAiQyltVZX0mTMvN_v8HHxNnjyTBMAkWJ6Qby');">
+                        </div>
+                        <div
+                            class="size-16 bg-white dark:bg-slate-800 rounded-full flex items-center justify-center shadow-md relative z-10 text-orange-500">
+                            <span class="material-symbols-outlined text-3xl">trophy</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-col flex-1 p-5 gap-3">
+                        <div class="flex justify-between items-start">
+                            <span
+                                class="inline-flex items-center rounded-md bg-green-50 dark:bg-green-900/30 px-2 py-1 text-xs font-medium text-green-700 dark:text-green-300 ring-1 ring-inset ring-green-600/20">Planned</span>
+                            <span
+                                class="text-xs font-medium text-text-sub-light dark:text-text-sub-dark flex items-center gap-1">
+                                <span class="material-symbols-outlined text-sm">calendar_month</span>
+                                Nov 15, 2023
+                            </span>
+                        </div>
+                        <h3
+                            class="text-lg font-bold text-text-main-light dark:text-text-main-dark group-hover:text-primary transition-colors">
+                            Algorithm Arena 2.0</h3>
+                        <p class="text-sm text-text-sub-light dark:text-text-sub-dark line-clamp-2">
+                            Our annual competitive programming contest. Solve algorithmic challenges and win exciting
+                            prizes.
+                        </p>
+                        <div class="mt-auto pt-4 flex items-center gap-2">
+                            <span
+                                class="inline-flex items-center gap-1 rounded-full bg-slate-100 dark:bg-slate-800 px-2.5 py-0.5 text-xs font-medium text-slate-600 dark:text-slate-300">
+                                #competition
+                            </span>
+                            <span
+                                class="inline-flex items-center gap-1 rounded-full bg-slate-100 dark:bg-slate-800 px-2.5 py-0.5 text-xs font-medium text-slate-600 dark:text-slate-300">
+                                #dsa
+                            </span>
+                        </div>
+                    </div>
+                </article>
+                <!-- Card 3: Guest Lecture (TBA) -->
+                <article
+                    class="group relative flex flex-col bg-card-light dark:bg-card-dark rounded-xl border border-[#e6eff4] dark:border-[#2a3b47] overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                    <div
+                        class="h-48 w-full bg-gradient-to-br from-purple-50 to-pink-100 dark:from-slate-800 dark:to-slate-900 relative p-6 flex items-center justify-center">
+                        <div class="absolute inset-0 bg-cover bg-center opacity-30"
+                            data-alt="Speaker presenting at a conference"
+                            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAVbyr00TiKpXrAYLWnCa10LplryLIlfzmj_pX_z_-_dJrds42u4kktJ6-1p6fCx4TXBdueZvoS2LrVUQNaiIFOtLU3W4tq5oG-FEQJ5FTodA49uzTmOpQiVau7KXN97Cz1Xpbind-RODRBrugVrBHd3aXoegZn8mnnVPuJL0E8sfZrG-slY4hkPyE6r46kSzqMkVtVMb-2j2GuW5j00_UHsx5cjoa96shgqhOfg_0xPU_Wi0rpeZHxAjY7_e5krlihrL7aJyXpsQUh');">
+                        </div>
+                        <div
+                            class="size-16 bg-white dark:bg-slate-800 rounded-full flex items-center justify-center shadow-md relative z-10 text-purple-600">
+                            <span class="material-symbols-outlined text-3xl">record_voice_over</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-col flex-1 p-5 gap-3">
+                        <div class="flex justify-between items-start">
+                            <span
+                                class="inline-flex items-center rounded-md bg-yellow-50 dark:bg-yellow-900/30 px-2 py-1 text-xs font-medium text-yellow-800 dark:text-yellow-300 ring-1 ring-inset ring-yellow-600/20">To
+                                Be Announced</span>
+                            <span
+                                class="text-xs font-medium text-text-sub-light dark:text-text-sub-dark flex items-center gap-1">
+                                <span class="material-symbols-outlined text-sm">schedule</span>
+                                Late Nov
+                            </span>
+                        </div>
+                        <h3
+                            class="text-lg font-bold text-text-main-light dark:text-text-main-dark group-hover:text-primary transition-colors">
+                            Future of AI in Industry</h3>
+                        <p class="text-sm text-text-sub-light dark:text-text-sub-dark line-clamp-2">
+                            An expert session featuring industry leaders discussing the impact of Large Language Models.
+                        </p>
+                        <div class="mt-auto pt-4 flex items-center gap-2">
+                            <span
+                                class="inline-flex items-center gap-1 rounded-full bg-slate-100 dark:bg-slate-800 px-2.5 py-0.5 text-xs font-medium text-slate-600 dark:text-slate-300">
+                                #guestlecture
+                            </span>
+                            <span
+                                class="inline-flex items-center gap-1 rounded-full bg-slate-100 dark:bg-slate-800 px-2.5 py-0.5 text-xs font-medium text-slate-600 dark:text-slate-300">
+                                #ai
+                            </span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <!-- Empty State (Hidden by default, shown if no items) -->
+            <!-- 
+            <div class="flex flex-col items-center justify-center py-20 text-center border-2 border-dashed border-[#e6eff4] dark:border-[#2a3b47] rounded-xl bg-card-light/50 dark:bg-card-dark/50">
+                <div class="bg-gray-100 dark:bg-gray-800 rounded-full p-4 mb-4">
+                    <span class="material-symbols-outlined text-4xl text-gray-400">event_busy</span>
+                </div>
+                <h3 class="text-xl font-bold text-text-main-light dark:text-text-main-dark mb-2">No Activities Found</h3>
+                <p class="text-text-sub-light dark:text-text-sub-dark max-w-sm">We couldn't find any activities matching your filters. Try checking back later or adjust your search.</p>
+            </div> 
+            -->
+        </section>
+    </main>
+    <!-- Bottom Section / Footer CTA -->
+    <footer class="mt-auto bg-card-light dark:bg-card-dark border-t border-[#e6eff4] dark:border-[#2a3b47]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+                <div class="text-center md:text-left">
+                    <h2 class="text-xl font-bold text-text-main-light dark:text-text-main-dark mb-2">Stay Connected</h2>
+                    <p class="text-text-sub-light dark:text-text-sub-dark text-sm">Don't miss out on updates! Follow us
+                        on our social channels.</p>
+                </div>
+                <div class="flex gap-4">
+                    <a class="size-10 flex items-center justify-center rounded-full bg-[#e6eff4] dark:bg-[#2a3b47] hover:bg-primary hover:text-white transition-all group"
+                        href="#">
+                        <!-- Using generic social icon for example -->
+                        <span class="material-symbols-outlined text-xl">public</span>
+                    </a>
+                    <a class="size-10 flex items-center justify-center rounded-full bg-[#e6eff4] dark:bg-[#2a3b47] hover:bg-primary hover:text-white transition-all group"
+                        href="#">
+                        <span class="material-symbols-outlined text-xl">group</span>
+                    </a>
+                    <a class="size-10 flex items-center justify-center rounded-full bg-[#e6eff4] dark:bg-[#2a3b47] hover:bg-primary hover:text-white transition-all group"
+                        href="#">
+                        <span class="material-symbols-outlined text-xl">mail</span>
+                    </a>
+                </div>
+            </div>
+            <div
+                class="mt-8 pt-8 border-t border-[#e6eff4] dark:border-[#2a3b47] flex flex-col md:flex-row justify-between items-center text-xs text-text-sub-light dark:text-text-sub-dark">
+                <p>© 2023 ACM NMIET Student Chapter. All rights reserved.</p>
+                <div class="flex gap-4 mt-4 md:mt-0">
+                    <a class="hover:text-primary" href="#">Privacy Policy</a>
+                    <a class="hover:text-primary" href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

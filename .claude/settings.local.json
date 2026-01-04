@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(for dir in \"C:\\\\Users\\\\hp\\\\Desktop\\\\stitch_acm_site\\\\stitch_acm_site\"/*)",
+      "Bash(do if [ -d \"$dir\" ])",
+      "Bash(then basename \"$dir\")",
+      "Bash(fi)",
+      "Bash(done)",
+      "Bash(wc:*)",
+      "Bash(ls:*)"
+    ]
+  }
+}

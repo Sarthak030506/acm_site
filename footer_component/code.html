@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ACM NMIET Student Chapter - Footer Design</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#003a5c", /* Matches the requested dark navy tone closely */
+              "background-light": "#f5f7f8",
+              "background-dark": "#0f1c23",
+            },
+            fontFamily: {
+              "display": ["Inter", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+          font-variation-settings:
+          'FILL' 1,
+          'wght' 400,
+          'GRAD' 0,
+          'opsz' 24
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display antialiased">
+<div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
+<!-- Main Content Placeholder -->
+<main class="flex-grow flex flex-col items-center justify-center p-8 text-center gap-6">
+<div class="max-w-3xl space-y-4">
+<span class="inline-block p-3 rounded-full bg-primary/10 dark:bg-primary/30 mb-4">
+<span class="material-symbols-outlined text-primary dark:text-blue-300 text-4xl">web</span>
+</span>
+<h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white tracking-tight">
+                    ACM NMIET Student Chapter
+                </h1>
+<p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                    A responsive, modern footer component designed for the ACM Student Chapter website, featuring a 4-column layout and official branding elements.
+                </p>
+</div>
+<div class="w-full max-w-4xl h-64 bg-gray-200 dark:bg-gray-800 rounded-xl mt-8 flex items-center justify-center relative overflow-hidden group">
+<div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/20"></div>
+<p class="text-gray-500 dark:text-gray-400 font-medium z-10">Main Page Content Area</p>
+<div class="w-full h-full absolute inset-0 bg-cover bg-center opacity-10" data-alt="Abstract geometric background pattern for content placeholder" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBr7lXHt98rEBXBwXfzxUVoQU5Xi0-i2OV8867aMbMaafAXr2QfGTPYi46_0b83svgEgqWOh-7N5GTIKiOUsI3zqfVdG_f1l6T62mri3a5fBw4xLBum1sHPhNsb-n9xuzpMDG4KWvXf7maHZef1wIfAo1eKNMQtIQ1g48PALrClN2hRMUDJF2YDo1d3Vd7lnHvT0XSMIOGpY7cwd87t_VZv_uVazvxmkWg7T4XEDz5Kt_AJWbTYRANmRpnGPzGp9_IhmB0DAJ2jHdIl');"></div>
+</div>
+</main>
+<!-- Footer Component -->
+<footer class="bg-primary text-white pt-16 pb-8 border-t border-white/5 relative mt-auto">
+<!-- Decorative top highlight -->
+<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-400 opacity-20"></div>
+<div class="container mx-auto px-6 lg:px-12 xl:px-20">
+<!-- Main 4-Column Layout -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+<!-- Column 1: Identity & Social -->
+<div class="flex flex-col gap-6">
+<!-- Branding -->
+<div class="flex items-center gap-3 group cursor-pointer">
+<div class="h-10 w-10 bg-white rounded-lg flex items-center justify-center shadow-lg shadow-blue-900/50 overflow-hidden" data-alt="ACM Logo Symbol">
+<!-- Using a symbol to represent the logo since explicit images/svgs outside of placeholders are restricted -->
+<span class="material-symbols-outlined text-primary text-2xl">diamond</span>
+</div>
+<div class="flex flex-col">
+<span class="text-lg font-bold leading-none tracking-tight">ACM NMIET</span>
+<span class="text-[10px] text-blue-200 uppercase tracking-widest font-medium">Student Chapter</span>
+</div>
+</div>
+<!-- Description -->
+<p class="text-blue-100/80 text-sm leading-relaxed pr-4">
+                            Empowering students through computing education, professional development, and technical innovation.
+                        </p>
+<!-- Social Icons Row -->
+<div class="flex flex-wrap gap-3 mt-2">
+<a aria-label="LinkedIn" class="h-9 w-9 rounded-md bg-white/10 flex items-center justify-center hover:bg-white hover:text-primary transition-all duration-300 group" href="#">
+<span class="material-symbols-outlined text-[20px]">work</span>
+</a>
+<a aria-label="Instagram" class="h-9 w-9 rounded-md bg-white/10 flex items-center justify-center hover:bg-white hover:text-primary transition-all duration-300 group" href="#">
+<span class="material-symbols-outlined text-[20px]">photo_camera</span>
+</a>
+<a aria-label="Facebook" class="h-9 w-9 rounded-md bg-white/10 flex items-center justify-center hover:bg-white hover:text-primary transition-all duration-300 group" href="#">
+<span class="material-symbols-outlined text-[20px]">groups</span>
+</a>
+<a aria-label="Twitter" class="h-9 w-9 rounded-md bg-white/10 flex items-center justify-center hover:bg-white hover:text-primary transition-all duration-300 group" href="#">
+<span class="material-symbols-outlined text-[20px]">chat_bubble</span>
+</a>
+<a aria-label="GitHub" class="h-9 w-9 rounded-md bg-white/10 flex items-center justify-center hover:bg-white hover:text-primary transition-all duration-300 group" href="#">
+<span class="material-symbols-outlined text-[20px]">code</span>
+</a>
+</div>
+</div>
+<!-- Column 2: Quick Links -->
+<div>
+<h3 class="text-white text-base font-bold uppercase tracking-wider mb-6 border-l-2 border-blue-400 pl-3">Quick Links</h3>
+<ul class="flex flex-col gap-3">
+<li>
+<a class="text-blue-100/70 hover:text-white hover:translate-x-1 transition-all duration-200 text-sm flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-[16px] opacity-0 -ml-6 transition-all duration-200 hover-target:opacity-100 hover-target:ml-0">chevron_right</span>
+                                    Home
+                                </a>
+</li>
+<li>
+<a class="text-blue-100/70 hover:text-white hover:translate-x-1 transition-all duration-200 text-sm" href="#">What is ACM</a>
+</li>
+<li>
+<a class="text-blue-100/70 hover:text-white hover:translate-x-1 transition-all duration-200 text-sm" href="#">Our Team</a>
+</li>
+<li>
+<a class="text-blue-100/70 hover:text-white hover:translate-x-1 transition-all duration-200 text-sm" href="#">Join ACM</a>
+</li>
+<li>
+<a class="text-blue-100/70 hover:text-white hover:translate-x-1 transition-all duration-200 text-sm" href="#">Contact Us</a>
+</li>
+</ul>
+</div>
+<!-- Column 3: Focus Areas -->
+<div>
+<h3 class="text-white text-base font-bold uppercase tracking-wider mb-6 border-l-2 border-blue-400 pl-3">Focus Areas</h3>
+<ul class="flex flex-col gap-3">
+<li>
+<a class="text-blue-100/70 hover:text-white hover:translate-x-1 transition-all duration-200 text-sm group flex items-center gap-2" href="#">
+<span class="w-1.5 h-1.5 rounded-full bg-blue-400 opacity-50 group-hover:opacity-100"></span>
+                                    AI / ML
+                                </a>
+</li>
+<li>
+<a class="text-blue-100/70 hover:text-white hover:translate-x-1 transition-all duration-200 text-sm group flex items-center gap-2" href="#">
+<span class="w-1.5 h-1.5 rounded-full bg-blue-400 opacity-50 group-hover:opacity-100"></span>
+                                    Web Development
+                                </a>
+</li>
+<li>
+<a class="text-blue-100/70 hover:text-white hover:translate-x-1 transition-all duration-200 text-sm group flex items-center gap-2" href="#">
+<span class="w-1.5 h-1.5 rounded-full bg-blue-400 opacity-50 group-hover:opacity-100"></span>
+                                    Cyber Security
+                                </a>
+</li>
+<li>
+<a class="text-blue-100/70 hover:text-white hover:translate-x-1 transition-all duration-200 text-sm group flex items-center gap-2" href="#">
+<span class="w-1.5 h-1.5 rounded-full bg-blue-400 opacity-50 group-hover:opacity-100"></span>
+                                    Cloud Computing
+                                </a>
+</li>
+</ul>
+</div>
+<!-- Column 4: Official ACM Resources -->
+<div>
+<h3 class="text-white text-base font-bold uppercase tracking-wider mb-6 border-l-2 border-blue-400 pl-3">ACM Resources</h3>
+<ul class="flex flex-col gap-4">
+<li>
+<a class="flex items-start gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors border border-white/5 hover:border-white/20 group" href="#">
+<span class="material-symbols-outlined text-blue-300 group-hover:text-white mt-0.5">language</span>
+<div>
+<span class="block text-sm font-semibold text-white">ACM.org</span>
+<span class="block text-xs text-blue-200/60 mt-0.5">Official Website</span>
+</div>
+</a>
+</li>
+<li>
+<a class="text-blue-100/70 hover:text-white transition-colors text-sm flex items-center justify-between group" href="#">
+                                    Student Membership
+                                    <span class="material-symbols-outlined text-[16px] opacity-0 group-hover:opacity-100 transition-opacity">open_in_new</span>
+</a>
+</li>
+<li>
+<a class="text-blue-100/70 hover:text-white transition-colors text-sm flex items-center justify-between group" href="#">
+                                    ACM Digital Library
+                                    <span class="material-symbols-outlined text-[16px] opacity-0 group-hover:opacity-100 transition-opacity">open_in_new</span>
+</a>
+</li>
+<li>
+<a class="text-blue-100/70 hover:text-white transition-colors text-sm flex items-center justify-between group" href="#">
+                                    ACM Code of Ethics
+                                    <span class="material-symbols-outlined text-[16px] opacity-0 group-hover:opacity-100 transition-opacity">policy</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+<!-- Divider -->
+<div class="h-px w-full bg-gradient-to-r from-transparent via-blue-400/30 to-transparent mb-8"></div>
+<!-- Bottom Bar -->
+<div class="flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
+<p class="text-blue-200/60 text-xs font-light tracking-wide">
+                        © 2025 ACM NMIET Student Chapter. All rights reserved.
+                    </p>
+<div class="flex flex-wrap justify-center items-center gap-4">
+<span class="text-blue-200/60 text-xs hidden md:block">|</span>
+<span class="text-blue-200/80 text-xs font-medium">Official ACM Student Chapter at NMIET</span>
+<div class="flex items-center gap-1.5 px-2 py-1 rounded-full bg-blue-900/50 border border-blue-500/30">
+<div class="h-4 w-4 rounded-full bg-blue-400 flex items-center justify-center" data-alt="Small ACM Badge">
+<span class="material-symbols-outlined text-[10px] text-primary font-bold">diamond</span>
+</div>
+<span class="text-[10px] font-bold tracking-widest text-blue-200">ACM</span>
+</div>
+</div>
+</div>
+</div>
+</footer>
+</div>
+</body></html>

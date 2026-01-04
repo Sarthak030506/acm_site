@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Admin Blog List View - ACM NMIET</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#118dd4",
+                        "background-light": "#f8fafc", "surface-light": "#ffffff", "surface-highlight": "#f1f5f9", "text-main": "#0f172a", "text-secondary": "#64748b", "border-light": "#e2e8f0",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light text-text-main antialiased selection:bg-primary selection:text-white font-display overflow-hidden">
+    <div class="flex h-screen w-full relative">
+        <!-- Sidebar was here, but now we expect it to be the first child of the flex container -->
+        <aside id="sidebar"
+            class="fixed inset-y-0 left-0 z-50 w-64 flex flex-col border-r border-border-light bg-surface-light h-full shrink-0 transition-transform duration-300 transform -translate-x-full md:translate-x-0 md:relative md:flex shadow-[4px_0_24px_-12px_rgba(0,0,0,0.1)]">
+            <div class="flex h-full flex-col justify-between p-4">
+                <div class="flex flex-col gap-6">
+                    <div class="flex items-center gap-3 px-2">
+                        <div class="bg-center bg-no-repeat bg-cover rounded-full size-10 shadow-md ring-2 ring-primary/20"
+                            data-alt="ACM NMIET Logo abstract geometric blue shape"
+                            style="background-image: linear-gradient(135deg, #118dd4 0%, #0a4d75 100%);"></div>
+                        <div class="flex flex-col">
+                            <h1 class="text-text-main text-base font-bold leading-normal tracking-wide">ACM NMIET</h1>
+                            <p class="text-primary text-xs font-medium leading-normal">Admin Portal</p>
+                        </div>
+                    </div>
+                    <nav class="flex flex-col gap-2">
+                        <a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-surface-highlight transition-colors group"
+                            href="../admin_panel_dashboard/code.html">
+                            <span
+                                class="material-symbols-outlined text-text-secondary group-hover:text-primary transition-colors">dashboard</span>
+                            <p
+                                class="text-text-secondary group-hover:text-text-main text-sm font-medium leading-normal transition-colors">
+                                Dashboard Home</p>
+                        </a>
+                        <a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/10 border-l-4 border-primary shadow-sm"
+                            href="../admin_blog_list_view_page/code.html">
+                            <span class="material-symbols-outlined text-primary fill-current">article</span>
+                            <p class="text-primary text-sm font-bold leading-normal">Blog Management</p>
+                        </a>
+                        <a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-surface-highlight transition-colors group"
+                            href="../admin_team_members_list_view_page/code.html">
+                            <span
+                                class="material-symbols-outlined text-text-secondary group-hover:text-primary transition-colors">group</span>
+                            <p
+                                class="text-text-secondary group-hover:text-text-main text-sm font-medium leading-normal transition-colors">
+                                Team Management</p>
+                        </a>
+                        <a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-surface-highlight transition-colors group"
+                            href="../admin_activities_list_view_page/code.html">
+                            <span
+                                class="material-symbols-outlined text-text-secondary group-hover:text-primary transition-colors">event</span>
+                            <p
+                                class="text-text-secondary group-hover:text-text-main text-sm font-medium leading-normal transition-colors">
+                                Activities Management</p>
+                        </a>
+                        <a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-surface-highlight transition-colors group"
+                            href="../admin_contact_page_content_editor/code.html">
+                            <span
+                                class="material-symbols-outlined text-text-secondary group-hover:text-primary transition-colors">contact_page</span>
+                            <p
+                                class="text-text-secondary group-hover:text-text-main text-sm font-medium leading-normal transition-colors">
+                                Contact Page Content</p>
+                        </a>
+                    </nav>
+                </div>
+                <div class="flex flex-col gap-2 border-t border-border-light pt-4">
+                    <a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-red-50 text-text-secondary hover:text-red-600 transition-colors group"
+                        href="../admin_panel_login_screen/code.html">
+                        <span class="material-symbols-outlined">logout</span>
+                        <p class="text-sm font-medium leading-normal">Log Out</p>
+                    </a>
+                </div>
+            </div>
+        </aside>
+
+        <div class="flex-1 flex flex-col h-full min-w-0 overflow-hidden bg-background-light relative">
+            <header
+                class="flex items-center justify-between whitespace-nowrap border-b border-border-light bg-surface-light/80 backdrop-blur-md px-6 py-4 sticky top-0 z-20 shadow-sm">
+                <div class="flex items-center gap-4 text-text-main">
+                    <button id="mobile-menu-btn" class="md:hidden p-1 text-text-secondary">
+                        <span class="material-symbols-outlined">menu</span>
+                    </button>
+                    <div class="flex flex-col">
+                        <div class="flex items-center gap-2 text-text-secondary text-xs">
+                            <span>Admin</span>
+                            <span class="material-symbols-outlined text-[10px]">chevron_right</span>
+                            <span class="text-text-main font-medium">Blog Management</span>
+                        </div>
+                        <h2 class="text-text-main text-lg font-bold leading-tight tracking-[-0.015em]">Blog Posts</h2>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4">
+                    <div class="hidden sm:flex items-center gap-2">
+                        <button
+                            class="flex size-9 cursor-pointer items-center justify-center rounded-lg bg-surface-highlight hover:bg-slate-200 text-text-secondary hover:text-text-main transition-colors relative border border-border-light">
+                            <span class="material-symbols-outlined text-[20px]">notifications</span>
+                            <span
+                                class="absolute top-2 right-2 size-2 bg-red-500 rounded-full border border-white"></span>
+                        </button>
+                        <button
+                            class="flex size-9 cursor-pointer items-center justify-center rounded-lg bg-surface-highlight hover:bg-slate-200 text-text-secondary hover:text-text-main transition-colors border border-border-light">
+                            <span class="material-symbols-outlined text-[20px]">settings</span>
+                        </button>
+                    </div>
+                    <div class="h-8 w-[1px] bg-border-light mx-2 hidden sm:block"></div>
+                    <div class="flex items-center gap-3">
+                        <div class="bg-center bg-no-repeat bg-cover rounded-full size-9 border border-border-light shadow-sm"
+                            data-alt="User profile picture placeholder gradient"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD3SGRhumRt1dMJma6YAdChVPLDBdkpLE-fJn5cEA6E4BMd64UjSn7ZepgBDqDvhj05_JBIFGI2IPTbl5lVlBW6pHKNeQ_0E2CtTIatywfQKzBGEMZ2zCNTrYuXUGDYYRO-Dxjg6HXe9Nf1RrW6_tNKRtw_dCKUuan8PHrO7k4lkpLwLGb4QgIAwZhI_vHizlDrZBUXTamDycwiTrQw756xHw303Ei8im97QWnaylnPjxVUnCSMV5lvzkfaauJapAZt1a9JcBeZocCU");'>
+                        </div>
+                        <div class="hidden md:flex flex-col">
+                            <span class="text-sm font-semibold text-text-main leading-none">Admin User</span>
+                            <span class="text-xs text-text-secondary leading-tight mt-1">Super Admin</span>
+                        </div>
+                        <span
+                            class="material-symbols-outlined text-text-secondary text-sm hidden md:block">expand_more</span>
+                    </div>
+                </div>
+            </header>
+            <main class="flex-1 overflow-y-auto bg-background p-4 md:p-8 lg:px-12">
+                <div class="mx-auto max-w-7xl flex flex-col gap-8">
+                    <div class="flex flex-col gap-1 md:flex-row md:items-end md:justify-between">
+                        <div class="flex flex-col gap-2">
+                            <h1 class="text-text-main text-3xl md:text-4xl font-black tracking-tight">Blog Management
+                            </h1>
+                            <p class="text-text-secondary text-base max-w-2xl">Create, edit, and manage all blog posts
+                                for the ACM NMIET website. Track publication status and author contributions.</p>
+                        </div>
+                        <div class="mt-4 md:mt-0">
+                            <a href="../admin_blog_post_editor_page/code.html"
+                                class="hidden md:flex items-center justify-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-blue-500/20 hover:bg-primary-dark transition-colors">
+                                <span class="material-symbols-outlined text-[20px]">add</span>
+                                <span>Create Post</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div
+                        class="flex flex-col gap-4 rounded-xl border border-border bg-surface p-4 shadow-sm md:flex-row md:items-center md:justify-between">
+                        <div
+                            class="flex w-full md:max-w-md items-center rounded-lg border border-border bg-hover-bg px-3 py-2 focus-within:bg-surface focus-within:border-primary/50 focus-within:ring-1 focus-within:ring-primary/50 transition-all">
+                            <span class="material-symbols-outlined text-text-secondary">search</span>
+                            <input
+                                class="ml-2 w-full bg-transparent text-sm text-text-main placeholder-text-secondary focus:outline-none"
+                                placeholder="Search by title, author, or tags..." />
+                        </div>
+                        <div class="flex items-center gap-3 overflow-x-auto pb-1 md:pb-0">
+                            <button
+                                class="flex items-center gap-2 whitespace-nowrap rounded-lg border border-border bg-surface px-3 py-2 text-sm font-medium text-text-main hover:bg-hover-bg transition-colors">
+                                <span class="material-symbols-outlined text-[18px]">filter_list</span>
+                                <span>Filter</span>
+                            </button>
+                            <button
+                                class="flex items-center gap-2 whitespace-nowrap rounded-lg border border-border bg-surface px-3 py-2 text-sm font-medium text-text-main hover:bg-hover-bg transition-colors">
+                                <span class="material-symbols-outlined text-[18px]">sort</span>
+                                <span>Sort</span>
+                            </button>
+                            <a href="../admin_blog_post_editor_page/code.html"
+                                class="flex md:hidden items-center justify-center gap-2 whitespace-nowrap rounded-lg bg-primary px-4 py-2 text-sm font-bold text-white shadow-md">
+                                <span class="material-symbols-outlined text-[20px]">add</span>
+                                <span>Create</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="w-full overflow-hidden rounded-xl border border-border bg-surface shadow-sm">
+                        <div class="overflow-x-auto">
+                            <table class="w-full min-w-[800px] border-collapse text-left">
+                                <thead>
+                                    <tr class="border-b border-border bg-gray-50">
+                                        <th
+                                            class="px-6 py-4 text-xs font-semibold uppercase tracking-wider text-text-secondary">
+                                            Blog Post Title</th>
+                                        <th
+                                            class="px-6 py-4 text-xs font-semibold uppercase tracking-wider text-text-secondary">
+                                            Author</th>
+                                        <th
+                                            class="px-6 py-4 text-xs font-semibold uppercase tracking-wider text-text-secondary">
+                                            Publication Date</th>
+                                        <th
+                                            class="px-6 py-4 text-xs font-semibold uppercase tracking-wider text-text-secondary">
+                                            Status</th>
+                                        <th
+                                            class="px-6 py-4 text-right text-xs font-semibold uppercase tracking-wider text-text-secondary">
+                                            Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-border">
+                                    <tr class="group hover:bg-hover-bg transition-colors">
+                                        <td class="px-6 py-4">
+                                            <div class="flex items-center gap-3">
+                                                <div class="size-10 shrink-0 rounded bg-cover bg-center ring-1 ring-border"
+                                                    data-alt="Abstract colorful pattern representing hackathon"
+                                                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC-WRFH0ypFiRGKV6Hfac5GIBM7X0RdAXyJDAOL6GcTtqr3vUK7Y21FdNjl29sckyzt8t1lmX5EMhNt2X0J_PPesZyrufUr_yaMhkInUNlIjuQoxGWMg_ceNt1HCanPQ7uIJs9o5YOeiKFPOzEuAp9vOebqTCoSvqtUCilBNC21oIq_dTvkLXFkx57asFpneg7WKvknQ7ukJFdYfK3GhC3vhs4UTp1NnHJQ6gNZ35yZoxjM1SvUOy8o-jZ35oREgjYlE6dJy_t-0zpF');">
+                                                </div>
+                                                <div class="flex flex-col">
+                                                    <span
+                                                        class="text-sm font-medium text-text-main group-hover:text-primary transition-colors">Recap:
+                                                        ACM NMIET Hackathon 2023</span>
+                                                    <span class="text-xs text-text-secondary">Technology, Events</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            <div class="flex items-center gap-2">
+                                                <div class="size-6 rounded-full bg-cover bg-center ring-1 ring-border"
+                                                    data-alt="Portrait of Jane Doe"
+                                                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDotzmcwZ7HV89tXXwrhk5Vq6vDxZId0r42ytwzkeUJ4hrWyrYxP6-OYVlCMqE9ROwgu-wp2F2w8h5sZRJEAInr0I-wgh2ypXlaqww9OaXR4JLqNkqOdBiownx4I_ZBc-1FopIpIiGUb-sXVfUg-euz3MMl-3j6kAxN2RHutHMs2Qe9vyiZpBi5gXzNd1C6qG6B2czB5cuf0AGqe2J7mWEJyylpbtJQHkNj_tMg4rUvNTs8d2OB1o50DRjIVEH0L2VSkq0I-kLh7u5I');">
+                                                </div>
+                                                <span class="text-sm text-text-secondary">Jane Doe</span>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4 text-sm text-text-secondary">Oct 24, 2023</td>
+                                        <td class="px-6 py-4">
+                                            <span
+                                                class="inline-flex items-center gap-1.5 rounded-full bg-emerald-100 px-2.5 py-1 text-xs font-medium text-emerald-700 border border-emerald-200">
+                                                <span class="size-1.5 rounded-full bg-emerald-500"></span>
+                                                Published
+                                            </span>
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            <div class="flex items-center justify-end gap-2">
+                                                <button
+                                                    class="flex items-center gap-1.5 rounded-md bg-white border border-border px-3 py-1.5 text-xs font-bold text-text-secondary hover:bg-primary hover:text-white hover:border-primary transition-colors shadow-sm">
+                                                    <span class="material-symbols-outlined text-[16px]">edit</span>
+                                                    Edit
+                                                </button>
+                                                <button
+                                                    class="flex items-center justify-center rounded-md p-1.5 text-text-secondary hover:bg-red-50 hover:text-red-600 transition-colors"
+                                                    title="Delete">
+                                                    <span class="material-symbols-outlined text-[20px]">delete</span>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="group hover:bg-hover-bg transition-colors">
+                                        <td class="px-6 py-4">
+                                            <div class="flex items-center gap-3">
+                                                <div class="size-10 shrink-0 rounded bg-cover bg-center ring-1 ring-border"
+                                                    data-alt="Blue digital brain concept art"
+                                                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAQN9kfp1VMqLTQMd93mE1yugi-m-aDQCruG5ZRX0EApuFKFLmwOu5MQFVV9PQ3V-_4_l930DX5NQO51OrTpbev89u9d_PlkEY6zCtQyd3PROijhaljskf4TcBXUtR2P1C1IVegTA2LkTZSOAf6e1B4dU7W9Oz7jIvdO_cLEyFmpN2y0YC8Dn4OrraY5o6b-DYegyWWUVTbqM2SE7mGCnsevgwdBRWjz1pLeO2dEnClmGJLgyiZpGaURwA-CbOCbEYhrMxRoG__iG4X');">
+                                                </div>
+                                                <div class="flex flex-col">
+                                                    <span
+                                                        class="text-sm font-medium text-text-main group-hover:text-primary transition-colors">Introduction
+                                                        to AI/ML Workshop</span>
+                                                    <span class="text-xs text-text-secondary">Workshop, AI</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            <div class="flex items-center gap-2">
+                                                <div class="size-6 rounded-full bg-cover bg-center ring-1 ring-border"
+                                                    data-alt="Portrait of John Smith"
+                                                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDAcWas03Bn3nRoX5UOTuZst149SoK1nO7yecf5xouFfVEWaNgZyE-mGBYTH-C5R-OtipiQzgM60Ddi2JLfwMVx8UXIoneeKSKFf4BIW2pOcfKePwa6ew-V_dCLKCXu8RavE2WJHh8-DpzXLa1dqFoyLHVIHC8nxwiPhjbyj72FvYM2Dc6Drd1nNsjjdz1eS7oYeL-GGdQ7wEMgRvrEjvvAivL5SRbdBDOnsTwKb4MMikN_cev6NKwqohiN-7aDLguip8wmWtRSZsUn');">
+                                                </div>
+                                                <span class="text-sm text-text-secondary">John Smith</span>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4 text-sm text-text-secondary">Oct 15, 2023</td>
+                                        <td class="px-6 py-4">
+                                            <span
+                                                class="inline-flex items-center gap-1.5 rounded-full bg-emerald-100 px-2.5 py-1 text-xs font-medium text-emerald-700 border border-emerald-200">
+                                                <span class="size-1.5 rounded-full bg-emerald-500"></span>
+                                                Published
+                                            </span>
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            <div class="flex items-center justify-end gap-2">
+                                                <button
+                                                    class="flex items-center gap-1.5 rounded-md bg-white border border-border px-3 py-1.5 text-xs font-bold text-text-secondary hover:bg-primary hover:text-white hover:border-primary transition-colors shadow-sm">
+                                                    <span class="material-symbols-outlined text-[16px]">edit</span>
+                                                    Edit
+                                                </button>
+                                                <button
+                                                    class="flex items-center justify-center rounded-md p-1.5 text-text-secondary hover:bg-red-50 hover:text-red-600 transition-colors"
+                                                    title="Delete">
+                                                    <span class="material-symbols-outlined text-[20px]">delete</span>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="group hover:bg-hover-bg transition-colors">
+                                        <td class="px-6 py-4">
+                                            <div class="flex items-center gap-3">
+                                                <div class="size-10 shrink-0 rounded bg-cover bg-center ring-1 ring-border"
+                                                    data-alt="Code on a computer screen"
+                                                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCh7bI2ums2h8MKmkoCraWH6abx2ciMG0CkZloBBcmylwS2505M6nqCFLy3g6aciRhAEYcU1o6GfCcwFZOx3ve0dNvOXmQreO3mqAEs7pexoOa6EeT4E8Jqap01RX0xsDpuAX_m-7PWE7PMshTeevb4On80ENz1cWnPwrXc-mz_1NXCDEPF1HbtIxIDtKdPhZwkq4fjAgKKRdIQWCXsUKOLL5rBZj3dwxlbPU7qg-KlqYMHtzANAckvL6VIgTJcB3kOpDaw8tfjJ9NQ');">
+                                                </div>
+                                                <div class="flex flex-col">
+                                                    <span
+                                                        class="text-sm font-medium text-text-main group-hover:text-primary transition-colors">Upcoming
+                                                        Coding Contest Details</span>
+                                                    <span class="text-xs text-text-secondary">Contest,
+                                                        Announcements</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            <div class="flex items-center gap-2">
+                                                <div class="size-6 rounded-full bg-cover bg-center ring-1 ring-border"
+                                                    data-alt="Portrait of Alice Johnson"
+                                                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCK_JY2JoTafT7ifLtTmh0dgv-iIRy6q_bEPVUcsFzAS5JPclJBcTu2j_XZ9btCMsnaRLcxfW6fWYZLgxZKLetUgTRBWMvKdY5O2dO2tjwjNBNUihxvkivcyhoz_8vsWeLfkTymLNbJbcPcMA892Lwox9BR-ZQV85FY2VO1tu_BOUuDV5YopHvRluwFTZyBVGu46izJ7IgM50ZJ7cfwf0ruKNzMknK42n_2ubZd1cenbXKy5-J0o1bsBhU2GUazpodOJeFV8ux1G3af');">
+                                                </div>
+                                                <span class="text-sm text-text-secondary">Alice Johnson</span>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4 text-sm text-text-secondary">Oct 01, 2023</td>
+                                        <td class="px-6 py-4">
+                                            <span
+                                                class="inline-flex items-center gap-1.5 rounded-full bg-amber-100 px-2.5 py-1 text-xs font-medium text-amber-700 border border-amber-200">
+                                                <span class="size-1.5 rounded-full bg-amber-500"></span>
+                                                Draft
+                                            </span>
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            <div class="flex items-center justify-end gap-2">
+                                                <button
+                                                    class="flex items-center gap-1.5 rounded-md bg-white border border-border px-3 py-1.5 text-xs font-bold text-text-secondary hover:bg-primary hover:text-white hover:border-primary transition-colors shadow-sm">
+                                                    <span class="material-symbols-outlined text-[16px]">edit</span>
+                                                    Edit
+                                                </button>
+                                                <button
+                                                    class="flex items-center justify-center rounded-md p-1.5 text-text-secondary hover:bg-red-50 hover:text-red-600 transition-colors"
+                                                    title="Delete">
+                                                    <span class="material-symbols-outlined text-[20px]">delete</span>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="group hover:bg-hover-bg transition-colors">
+                                        <td class="px-6 py-4">
+                                            <div class="flex items-center gap-3">
+                                                <div class="size-10 shrink-0 rounded bg-cover bg-center ring-1 ring-border"
+                                                    data-alt="Lock icon representing cybersecurity"
+                                                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCa3JAusn_PpbdZmg8bbXv461WNl7mA-fitKxZUQEaRRqp7Zw9UeiW78a5qjwUehoTiet7-qsCS_Az1uA-wEzWeKEaTHrj1Jo5t0TCuPEVWExhHms0aGkMRM6p552AeSEj6nPtTDE00e8CV7BygL4CcbW1ZqGjVsoTN12Qch-vn4bchkb37FDaCtybdbis9N0Fl2ncKegxw0OvyxVov4SY2p6PHzv2QnjIM-I-WaTJ5J6BeaaKaVoGR3e3Aiz36Bu8e962Qg0g0dFIt');">
+                                                </div>
+                                                <div class="flex flex-col">
+                                                    <span
+                                                        class="text-sm font-medium text-text-main group-hover:text-primary transition-colors">Guest
+                                                        Lecture: Cybersecurity Trends</span>
+                                                    <span class="text-xs text-text-secondary">Security, Lecture</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            <div class="flex items-center gap-2">
+                                                <div class="size-6 rounded-full bg-cover bg-center ring-1 ring-border"
+                                                    data-alt="Portrait of Robert Brown"
+                                                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBLHBmZ7nUrx_rWGdy3zmkMWBzS92x_xVGMGdadztkeq9tGMVLAzgaDkiGdTiKLYkqbJPIG8SURD49-lOz2J0PNZBE87rIcg4nvfJVUAYhWmvXc8Q-SopltdFNchUS0R3rybDfwv6dWVGTt-f0fNIvkiSAuxlEJ7hD9jAmlhuNgXnMnAsYUoeFkLMQ5i9rvZ3Mq9nn6wSEAwcVQYrVbigI6Ygqg_edZMK8INYUE7y5yKom0IHn94w4PSWrhM7QQlGnpYsC1WvrSUwGZ');">
+                                                </div>
+                                                <span class="text-sm text-text-secondary">Robert Brown</span>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4 text-sm text-text-secondary">Sep 28, 2023</td>
+                                        <td class="px-6 py-4">
+                                            <span
+                                                class="inline-flex items-center gap-1.5 rounded-full bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-600 border border-slate-200">
+                                                <span class="size-1.5 rounded-full bg-slate-500"></span>
+                                                Archived
+                                            </span>
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            <div class="flex items-center justify-end gap-2">
+                                                <button
+                                                    class="flex items-center gap-1.5 rounded-md bg-white border border-border px-3 py-1.5 text-xs font-bold text-text-secondary hover:bg-primary hover:text-white hover:border-primary transition-colors shadow-sm">
+                                                    <span class="material-symbols-outlined text-[16px]">edit</span>
+                                                    Edit
+                                                </button>
+                                                <button
+                                                    class="flex items-center justify-center rounded-md p-1.5 text-text-secondary hover:bg-red-50 hover:text-red-600 transition-colors"
+                                                    title="Delete">
+                                                    <span class="material-symbols-outlined text-[20px]">delete</span>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="group hover:bg-hover-bg transition-colors">
+                                        <td class="px-6 py-4">
+                                            <div class="flex items-center gap-3">
+                                                <div class="size-10 shrink-0 rounded bg-cover bg-center ring-1 ring-border"
+                                                    data-alt="Web development code displayed on monitor"
+                                                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBfyBvCuuwlczVrB2jpFVc2vFUZaQ-nMv09ZUJid3iSi6K3cvY6bDTPDR8A9c-OSPm48dvvMOIuLy6ZGJnoQA6u6dgU28ml1yg47OYE9hk6tNSrSin9gNYN8qJtuiGF2cDdt4He80_Mrhl7BTdqcY37lstC95M2Poof0Zyyqq2D7cxeM5p-mO40ng2rizRYlUUqU6dhbm3S468y-hFrEgYt4HLJZiLpW56XAvrHYOyuCvD1u05gtXj3ZOrsaXWrqkS3KM-VCCkkVXf2');">
+                                                </div>
+                                                <div class="flex flex-col">
+                                                    <span
+                                                        class="text-sm font-medium text-text-main group-hover:text-primary transition-colors">Web
+                                                        Development Bootcamp Highlights</span>
+                                                    <span class="text-xs text-text-secondary">Web, Education</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            <div class="flex items-center gap-2">
+                                                <div class="size-6 rounded-full bg-cover bg-center ring-1 ring-border"
+                                                    data-alt="Portrait of Emily White"
+                                                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB5CRZ_yE3MMSIlwVjBRscDYRVdu3fDYpVj4kANu5bDeaFrD9Epv2ZPvMa-905e7y0fuNa_jjHT7JR1vuPyKoImYHD7Cgvo4Vi0V5TwtC0EJ049cVkFMmsudyT4MJpRlVtmc2GptUP0cABWqytHgnBNBjpYF0KdrwxGS4vbTIvLxuVgzieJ7zlZ6HuHTzb0LKbKYzMSKocr4HjbdTl3Vti80e4ke1OL6kNhVaKdLw05i7yCYTeXItYy-c6FvbffgqbWF0nlaRzqtkrj');">
+                                                </div>
+                                                <span class="text-sm text-text-secondary">Emily White</span>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4 text-sm text-text-secondary">Sep 10, 2023</td>
+                                        <td class="px-6 py-4">
+                                            <span
+                                                class="inline-flex items-center gap-1.5 rounded-full bg-emerald-100 px-2.5 py-1 text-xs font-medium text-emerald-700 border border-emerald-200">
+                                                <span class="size-1.5 rounded-full bg-emerald-500"></span>
+                                                Published
+                                            </span>
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            <div class="flex items-center justify-end gap-2">
+                                                <button
+                                                    class="flex items-center gap-1.5 rounded-md bg-white border border-border px-3 py-1.5 text-xs font-bold text-text-secondary hover:bg-primary hover:text-white hover:border-primary transition-colors shadow-sm">
+                                                    <span class="material-symbols-outlined text-[16px]">edit</span>
+                                                    Edit
+                                                </button>
+                                                <button
+                                                    class="flex items-center justify-center rounded-md p-1.5 text-text-secondary hover:bg-red-50 hover:text-red-600 transition-colors"
+                                                    title="Delete">
+                                                    <span class="material-symbols-outlined text-[20px]">delete</span>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div
+                            class="flex flex-col items-center justify-between border-t border-border px-6 py-4 sm:flex-row bg-gray-50/50">
+                            <span class="mb-4 text-xs font-medium text-text-secondary sm:mb-0">Showing <span
+                                    class="text-text-main font-bold">1-5</span> of <span
+                                    class="text-text-main font-bold">24</span> blog posts</span>
+                            <div class="flex items-center gap-2">
+                                <button
+                                    class="flex items-center justify-center rounded-lg border border-border bg-white p-2 text-text-secondary hover:bg-hover-bg hover:text-text-main disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                                    disabled="">
+                                    <span class="material-symbols-outlined text-[20px]">chevron_left</span>
+                                </button>
+                                <button
+                                    class="flex h-8 min-w-[32px] items-center justify-center rounded-lg bg-primary px-3 text-xs font-bold text-white shadow-sm">1</button>
+                                <button
+                                    class="flex h-8 min-w-[32px] items-center justify-center rounded-lg border border-border bg-white px-3 text-xs font-bold text-text-secondary hover:bg-hover-bg hover:text-text-main transition-colors">2</button>
+                                <button
+                                    class="flex h-8 min-w-[32px] items-center justify-center rounded-lg border border-border bg-white px-3 text-xs font-bold text-text-secondary hover:bg-hover-bg hover:text-text-main transition-colors">3</button>
+                                <span class="text-text-secondary">...</span>
+                                <button
+                                    class="flex items-center justify-center rounded-lg border border-border bg-white p-2 text-text-secondary hover:bg-hover-bg hover:text-text-main transition-colors">
+                                    <span class="material-symbols-outlined text-[20px]">chevron_right</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const sidebar = document.getElementById('sidebar');
+
+        if (menuBtn && sidebar) {
+            menuBtn.addEventListener('click', () => {
+                sidebar.classList.toggle('-translate-x-full');
+            });
+        }
+    });
+</script>
+
+</html>

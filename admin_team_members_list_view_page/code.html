@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Admin - Team Members</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100..900&amp;display=swap" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#118dd4",
+                        "background-light": "#f8fafc", "surface-light": "#ffffff", "surface-highlight": "#f1f5f9", "text-main": "#0f172a", "text-primary": "#0f172a", "text-secondary": "#64748b", "border-light": "#e2e8f0",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "Noto Sans", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"],
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+
+<body class="bg-background-light text-text-primary font-display antialiased overflow-hidden">
+    <div class="flex h-screen w-full">
+        <aside id="sidebar"
+            class="fixed inset-y-0 left-0 z-50 w-64 flex flex-col border-r border-border-light bg-surface-light h-full shrink-0 transition-transform duration-300 transform -translate-x-full md:translate-x-0 md:relative md:flex shadow-[4px_0_24px_-12px_rgba(0,0,0,0.1)]">
+            <div class="flex h-full flex-col justify-between p-4">
+                <div class="flex flex-col gap-6">
+                    <div class="flex items-center gap-3 px-2">
+                        <div class="bg-center bg-no-repeat bg-cover rounded-full size-10 shadow-md ring-2 ring-primary/20"
+                            data-alt="ACM NMIET Logo abstract geometric blue shape"
+                            style="background-image: linear-gradient(135deg, #118dd4 0%, #0a4d75 100%);"></div>
+                        <div class="flex flex-col">
+                            <h1 class="text-text-primary text-base font-bold leading-normal tracking-wide">ACM NMIET
+                            </h1>
+                            <p class="text-primary text-xs font-medium leading-normal">Admin Portal</p>
+                        </div>
+                    </div>
+                    <nav class="flex flex-col gap-2">
+                        <a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-background-light transition-colors group"
+                            href="../admin_panel_dashboard/code.html">
+                            <span
+                                class="material-symbols-outlined text-text-secondary group-hover:text-primary transition-colors">dashboard</span>
+                            <p
+                                class="text-text-secondary group-hover:text-text-primary text-sm font-medium leading-normal transition-colors">
+                                Dashboard Home</p>
+                        </a>
+                        <a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-background-light transition-colors group"
+                            href="../admin_blog_list_view_page/code.html">
+                            <span
+                                class="material-symbols-outlined text-text-secondary group-hover:text-primary transition-colors">article</span>
+                            <p
+                                class="text-text-secondary group-hover:text-text-primary text-sm font-medium leading-normal transition-colors">
+                                Blog Management</p>
+                        </a>
+                        <a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/10 border-l-4 border-primary shadow-sm"
+                            href="../admin_team_members_list_view_page/code.html">
+                            <span class="material-symbols-outlined text-primary fill-current">group</span>
+                            <p class="text-primary text-sm font-bold leading-normal">Team Management</p>
+                        </a>
+                        <a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-background-light transition-colors group"
+                            href="../admin_activities_list_view_page/code.html">
+                            <span
+                                class="material-symbols-outlined text-text-secondary group-hover:text-primary transition-colors">event</span>
+                            <p
+                                class="text-text-secondary group-hover:text-text-primary text-sm font-medium leading-normal transition-colors">
+                                Activities Management</p>
+                        </a>
+                        <a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-background-light transition-colors group"
+                            href="../admin_contact_page_content_editor/code.html">
+                            <span
+                                class="material-symbols-outlined text-text-secondary group-hover:text-primary transition-colors">contact_page</span>
+                            <p
+                                class="text-text-secondary group-hover:text-text-primary text-sm font-medium leading-normal transition-colors">
+                                Contact Page Content</p>
+                        </a>
+                    </nav>
+                </div>
+                <div class="flex flex-col gap-2 border-t border-border-light pt-4">
+                    <a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-red-50 text-text-secondary hover:text-red-600 transition-colors group"
+                        href="../admin_panel_login_screen/code.html">
+                        <span class="material-symbols-outlined">logout</span>
+                        <p class="text-sm font-medium leading-normal">Log Out</p>
+                    </a>
+                </div>
+            </div>
+        </aside>
+        <main class="flex-1 flex flex-col h-full overflow-hidden bg-background-light relative">
+            <header
+                class="flex items-center justify-between whitespace-nowrap border-b border-border-light bg-surface-light/80 backdrop-blur-md px-6 py-4 sticky top-0 z-20 shadow-sm">
+                <div class="flex items-center gap-4 text-text-primary">
+                    <button id="mobile-menu-btn" class="md:hidden p-1 text-text-secondary">
+                        <span class="material-symbols-outlined">menu</span>
+                    </button>
+                    <div class="flex flex-col">
+                        <div class="flex items-center gap-2 text-text-secondary text-xs">
+                            <span>Admin</span>
+                            <span class="material-symbols-outlined text-[10px]">chevron_right</span>
+                            <span class="text-text-primary font-medium">Team Management</span>
+                        </div>
+                        <h2 class="text-text-primary text-lg font-bold leading-tight tracking-[-0.015em]">Team Members
+                        </h2>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4">
+                    <div class="hidden sm:flex items-center gap-2">
+                        <button
+                            class="flex size-9 cursor-pointer items-center justify-center rounded-lg bg-surface-light hover:bg-slate-200 text-text-secondary hover:text-text-primary transition-colors relative border border-border-light">
+                            <span class="material-symbols-outlined text-[20px]">notifications</span>
+                            <span
+                                class="absolute top-2 right-2 size-2 bg-red-500 rounded-full border border-white"></span>
+                        </button>
+                        <button
+                            class="flex size-9 cursor-pointer items-center justify-center rounded-lg bg-surface-light hover:bg-slate-200 text-text-secondary hover:text-text-primary transition-colors border border-border-light">
+                            <span class="material-symbols-outlined text-[20px]">settings</span>
+                        </button>
+                    </div>
+                    <div class="h-8 w-[1px] bg-border-light mx-2 hidden sm:block"></div>
+                    <div class="flex items-center gap-3">
+                        <div class="bg-center bg-no-repeat bg-cover rounded-full size-9 border border-border-light shadow-sm"
+                            data-alt="User profile picture placeholder gradient"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD3SGRhumRt1dMJma6YAdChVPLDBdkpLE-fJn5cEA6E4BMd64UjSn7ZepgBDqDvhj05_JBIFGI2IPTbl5lVlBW6pHKNeQ_0E2CtTIatywfQKzBGEMZ2zCNTrYuXUGDYYRO-Dxjg6HXe9Nf1RrW6_tNKRtw_dCKUuan8PHrO7k4lkpLwLGb4QgIAwZhI_vHizlDrZBUXTamDycwiTrQw756xHw303Ei8im97QWnaylnPjxVUnCSMV5lvzkfaauJapAZt1a9JcBeZocCU");'>
+                        </div>
+                        <div class="hidden md:flex flex-col">
+                            <span class="text-sm font-semibold text-text-primary leading-none">Admin User</span>
+                            <span class="text-xs text-text-secondary leading-tight mt-1">Super Admin</span>
+                        </div>
+                        <span
+                            class="material-symbols-outlined text-text-secondary text-sm hidden md:block">expand_more</span>
+                    </div>
+                </div>
+            </header>
+            <div class="flex-1 overflow-y-auto p-4 md:p-8 lg:px-12 lg:py-10">
+                <div class="max-w-7xl mx-auto flex flex-col gap-8">
+                    <div class="flex flex-col md:flex-row md:items-start justify-between gap-4">
+                        <div class="flex flex-col gap-2">
+                            <h1 class="text-3xl md:text-4xl font-black tracking-tight text-slate-900">Team Management
+                            </h1>
+                            <p class="text-slate-500 text-base max-w-2xl">
+                                Manage your organization's team members, assign roles, and update profiles visible on
+                                the public website.
+                            </p>
+                        </div>
+                        <a href="../admin_team_member_editor_page/code.html"
+                            class="flex items-center justify-center gap-2 bg-primary hover:bg-sky-600 text-white px-5 py-3 rounded-xl font-bold transition-all shadow-lg shadow-primary/20 shrink-0">
+                            <span class="material-symbols-outlined text-[20px]">add</span>
+                            <span>Add New Member</span>
+                        </a>
+                    </div>
+                    <div
+                        class="flex flex-col lg:flex-row gap-4 items-stretch lg:items-center justify-between bg-surface-light p-2 rounded-2xl shadow-sm border border-border-light">
+                        <div class="relative flex-1 min-w-[300px]">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <span class="material-symbols-outlined text-slate-400">search</span>
+                            </div>
+                            <input
+                                class="block w-full pl-10 pr-3 py-3 border-none rounded-xl bg-slate-50 text-slate-900 placeholder-slate-400 focus:ring-2 focus:ring-primary/50 sm:text-sm"
+                                placeholder="Search members by name, role, or email..." type="text" />
+                        </div>
+                        <div class="hidden lg:block w-px h-8 bg-slate-200"></div>
+                        <div class="flex gap-2 overflow-x-auto pb-2 lg:pb-0 no-scrollbar items-center px-1">
+                            <button
+                                class="whitespace-nowrap px-4 py-2 rounded-lg bg-slate-900 text-white text-sm font-semibold shadow-sm">
+                                All Members
+                            </button>
+                            <button
+                                class="whitespace-nowrap px-4 py-2 rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 text-sm font-medium transition-colors">
+                                Core Team
+                            </button>
+                            <button
+                                class="whitespace-nowrap px-4 py-2 rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 text-sm font-medium transition-colors">
+                                Technical
+                            </button>
+                            <button
+                                class="whitespace-nowrap px-4 py-2 rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 text-sm font-medium transition-colors">
+                                Design
+                            </button>
+                            <button
+                                class="whitespace-nowrap px-4 py-2 rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 text-sm font-medium transition-colors">
+                                Marketing
+                            </button>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                        <div
+                            class="group flex flex-col rounded-2xl bg-surface-light border border-slate-200 p-5 shadow-sm hover:shadow-xl hover:border-primary/30 transition-all duration-300 relative overflow-hidden">
+                            <div
+                                class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity">
+                            </div>
+                            <div class="flex flex-col items-center text-center pb-4 border-b border-slate-100 mb-4">
+                                <div class="relative mb-4">
+                                    <div class="w-24 h-24 rounded-full bg-cover bg-center ring-4 ring-slate-50 shadow-md"
+                                        data-alt="Portrait of Jane Doe looking professional"
+                                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBsl7Eiioj5uQizK0mDFNI8wsRIXqEY26EKpKehQdydb8zwfJAWN7VEYfG9pn_K7jw3yldctPbP7nEzimEliOIqX2BPnKqoDSuFEUZzEQNPb1B0emrTDuxWPQoPkr7a2AsFyZP6HxKQbvEfLam8rDZyXIfJlcDDR3SE3rpCmHOGq4r6T3aALd4MqcLaoSXtouvkmljbHWbxaD06TOoneByLzExruz9YvPbOpsjf-PvYMQJ_cuWcTHin0eC9TgDpNUCwS_fV0beA88Tw");'>
+                                    </div>
+                                    <div class="absolute bottom-1 right-1 w-5 h-5 bg-emerald-500 rounded-full border-2 border-white"
+                                        title="Active"></div>
+                                </div>
+                                <h3
+                                    class="text-lg font-bold text-slate-900 mb-1 group-hover:text-primary transition-colors">
+                                    Jane Doe</h3>
+                                <p class="text-sm font-medium text-primary bg-primary/10 px-3 py-1 rounded-full">
+                                    Chairperson</p>
+                            </div>
+                            <div class="flex gap-2 w-full mt-auto">
+                                <button
+                                    class="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-lg bg-slate-50 text-slate-600 hover:bg-primary hover:text-white transition-all text-sm font-semibold border border-slate-100 shadow-sm">
+                                    <span class="material-symbols-outlined text-[18px]">edit</span>
+                                    Edit
+                                </button>
+                                <button
+                                    class="flex items-center justify-center px-3 py-2.5 rounded-lg bg-slate-50 text-slate-600 hover:bg-red-500 hover:text-white transition-all border border-slate-100 shadow-sm"
+                                    title="Delete Member">
+                                    <span class="material-symbols-outlined text-[18px]">delete</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div
+                            class="group flex flex-col rounded-2xl bg-surface-light border border-slate-200 p-5 shadow-sm hover:shadow-xl hover:border-primary/30 transition-all duration-300 relative overflow-hidden">
+                            <div
+                                class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity">
+                            </div>
+                            <div class="flex flex-col items-center text-center pb-4 border-b border-slate-100 mb-4">
+                                <div class="relative mb-4">
+                                    <div class="w-24 h-24 rounded-full bg-cover bg-center ring-4 ring-slate-50 shadow-md"
+                                        data-alt="Portrait of John Smith in a suit"
+                                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDUI852RhD3cCJxj2zMbekzSIr92bkrlQb9e4foOyLyq0pbTHczycWMMExIUaTr-pbAVLghjIRe7WprrYhdMvUc9ST1CG_r5NFxOkJb5oTNW0eF2KbH1XDSTRtBQF9J4VVrIF-hV9GyWNCc_UjXqzfiWcPhXehudwQZB1jgP0jbyhbTCaiHohNbuc9GRoVjMGD2HZamNMjlIveB_mToXsYAsJBHVvDLxWZ7sWBtrZjLy3f5HnMN_AhKHtOCpE6xRA_COEP-TPcwvsa5");'>
+                                    </div>
+                                    <div
+                                        class="absolute bottom-1 right-1 w-5 h-5 bg-emerald-500 rounded-full border-2 border-white">
+                                    </div>
+                                </div>
+                                <h3
+                                    class="text-lg font-bold text-slate-900 mb-1 group-hover:text-primary transition-colors">
+                                    John Smith</h3>
+                                <p class="text-sm font-medium text-slate-500">Technical Lead</p>
+                            </div>
+                            <div class="flex gap-2 w-full mt-auto">
+                                <button
+                                    class="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-lg bg-slate-50 text-slate-600 hover:bg-primary hover:text-white transition-all text-sm font-semibold border border-slate-100 shadow-sm">
+                                    <span class="material-symbols-outlined text-[18px]">edit</span>
+                                    Edit
+                                </button>
+                                <button
+                                    class="flex items-center justify-center px-3 py-2.5 rounded-lg bg-slate-50 text-slate-600 hover:bg-red-500 hover:text-white transition-all border border-slate-100 shadow-sm">
+                                    <span class="material-symbols-outlined text-[18px]">delete</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div
+                            class="group flex flex-col rounded-2xl bg-surface-light border border-slate-200 p-5 shadow-sm hover:shadow-xl hover:border-primary/30 transition-all duration-300 relative overflow-hidden">
+                            <div
+                                class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity">
+                            </div>
+                            <div class="flex flex-col items-center text-center pb-4 border-b border-slate-100 mb-4">
+                                <div class="relative mb-4">
+                                    <div class="w-24 h-24 rounded-full bg-cover bg-center ring-4 ring-slate-50 shadow-md"
+                                        data-alt="Portrait of Emily Chen smiling"
+                                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCg8NRQvFy8HYZG3-hXylZQYSnKXmAaDOHO3sTbcxRgbnbH5FiE-lMabg3wAfUzu2WiUR-AMMl-RITfxBBflIeEhGMCQAcWGhkNkqwSme1YL2WKwvaAavVfnxFQIIyc7ujYLd7APN1QZDj195skD8VDEQmSJkpdFAKelGta_xff27kxQq6lJzZKWU3OKsJZTSiXwhJUe4fwUeTSTUWibGd_K6jofghDMa5Fsinp6Y7nR5lIT2YIvz2BqOF35HuGS_eNlAEfnd9gJhgv");'>
+                                    </div>
+                                    <div
+                                        class="absolute bottom-1 right-1 w-5 h-5 bg-emerald-500 rounded-full border-2 border-white">
+                                    </div>
+                                </div>
+                                <h3
+                                    class="text-lg font-bold text-slate-900 mb-1 group-hover:text-primary transition-colors">
+                                    Emily Chen</h3>
+                                <p class="text-sm font-medium text-slate-500">Design Head</p>
+                            </div>
+                            <div class="flex gap-2 w-full mt-auto">
+                                <button
+                                    class="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-lg bg-slate-50 text-slate-600 hover:bg-primary hover:text-white transition-all text-sm font-semibold border border-slate-100 shadow-sm">
+                                    <span class="material-symbols-outlined text-[18px]">edit</span>
+                                    Edit
+                                </button>
+                                <button
+                                    class="flex items-center justify-center px-3 py-2.5 rounded-lg bg-slate-50 text-slate-600 hover:bg-red-500 hover:text-white transition-all border border-slate-100 shadow-sm">
+                                    <span class="material-symbols-outlined text-[18px]">delete</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div
+                            class="group flex flex-col rounded-2xl bg-surface-light border border-slate-200 p-5 shadow-sm hover:shadow-xl hover:border-primary/30 transition-all duration-300 relative overflow-hidden">
+                            <div
+                                class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity">
+                            </div>
+                            <div class="flex flex-col items-center text-center pb-4 border-b border-slate-100 mb-4">
+                                <div class="relative mb-4">
+                                    <div class="w-24 h-24 rounded-full bg-cover bg-center ring-4 ring-slate-50 shadow-md"
+                                        data-alt="Portrait of Michael Brown"
+                                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC7zXdXJMtWeqI4_xG34xeXLzvxg3GdmKvWXzy6ImTvaRrLUMUC9XLjLU8S-ExPInsc1IAApRMDl8XKOU8L9Nn6AARgWUGADsAhbi0GtVlKI1waQ3gLJkUahpZTbwz-MT0H03hmCV-sxSUyLPFKbglEnxGRiFQG29qytILYn4-YiXZKkUvLKVMLLV_GulxJ6Olq7emIfNMbD1eGlP5gWR5O1SMjkH2DPZHvHHtgDLzvYCOIKHOJ4Ym8Xzi6fqltnQ11C1N6tseQqCFn");'>
+                                    </div>
+                                    <div
+                                        class="absolute bottom-1 right-1 w-5 h-5 bg-emerald-500 rounded-full border-2 border-white">
+                                    </div>
+                                </div>
+                                <h3
+                                    class="text-lg font-bold text-slate-900 mb-1 group-hover:text-primary transition-colors">
+                                    Michael Brown</h3>
+                                <p class="text-sm font-medium text-slate-500">Event Coordinator</p>
+                            </div>
+                            <div class="flex gap-2 w-full mt-auto">
+                                <button
+                                    class="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-lg bg-slate-50 text-slate-600 hover:bg-primary hover:text-white transition-all text-sm font-semibold border border-slate-100 shadow-sm">
+                                    <span class="material-symbols-outlined text-[18px]">edit</span>
+                                    Edit
+                                </button>
+                                <button
+                                    class="flex items-center justify-center px-3 py-2.5 rounded-lg bg-slate-50 text-slate-600 hover:bg-red-500 hover:text-white transition-all border border-slate-100 shadow-sm">
+                                    <span class="material-symbols-outlined text-[18px]">delete</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div
+                            class="group flex flex-col rounded-2xl bg-surface-light border border-slate-200 p-5 shadow-sm hover:shadow-xl hover:border-primary/30 transition-all duration-300 relative overflow-hidden">
+                            <div
+                                class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity">
+                            </div>
+                            <div class="flex flex-col items-center text-center pb-4 border-b border-slate-100 mb-4">
+                                <div class="relative mb-4">
+                                    <div
+                                        class="w-24 h-24 rounded-full bg-slate-100 flex items-center justify-center ring-4 ring-slate-50 shadow-inner">
+                                        <span class="text-2xl font-bold text-slate-400">SR</span>
+                                    </div>
+                                    <div class="absolute bottom-1 right-1 w-5 h-5 bg-slate-400 rounded-full border-2 border-white"
+                                        title="Offline"></div>
+                                </div>
+                                <h3
+                                    class="text-lg font-bold text-slate-900 mb-1 group-hover:text-primary transition-colors">
+                                    Sarah Ross</h3>
+                                <p class="text-sm font-medium text-slate-500">Marketing Lead</p>
+                            </div>
+                            <div class="flex gap-2 w-full mt-auto">
+                                <button
+                                    class="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-lg bg-slate-50 text-slate-600 hover:bg-primary hover:text-white transition-all text-sm font-semibold border border-slate-100 shadow-sm">
+                                    <span class="material-symbols-outlined text-[18px]">edit</span>
+                                    Edit
+                                </button>
+                                <button
+                                    class="flex items-center justify-center px-3 py-2.5 rounded-lg bg-slate-50 text-slate-600 hover:bg-red-500 hover:text-white transition-all border border-slate-100 shadow-sm">
+                                    <span class="material-symbols-outlined text-[18px]">delete</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div
+                            class="group flex flex-col rounded-2xl bg-surface-light border border-slate-200 p-5 shadow-sm hover:shadow-xl hover:border-primary/30 transition-all duration-300 relative overflow-hidden">
+                            <div
+                                class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity">
+                            </div>
+                            <div class="flex flex-col items-center text-center pb-4 border-b border-slate-100 mb-4">
+                                <div class="relative mb-4">
+                                    <div class="w-24 h-24 rounded-full bg-cover bg-center ring-4 ring-slate-50 shadow-md"
+                                        data-alt="Portrait of David Kim in casual wear"
+                                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDwj-XpABhp-BhbsTwQ73UpyZjjXBxsVfp2ji2wmzKeCD-31bfHtVChk9u7jczZPX8B3F3lIGtdEsgX7N4gOpX0fkTK-hlIUR1mc264wXHsY3_WsidF-KIdL6bV4eM6zHrIhhfvJmDBd_9QwgX1TjA5ZrWZdNPQZG74adjoPp-hknUi0EvUNtYD7EAiP_QtMfJoqyWt5qYyXEBH8aOvWwKNjJOziy12hAVKqPbBaAWGsUDQfBpWqCs3bK1iVPAkbm0FM622wG_per6A");'>
+                                    </div>
+                                    <div
+                                        class="absolute bottom-1 right-1 w-5 h-5 bg-emerald-500 rounded-full border-2 border-white">
+                                    </div>
+                                </div>
+                                <h3
+                                    class="text-lg font-bold text-slate-900 mb-1 group-hover:text-primary transition-colors">
+                                    David Kim</h3>
+                                <p class="text-sm font-medium text-slate-500">Developer</p>
+                            </div>
+                            <div class="flex gap-2 w-full mt-auto">
+                                <button
+                                    class="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-lg bg-slate-50 text-slate-600 hover:bg-primary hover:text-white transition-all text-sm font-semibold border border-slate-100 shadow-sm">
+                                    <span class="material-symbols-outlined text-[18px]">edit</span>
+                                    Edit
+                                </button>
+                                <button
+                                    class="flex items-center justify-center px-3 py-2.5 rounded-lg bg-slate-50 text-slate-600 hover:bg-red-500 hover:text-white transition-all border border-slate-100 shadow-sm">
+                                    <span class="material-symbols-outlined text-[18px]">delete</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div
+                            class="group flex flex-col rounded-2xl bg-surface-light border border-slate-200 p-5 shadow-sm hover:shadow-xl hover:border-primary/30 transition-all duration-300 relative overflow-hidden">
+                            <div
+                                class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity">
+                            </div>
+                            <div class="flex flex-col items-center text-center pb-4 border-b border-slate-100 mb-4">
+                                <div class="relative mb-4">
+                                    <div class="w-24 h-24 rounded-full bg-cover bg-center ring-4 ring-slate-50 shadow-md"
+                                        data-alt="Portrait of Lisa Wong"
+                                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAY24HItsGQIPV4edKEZ1Cpby0RhJziwdFY1IRVGIMCv-61e4OB4mnIXepOkQ3JV3eCQhiet85g4ZMVZT_--gpNHNe_-7265xWdAnq476GPccUJQ_uvYi25vrpSuW7BziYsCVJZfu9H0r6KpKthDqv13fOjAx_bZeA4mLYmhBuZ07h8_tdZo-iUODiKqJ-RGrmzI5GzHnDZTmhmMBykEoES2K3yzkCaytmQ95R2pRFrNrGR_ybb7q6lcZEdILEUPbxRiqh4pYqsvBjs");'>
+                                    </div>
+                                    <div class="absolute bottom-1 right-1 w-5 h-5 bg-amber-500 rounded-full border-2 border-white"
+                                        title="Away"></div>
+                                </div>
+                                <h3
+                                    class="text-lg font-bold text-slate-900 mb-1 group-hover:text-primary transition-colors">
+                                    Lisa Wong</h3>
+                                <p class="text-sm font-medium text-slate-500">UI/UX Designer</p>
+                            </div>
+                            <div class="flex gap-2 w-full mt-auto">
+                                <button
+                                    class="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-lg bg-slate-50 text-slate-600 hover:bg-primary hover:text-white transition-all text-sm font-semibold border border-slate-100 shadow-sm">
+                                    <span class="material-symbols-outlined text-[18px]">edit</span>
+                                    Edit
+                                </button>
+                                <button
+                                    class="flex items-center justify-center px-3 py-2.5 rounded-lg bg-slate-50 text-slate-600 hover:bg-red-500 hover:text-white transition-all border border-slate-100 shadow-sm">
+                                    <span class="material-symbols-outlined text-[18px]">delete</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div
+                            class="group flex flex-col rounded-2xl bg-surface-light border border-slate-200 p-5 shadow-sm hover:shadow-xl hover:border-primary/30 transition-all duration-300 relative overflow-hidden">
+                            <div
+                                class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity">
+                            </div>
+                            <div class="flex flex-col items-center text-center pb-4 border-b border-slate-100 mb-4">
+                                <div class="relative mb-4">
+                                    <div class="w-24 h-24 rounded-full bg-cover bg-center ring-4 ring-slate-50 shadow-md"
+                                        data-alt="Portrait of James Wilson"
+                                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDWB11azMuiSFMQyXVQCympqhr_paKwSohmuxEsPEEaNVVC8YLqxJ_gEMCKUZlkJaN057wURcpJo5OScCf9Nuka7XGAW7b-euaJWPOI_4VH8lIRDpu6SB0TCPmi5pf5hjqliWX27jN8xcDVwv73ed3NQAlueNfm0FJAaxg8GTGWYU0yBXvNFF252nEPKicvIjjGEDu3WZcaoF7TNC0geh7mQuKR9geuIfEtTwAIPnFwEeAkrpS3v0l3prGbwIK87pRfR4VHqCvxrUjn");'>
+                                    </div>
+                                    <div
+                                        class="absolute bottom-1 right-1 w-5 h-5 bg-emerald-500 rounded-full border-2 border-white">
+                                    </div>
+                                </div>
+                                <h3
+                                    class="text-lg font-bold text-slate-900 mb-1 group-hover:text-primary transition-colors">
+                                    James Wilson</h3>
+                                <p class="text-sm font-medium text-slate-500">Treasurer</p>
+                            </div>
+                            <div class="flex gap-2 w-full mt-auto">
+                                <button
+                                    class="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-lg bg-slate-50 text-slate-600 hover:bg-primary hover:text-white transition-all text-sm font-semibold border border-slate-100 shadow-sm">
+                                    <span class="material-symbols-outlined text-[18px]">edit</span>
+                                    Edit
+                                </button>
+                                <button
+                                    class="flex items-center justify-center px-3 py-2.5 rounded-lg bg-slate-50 text-slate-600 hover:bg-red-500 hover:text-white transition-all border border-slate-100 shadow-sm">
+                                    <span class="material-symbols-outlined text-[18px]">delete</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 mt-8 pb-8">
+                        <p class="text-sm text-slate-500">
+                            Showing <span class="font-bold text-slate-900">1</span> to <span
+                                class="font-bold text-slate-900">8</span> of <span
+                                class="font-bold text-slate-900">42</span> members
+                        </p>
+                        <div class="flex gap-2">
+                            <button
+                                class="px-4 py-2 rounded-lg border border-slate-200 text-slate-600 text-sm font-medium hover:bg-slate-50 disabled:opacity-50 disabled:cursor-not-allowed bg-white"
+                                disabled="">
+                                Previous
+                            </button>
+                            <button
+                                class="px-4 py-2 rounded-lg bg-white border border-slate-200 text-slate-900 text-sm font-medium hover:bg-slate-50 shadow-sm">
+                                Next
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const sidebar = document.getElementById('sidebar');
+
+        if (menuBtn && sidebar) {
+            menuBtn.addEventListener('click', () => {
+                sidebar.classList.toggle('-translate-x-full');
+            });
+        }
+    });
+</script>
+
+</html>
