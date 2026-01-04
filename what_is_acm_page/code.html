@@ -43,136 +43,8 @@
 
 <body
     class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display antialiased overflow-x-hidden flex flex-col min-h-screen">
-    <!-- HEADER COMPONENT START -->
-    <header
-        class="sticky top-0 z-50 w-full bg-white/90 dark:bg-background-dark/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
-                <!-- Logo Section -->
-                <div class="flex-shrink-0 flex items-center">
-                    <img src="ACM_NMIET_LOGO.png" alt="ACM NMIET Logo" class="h-12 w-auto">
-                </div>
-                <!-- Desktop Navigation -->
-                <nav class="hidden lg:flex items-center gap-8">
-                    <!-- Home (Active State Example) -->
-                    <a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors"
-                        href="../home_page/code.html">
-                        Home
-                    </a>
-                    <a class="text-sm font-medium text-primary relative after:absolute after:bottom-[-2px] after:left-0 after:w-full after:h-0.5 after:bg-primary after:rounded-full"
-                        href="../what_is_acm_page/code.html">
-                        What is ACM
-                    </a>
-                    <!-- Dropdown Menu -->
-                    <div class="relative group h-full flex items-center">
-                        <button
-                            class="flex items-center gap-1 text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors focus:outline-none py-8">
-                            ACM NMIET
-                            <span
-                                class="material-symbols-outlined text-[20px] transition-transform duration-300 group-hover:-rotate-180">keyboard_arrow_down</span>
-                        </button>
-                        <!-- Dropdown Panel -->
-                        <div
-                            class="absolute top-[80%] left-1/2 -translate-x-1/2 w-56 invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-200 ease-out transform translate-y-2 group-hover:translate-y-0 pt-2">
-                            <div
-                                class="bg-white dark:bg-slate-800 rounded-xl shadow-xl border border-slate-100 dark:border-slate-700 overflow-hidden ring-1 ring-black ring-opacity-5 p-1">
-                                <a class="flex items-center gap-3 px-4 py-3 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700/50 hover:text-primary rounded-lg transition-colors"
-                                    href="../acm_nmiet_page/code.html">
-                                    <span class="material-symbols-outlined text-lg text-slate-400">info</span>
-                                    About
-                                </a>
-                                <a class="flex items-center gap-3 px-4 py-3 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700/50 hover:text-primary rounded-lg transition-colors"
-                                    href="../acm_nmiet_page/code.html#vision">
-                                    <span class="material-symbols-outlined text-lg text-slate-400">visibility</span>
-                                    Vision
-                                </a>
-                                <a class="flex items-center gap-3 px-4 py-3 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700/50 hover:text-primary rounded-lg transition-colors"
-                                    href="../acm_nmiet_page/code.html#mission">
-                                    <span class="material-symbols-outlined text-lg text-slate-400">flag</span>
-                                    Mission
-                                </a>
-                                <div class="h-px bg-slate-100 dark:bg-slate-700 my-1 mx-2"></div>
-                                <a class="flex items-center gap-3 px-4 py-3 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700/50 hover:text-primary rounded-lg transition-colors"
-                                    href="../acm_nmiet_page/code.html#roadmap">
-                                    <span class="material-symbols-outlined text-lg text-slate-400">map</span>
-                                    Roadmap
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors"
-                        href="../focus_areas_page/code.html">
-                        Focus Areas
-                    </a>
-                    <a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors"
-                        href="../our_team_page/code.html">
-                        Our Team
-                    </a>
-                    <a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors"
-                        href="../upcoming_activities_page/code.html">
-                        Upcoming Activities
-                    </a>
-                    <a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors"
-                        href="../contact_page/code.html">
-                        Contact Us
-                    </a>
-                </nav>
-                <!-- Right Side Actions -->
-                <div class="flex items-center gap-4">
-                    <!-- CTA Button -->
-                    <a class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 text-sm font-bold text-white transition-all duration-200 bg-primary border border-transparent rounded-lg hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary shadow-sm hover:shadow-md hover:-translate-y-0.5"
-                        href="../join_acm_page/code.html">
-                        Join ACM
-                    </a>
-                    <!-- Mobile Menu Button -->
-                    <button id="mobile-menu-btn"
-                        class="lg:hidden inline-flex items-center justify-center p-2 rounded-md text-slate-600 dark:text-slate-300 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none transition-colors"
-                        type="button">
-                        <span class="sr-only">Open main menu</span>
-                        <span class="material-symbols-outlined text-3xl">menu</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <!-- Mobile Menu Dropdown Simulation (Hidden by default, shown here conceptually as it would appear on interaction) -->
-        <!-- Note: In a real React app, this visibility is controlled by state -->
-        <div id="mobile-menu"
-            class="hidden lg:hidden border-t border-slate-100 dark:border-slate-800 bg-white dark:bg-background-dark absolute w-full left-0 shadow-lg">
-            <div class="px-4 pt-2 pb-6 space-y-1">
-                <a class="block px-3 py-3 rounded-md text-base font-medium text-slate-600 dark:text-slate-300 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800"
-                    href="../home_page/code.html">Home</a>
-                <a class="block px-3 py-3 rounded-md text-base font-medium text-primary bg-primary/5"
-                    href="../what_is_acm_page/code.html">What is ACM</a>
-                <!-- Mobile Submenu -->
-                <div class="pl-4 border-l-2 border-slate-100 dark:border-slate-700 ml-3 my-2 space-y-1">
-                    <p class="px-3 py-2 text-xs font-bold uppercase tracking-wider text-slate-400">ACM NMIET</p>
-                    <a class="block px-3 py-2 rounded-md text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary"
-                        href="../acm_nmiet_page/code.html">About</a>
-                    <a class="block px-3 py-2 rounded-md text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary"
-                        href="../acm_nmiet_page/code.html#vision">Vision</a>
-                    <a class="block px-3 py-2 rounded-md text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary"
-                        href="../acm_nmiet_page/code.html#mission">Mission</a>
-                    <a class="block px-3 py-2 rounded-md text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary"
-                        href="../acm_nmiet_page/code.html#roadmap">Roadmap</a>
-                </div>
-                <a class="block px-3 py-3 rounded-md text-base font-medium text-slate-600 dark:text-slate-300 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800"
-                    href="../focus_areas_page/code.html">Focus Areas</a>
-                <a class="block px-3 py-3 rounded-md text-base font-medium text-slate-600 dark:text-slate-300 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800"
-                    href="../our_team_page/code.html">Our Team</a>
-                <a class="block px-3 py-3 rounded-md text-base font-medium text-slate-600 dark:text-slate-300 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800"
-                    href="../upcoming_activities_page/code.html">Upcoming Activities</a>
-                <a class="block px-3 py-3 rounded-md text-base font-medium text-slate-600 dark:text-slate-300 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800"
-                    href="../contact_page/code.html">Contact Us</a>
-                <div class="pt-4">
-                    <a class="flex w-full items-center justify-center px-4 py-3 rounded-lg text-base font-bold text-white bg-primary hover:bg-primary/90"
-                        href="../join_acm_page/code.html">
-                        Join ACM Now
-                    </a>
-                </div>
-            </div>
-        </div>
-    </header>
-    <!-- HEADER COMPONENT END -->
+    <!-- Navbar Component (Loaded Dynamically) -->
+    <div id="acm-navbar"></div>
     <!-- Hero Section -->
     <header class="relative w-full bg-slate-900 py-16 lg:py-20 overflow-hidden">
         <!-- Abstract Background Image -->
@@ -451,17 +323,8 @@
     <!-- Simple Footer -->
     <!-- Dynamic Footer -->
     <div id="acm-footer"></div>
+    <script src="../assets/js/navbar_loader.js"></script>
     <script src="../assets/js/footer_loader.js"></script>
-    <script>
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        if (mobileMenuBtn && mobileMenu) {
-            mobileMenuBtn.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
-        }
-    </script>
 </body>
 
 </html>
