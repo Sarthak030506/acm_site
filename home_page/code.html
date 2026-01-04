@@ -133,7 +133,7 @@
                             Join ACM
                         </a>
                         <!-- Mobile Menu Button -->
-                        <button
+                        <button id="mobile-menu-btn"
                             class="lg:hidden inline-flex items-center justify-center p-2 rounded-md text-slate-600 dark:text-slate-300 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none transition-colors"
                             type="button">
                             <span class="sr-only">Open main menu</span>
@@ -143,8 +143,9 @@
                 </div>
             </div>
             <!-- Mobile Menu Dropdown Simulation (Hidden by default, shown here conceptually as it would appear on interaction) -->
+            <!-- Mobile Menu Dropdown Simulation (Hidden by default, shown here conceptually as it would appear on interaction) -->
             <!-- Note: In a real React app, this visibility is controlled by state -->
-            <div
+            <div id="mobile-menu"
                 class="hidden lg:hidden border-t border-slate-100 dark:border-slate-800 bg-white dark:bg-background-dark absolute w-full left-0 shadow-lg">
                 <div class="px-4 pt-2 pb-6 space-y-1">
                     <a class="block px-3 py-3 rounded-md text-base font-medium text-primary bg-primary/5"
@@ -379,6 +380,16 @@
         <div id="acm-footer"></div>
         <script src="../assets/js/footer_loader.js"></script>
     </div>
+    <script>
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+    </script>
 </body>
 
 </html>
