@@ -433,26 +433,9 @@
             </section>
         </main>
         <!-- Footer -->
-        <footer
-            class="bg-surface-light dark:bg-surface-dark border-t border-[#e6eff4] dark:border-[#2a4050] py-10 px-4 md:px-10">
-            <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-                <div class="flex items-center gap-3">
-                    <div class="text-primary">
-                        <span class="material-symbols-outlined">code</span>
-                    </div>
-                    <span class="text-lg font-bold text-text-main-light dark:text-text-main-dark">ACM NMIET</span>
-                </div>
-                <div class="flex gap-8 flex-wrap justify-center">
-                    <a class="text-sm text-text-sec-light dark:text-text-sec-dark hover:text-primary transition-colors"
-                        href="#">Privacy Policy</a>
-                    <a class="text-sm text-text-sec-light dark:text-text-sec-dark hover:text-primary transition-colors"
-                        href="#">Terms of Service</a>
-                    <a class="text-sm text-text-sec-light dark:text-text-sec-dark hover:text-primary transition-colors"
-                        href="#">Cookie Settings</a>
-                </div>
-                <p class="text-sm text-text-sec-light dark:text-text-sec-dark">© 2024 ACM NMIET Chapter.</p>
-            </div>
-        </footer>
+        <!-- Dynamic Footer -->
+        <div id="acm-footer"></div>
+        <script src="../assets/js/footer_loader.js"></script>
     </div>
     <script>
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');

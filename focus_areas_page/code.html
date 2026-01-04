@@ -441,32 +441,9 @@
             </div>
         </section>
     </main>
-    <!-- Footer (Simplified) -->
-    <footer class="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 py-12">
-        <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div class="flex items-center justify-center gap-2 mb-4 text-text-main dark:text-white">
-                <span class="material-symbols-outlined">school</span>
-                <span class="font-bold text-lg">ACM NMIET</span>
-            </div>
-            <p class="text-gray-500 dark:text-gray-400 text-sm mb-6">Empowering students through technology and
-                community.</p>
-            <div class="flex justify-center gap-6 mb-8">
-                <a class="text-gray-400 hover:text-primary transition-colors" href="#">
-                    <span class="sr-only">Twitter</span>
-                    <span class="material-symbols-outlined">public</span>
-                </a>
-                <a class="text-gray-400 hover:text-primary transition-colors" href="#">
-                    <span class="sr-only">GitHub</span>
-                    <span class="material-symbols-outlined">code</span>
-                </a>
-                <a class="text-gray-400 hover:text-primary transition-colors" href="#">
-                    <span class="sr-only">LinkedIn</span>
-                    <span class="material-symbols-outlined">work</span>
-                </a>
-            </div>
-            <p class="text-gray-400 text-xs">© 2023 ACM NMIET Student Chapter. All rights reserved.</p>
-        </div>
-    </footer>
+    <!-- Dynamic Footer -->
+    <div id="acm-footer"></div>
+    <script src="../assets/js/footer_loader.js"></script>
     <script>
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
