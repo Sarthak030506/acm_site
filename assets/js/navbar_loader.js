@@ -1,6 +1,6 @@
 const navbarHTML = `
 <header
-    class="sticky top-0 z-50 w-full bg-white/90 dark:bg-background-dark/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-all duration-300">
+    class="sticky top-0 z-50 w-full bg-white/90 dark:bg-background-dark/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 font-display">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-20">
             <!-- Logo Section -->
@@ -10,44 +10,43 @@ const navbarHTML = `
             <!-- Desktop Navigation -->
             <nav class="hidden lg:flex items-center gap-8">
                 <!-- Home -->
-                <a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors nav-link"
+                <a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary nav-link"
                     href="../home_page/code.html" data-page="home_page">
                     Home
                 </a>
-                <a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors nav-link"
+                <a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary nav-link"
                     href="../what_is_acm_page/code.html" data-page="what_is_acm_page">
                     What is ACM
                 </a>
                 <!-- Dropdown Menu -->
                 <div class="relative group h-full flex items-center">
                     <button id="dropdown-btn"
-                        class="flex items-center gap-1 text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors focus:outline-none py-8">
+                        class="flex items-center gap-1 text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary focus:outline-none py-8">
                         ACM NMIET
-                        <span
-                            class="material-symbols-outlined text-[20px] transition-transform duration-300 group-hover:-rotate-180">keyboard_arrow_down</span>
+                        <span class="material-symbols-outlined text-[20px]">keyboard_arrow_down</span>
                     </button>
                     <!-- Dropdown Panel -->
                     <div
-                        class="absolute top-[80%] left-1/2 -translate-x-1/2 w-56 invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-200 ease-out transform translate-y-2 group-hover:translate-y-0 pt-2">
+                        class="absolute top-[80%] left-1/2 -translate-x-1/2 w-56 invisible opacity-0 group-hover:visible group-hover:opacity-100 pt-2">
                         <div
                             class="bg-white dark:bg-slate-800 rounded-xl shadow-xl border border-slate-100 dark:border-slate-700 overflow-hidden ring-1 ring-black ring-opacity-5 p-1">
-                            <a class="flex items-center gap-3 px-4 py-3 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700/50 hover:text-primary rounded-lg transition-colors"
+                            <a class="flex items-center gap-3 px-4 py-3 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700/50 hover:text-primary rounded-lg"
                                 href="../acm_nmiet_page/code.html">
                                 <span class="material-symbols-outlined text-lg text-slate-400">info</span>
                                 About
                             </a>
-                            <a class="flex items-center gap-3 px-4 py-3 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700/50 hover:text-primary rounded-lg transition-colors"
+                            <a class="flex items-center gap-3 px-4 py-3 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700/50 hover:text-primary rounded-lg"
                                 href="../acm_nmiet_page/code.html#vision">
                                 <span class="material-symbols-outlined text-lg text-slate-400">visibility</span>
                                 Vision
                             </a>
-                            <a class="flex items-center gap-3 px-4 py-3 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700/50 hover:text-primary rounded-lg transition-colors"
+                            <a class="flex items-center gap-3 px-4 py-3 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700/50 hover:text-primary rounded-lg"
                                 href="../acm_nmiet_page/code.html#mission">
                                 <span class="material-symbols-outlined text-lg text-slate-400">flag</span>
                                 Mission
                             </a>
                             <div class="h-px bg-slate-100 dark:bg-slate-700 my-1 mx-2"></div>
-                            <a class="flex items-center gap-3 px-4 py-3 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700/50 hover:text-primary rounded-lg transition-colors"
+                            <a class="flex items-center gap-3 px-4 py-3 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700/50 hover:text-primary rounded-lg"
                                 href="../acm_nmiet_page/code.html#roadmap">
                                 <span class="material-symbols-outlined text-lg text-slate-400">map</span>
                                 Roadmap
@@ -55,19 +54,19 @@ const navbarHTML = `
                         </div>
                     </div>
                 </div>
-                <a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors nav-link"
+                <a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary nav-link"
                     href="../focus_areas_page/code.html" data-page="focus_areas_page">
                     Focus Areas
                 </a>
-                <a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors nav-link"
+                <a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary nav-link"
                     href="../our_team_page/code.html" data-page="our_team_page">
                     Our Team
                 </a>
-                <a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors nav-link"
+                <a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary nav-link"
                     href="../upcoming_activities_page/code.html" data-page="upcoming_activities_page">
                     Upcoming Activities
                 </a>
-                <a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors nav-link"
+                <a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary nav-link"
                     href="../contact_page/code.html" data-page="contact_page">
                     Contact Us
                 </a>
@@ -75,13 +74,13 @@ const navbarHTML = `
             <!-- Right Side Actions -->
             <div class="flex items-center gap-4">
                 <!-- CTA Button -->
-                <a class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 text-sm font-bold text-white transition-all duration-200 bg-primary border border-transparent rounded-lg hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary shadow-sm hover:shadow-md hover:-translate-y-0.5"
+                <a class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 text-sm font-bold text-white bg-primary border border-transparent rounded-lg hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary shadow-sm"
                     href="../join_acm_page/code.html">
                     Join ACM
                 </a>
                 <!-- Mobile Menu Button -->
                 <button id="mobile-menu-btn"
-                    class="lg:hidden inline-flex items-center justify-center p-2 rounded-md text-slate-600 dark:text-slate-300 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none transition-colors"
+                    class="lg:hidden inline-flex items-center justify-center p-2 rounded-md text-slate-600 dark:text-slate-300 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none"
                     type="button">
                     <span class="sr-only">Open main menu</span>
                     <span class="material-symbols-outlined text-3xl">menu</span>
@@ -173,12 +172,19 @@ function highlightActivePage() {
 
     // Find link matching the specific data-page attribute
     const activeLink = document.querySelector(`.nav-link[data-page="${currentFolder}"]`);
+    const activeMobileLink = document.querySelector(`.nav-link-mobile[data-page="${currentFolder}"]`);
 
     if (activeLink) {
-        // Remove default inactive classes
-        activeLink.classList.remove('text-slate-600', 'dark:text-slate-300', 'hover:text-primary', 'dark:hover:text-primary');
+        // Remove default inactive classes AND transition-colors to prevent flickering
+        activeLink.classList.remove('text-slate-600', 'dark:text-slate-300', 'hover:text-primary', 'dark:hover:text-primary', 'transition-colors');
         // Add active classes
         activeLink.classList.add('text-primary', 'relative', 'after:absolute', 'after:bottom-[-2px]', 'after:left-0', 'after:w-full', 'after:h-0.5', 'after:bg-primary', 'after:rounded-full');
+    }
+
+    // Highlight mobile menu active link
+    if (activeMobileLink) {
+        activeMobileLink.classList.remove('text-slate-600', 'dark:text-slate-300', 'transition-colors');
+        activeMobileLink.classList.add('text-primary', 'bg-primary/5');
     }
 }
 
