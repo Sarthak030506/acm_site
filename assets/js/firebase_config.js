@@ -7,7 +7,7 @@ import { getFirestore } from "https://www.gstatic.com/firebasejs/10.7.1/firebase
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyBeRAcaCa_K2sHAQAocqXkLLJDAceGe20I",
+    apiKey: "AIzaSyBeRACaCa_K2sHAQAocqXkLLJDAceGe20I",
     authDomain: "acmwebsite-d5101.firebaseapp.com",
     projectId: "acmwebsite-d5101",
     storageBucket: "acmwebsite-d5101.firebasestorage.app",
