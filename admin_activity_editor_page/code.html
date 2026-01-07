@@ -227,9 +227,9 @@
                                     <select
                                         class="w-full rounded-lg bg-input-bg border border-border-color text-text-main focus:border-primary focus:ring-1 focus:ring-primary h-12 px-4 pr-10 appearance-none transition-all cursor-pointer shadow-sm"
                                         id="status">
-                                        <option value="planned">Planned</option>
-                                        <option value="coming_soon">Coming Soon</option>
-                                        <option value="tba">To Be Announced</option>
+                                        <option value="upcoming">Upcoming</option>
+                                        <option value="ongoing">Ongoing</option>
+                                        <option value="completed">Completed</option>
                                     </select>
                                     <div
                                         class="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-text-secondary">
@@ -361,24 +361,24 @@
                 if (activityId) {
                     // Update existing
                     await updateDoc(doc(db, "activities", activityId), {
-                        title,
-                        category,
-                        status,
-                        date,
-                        description,
-                        bannerUrl,
+                        title: title,
+                        description: description,
+                        activityType: category.toLowerCase(),
+                        date: date,
+                        status: status,
+                        imageURL: bannerUrl,
                         updatedAt: new Date()
                     });
                     alert("Activity updated successfully!");
                 } else {
                     // Create new
                     await addDoc(collection(db, "activities"), {
-                        title,
-                        category,
-                        status,
-                        date,
-                        description,
-                        bannerUrl,
+                        title: title,
+                        description: description,
+                        activityType: category.toLowerCase(), // Map category to activityType
+                        date: date,
+                        status: status,
+                        imageURL: bannerUrl,
                         createdAt: new Date()
                     });
                     alert("Activity created successfully!");

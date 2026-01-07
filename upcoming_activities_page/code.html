@@ -237,7 +237,7 @@
                             renderActivities(allDocs);
                         } else {
                             const filtered = allDocs.filter(doc => {
-                                const cat = doc.data().category || '';
+                                const cat = doc.data().activityType || '';
                                 // Simple mapping based on button text
                                 if (filter.includes("workshop") && cat === 'workshop') return true;
                                 if (filter.includes("competition") && cat === 'competition') return true;
