@@ -51,6 +51,8 @@
 </head>
 
 <body class="bg-slate-50 text-slate-900 font-display overflow-hidden">
+    <!-- Auth Guard protection -->
+    <script type="module" src="../assets/js/auth_guard.js"></script>
     <div class="flex h-screen w-full">
         <aside id="sidebar"
             class="fixed inset-y-0 left-0 z-50 w-64 flex flex-col border-r border-border-light bg-surface-light h-full shrink-0 transition-transform duration-300 transform -translate-x-full md:translate-x-0 md:relative md:flex shadow-[4px_0_24px_-12px_rgba(0,0,0,0.1)]">
@@ -218,226 +220,7 @@
                                     </tr>
                                 </thead>
                                 <tbody class="divide-y divide-slate-200">
-                                    <tr class="group hover:bg-slate-50 transition-colors">
-                                        <td class="px-6 py-4 max-w-sm">
-                                            <div class="flex flex-col gap-1">
-                                                <span class="text-slate-900 font-semibold text-base">Intro to AI &amp;
-                                                    Machine Learning</span>
-                                                <span class="text-slate-500 text-sm truncate">A deep dive into neural
-                                                    networks and practical applications...</span>
-                                            </div>
-                                        </td>
-                                        <td class="px-6 py-4">
-                                            <span
-                                                class="inline-flex items-center px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 text-xs font-medium border border-slate-200">
-                                                Workshop
-                                            </span>
-                                        </td>
-                                        <td class="px-6 py-4">
-                                            <div class="flex items-center gap-2 text-sm text-slate-500">
-                                                <span
-                                                    class="material-symbols-outlined text-[16px]">calendar_today</span>
-                                                <span>Oct 24, 2023</span>
-                                            </div>
-                                        </td>
-                                        <td class="px-6 py-4">
-                                            <span
-                                                class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-bold border border-blue-200">
-                                                <span class="size-1.5 rounded-full bg-blue-500"></span>
-                                                Planned
-                                            </span>
-                                        </td>
-                                        <td class="px-6 py-4 text-right">
-                                            <div class="flex items-center justify-end gap-2">
-                                                <button
-                                                    class="size-8 flex items-center justify-center rounded-lg text-slate-400 hover:bg-blue-50 hover:text-blue-600 transition-all"
-                                                    title="Edit">
-                                                    <span class="material-symbols-outlined text-[18px]">edit</span>
-                                                </button>
-                                                <button
-                                                    class="size-8 flex items-center justify-center rounded-lg text-slate-400 hover:bg-red-50 hover:text-red-600 transition-all"
-                                                    title="Delete">
-                                                    <span class="material-symbols-outlined text-[18px]">delete</span>
-                                                </button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr class="group hover:bg-slate-50 transition-colors">
-                                        <td class="px-6 py-4 max-w-sm">
-                                            <div class="flex flex-col gap-1">
-                                                <span class="text-slate-900 font-semibold text-base">Annual Hackathon
-                                                    2023</span>
-                                                <span class="text-slate-500 text-sm truncate">24-hour coding challenge
-                                                    for undergraduates across the region.</span>
-                                            </div>
-                                        </td>
-                                        <td class="px-6 py-4">
-                                            <span
-                                                class="inline-flex items-center px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 text-xs font-medium border border-slate-200">
-                                                Competition
-                                            </span>
-                                        </td>
-                                        <td class="px-6 py-4">
-                                            <div class="flex items-center gap-2 text-sm text-slate-500">
-                                                <span
-                                                    class="material-symbols-outlined text-[16px]">calendar_today</span>
-                                                <span>Nov 12, 2023</span>
-                                            </div>
-                                        </td>
-                                        <td class="px-6 py-4">
-                                            <span
-                                                class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-yellow-50 text-yellow-700 text-xs font-bold border border-yellow-200">
-                                                <span class="size-1.5 rounded-full bg-yellow-500"></span>
-                                                Coming Soon
-                                            </span>
-                                        </td>
-                                        <td class="px-6 py-4 text-right">
-                                            <div class="flex items-center justify-end gap-2">
-                                                <button
-                                                    class="size-8 flex items-center justify-center rounded-lg text-slate-400 hover:bg-blue-50 hover:text-blue-600 transition-all"
-                                                    title="Edit">
-                                                    <span class="material-symbols-outlined text-[18px]">edit</span>
-                                                </button>
-                                                <button
-                                                    class="size-8 flex items-center justify-center rounded-lg text-slate-400 hover:bg-red-50 hover:text-red-600 transition-all"
-                                                    title="Delete">
-                                                    <span class="material-symbols-outlined text-[18px]">delete</span>
-                                                </button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr class="group hover:bg-slate-50 transition-colors">
-                                        <td class="px-6 py-4 max-w-sm">
-                                            <div class="flex flex-col gap-1">
-                                                <span class="text-slate-900 font-semibold text-base">Guest Lecture:
-                                                    Future of Tech</span>
-                                                <span class="text-slate-500 text-sm truncate">Expert speaker from Google
-                                                    discussing LLMs and Generative AI.</span>
-                                            </div>
-                                        </td>
-                                        <td class="px-6 py-4">
-                                            <span
-                                                class="inline-flex items-center px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 text-xs font-medium border border-slate-200">
-                                                Lecture
-                                            </span>
-                                        </td>
-                                        <td class="px-6 py-4">
-                                            <div class="flex items-center gap-2 text-sm text-slate-500">
-                                                <span
-                                                    class="material-symbols-outlined text-[16px]">calendar_today</span>
-                                                <span>Sep 15, 2023</span>
-                                            </div>
-                                        </td>
-                                        <td class="px-6 py-4">
-                                            <span
-                                                class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-gray-100 text-gray-600 text-xs font-bold border border-gray-200">
-                                                <span class="size-1.5 rounded-full bg-gray-500"></span>
-                                                Past
-                                            </span>
-                                        </td>
-                                        <td class="px-6 py-4 text-right">
-                                            <div class="flex items-center justify-end gap-2">
-                                                <button
-                                                    class="size-8 flex items-center justify-center rounded-lg text-slate-400 hover:bg-blue-50 hover:text-blue-600 transition-all"
-                                                    title="Edit">
-                                                    <span class="material-symbols-outlined text-[18px]">edit</span>
-                                                </button>
-                                                <button
-                                                    class="size-8 flex items-center justify-center rounded-lg text-slate-400 hover:bg-red-50 hover:text-red-600 transition-all"
-                                                    title="Delete">
-                                                    <span class="material-symbols-outlined text-[18px]">delete</span>
-                                                </button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr class="group hover:bg-slate-50 transition-colors">
-                                        <td class="px-6 py-4 max-w-sm">
-                                            <div class="flex flex-col gap-1">
-                                                <span class="text-slate-900 font-semibold text-base">Web Development
-                                                    Bootcamp</span>
-                                                <span class="text-slate-500 text-sm truncate">Beginner to Pro: HTML,
-                                                    CSS, JS, React and Node.js.</span>
-                                            </div>
-                                        </td>
-                                        <td class="px-6 py-4">
-                                            <span
-                                                class="inline-flex items-center px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 text-xs font-medium border border-slate-200">
-                                                Bootcamp
-                                            </span>
-                                        </td>
-                                        <td class="px-6 py-4">
-                                            <div class="flex items-center gap-2 text-sm text-slate-500">
-                                                <span
-                                                    class="material-symbols-outlined text-[16px]">calendar_today</span>
-                                                <span>Dec 01, 2023</span>
-                                            </div>
-                                        </td>
-                                        <td class="px-6 py-4">
-                                            <span
-                                                class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-bold border border-blue-200">
-                                                <span class="size-1.5 rounded-full bg-blue-500"></span>
-                                                Planned
-                                            </span>
-                                        </td>
-                                        <td class="px-6 py-4 text-right">
-                                            <div class="flex items-center justify-end gap-2">
-                                                <button
-                                                    class="size-8 flex items-center justify-center rounded-lg text-slate-400 hover:bg-blue-50 hover:text-blue-600 transition-all"
-                                                    title="Edit">
-                                                    <span class="material-symbols-outlined text-[18px]">edit</span>
-                                                </button>
-                                                <button
-                                                    class="size-8 flex items-center justify-center rounded-lg text-slate-400 hover:bg-red-50 hover:text-red-600 transition-all"
-                                                    title="Delete">
-                                                    <span class="material-symbols-outlined text-[18px]">delete</span>
-                                                </button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr class="group hover:bg-slate-50 transition-colors">
-                                        <td class="px-6 py-4 max-w-sm">
-                                            <div class="flex flex-col gap-1">
-                                                <span class="text-slate-900 font-semibold text-base">Community Cleanup
-                                                    Drive</span>
-                                                <span class="text-slate-500 text-sm truncate">Social service initiative
-                                                    by ACM students near the campus.</span>
-                                            </div>
-                                        </td>
-                                        <td class="px-6 py-4">
-                                            <span
-                                                class="inline-flex items-center px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 text-xs font-medium border border-slate-200">
-                                                Social
-                                            </span>
-                                        </td>
-                                        <td class="px-6 py-4">
-                                            <div class="flex items-center gap-2 text-sm text-slate-500">
-                                                <span
-                                                    class="material-symbols-outlined text-[16px]">calendar_today</span>
-                                                <span>Aug 20, 2023</span>
-                                            </div>
-                                        </td>
-                                        <td class="px-6 py-4">
-                                            <span
-                                                class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-gray-100 text-gray-600 text-xs font-bold border border-gray-200">
-                                                <span class="size-1.5 rounded-full bg-gray-500"></span>
-                                                Past
-                                            </span>
-                                        </td>
-                                        <td class="px-6 py-4 text-right">
-                                            <div class="flex items-center justify-end gap-2">
-                                                <button
-                                                    class="size-8 flex items-center justify-center rounded-lg text-slate-400 hover:bg-blue-50 hover:text-blue-600 transition-all"
-                                                    title="Edit">
-                                                    <span class="material-symbols-outlined text-[18px]">edit</span>
-                                                </button>
-                                                <button
-                                                    class="size-8 flex items-center justify-center rounded-lg text-slate-400 hover:bg-red-50 hover:text-red-600 transition-all"
-                                                    title="Delete">
-                                                    <span class="material-symbols-outlined text-[18px]">delete</span>
-                                                </button>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                    <!-- Dynamic content will be loaded here -->
                                 </tbody>
                             </table>
                         </div>
@@ -466,8 +249,11 @@
     </div>
 
 </body>
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
+<script type="module">
+    import { db } from '../assets/js/firebase_config.js';
+    import { collection, getDocs, deleteDoc, doc, query, orderBy } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+    document.addEventListener('DOMContentLoaded', async function () {
         const menuBtn = document.getElementById('mobile-menu-btn');
         const sidebar = document.getElementById('sidebar');
 
@@ -476,6 +262,104 @@
                 sidebar.classList.toggle('-translate-x-full');
             });
         }
+
+        // --- DYNAMIC DATA LOADING ---
+        const tableBody = document.querySelector('tbody');
+
+        async function loadActivities() {
+            tableBody.innerHTML = '<tr><td colspan="5" class="px-6 py-10 text-center"><span class="material-symbols-outlined animate-spin text-4xl text-primary">progress_activity</span></td></tr>';
+
+            try {
+                const q = query(collection(db, "activities"), orderBy("createdAt", "desc"));
+                const querySnapshot = await getDocs(q);
+
+                tableBody.innerHTML = '';
+
+                if (querySnapshot.empty) {
+                    tableBody.innerHTML = '<tr><td colspan="5" class="px-6 py-10 text-center text-slate-500">No activities found. Click "Add New Activity" to create one.</td></tr>';
+                    return;
+                }
+
+                querySnapshot.forEach((doc) => {
+                    const activity = doc.data();
+                    const row = createActivityRow(doc.id, activity);
+                    tableBody.appendChild(row);
+                });
+
+                // Update counts (simple version)
+                const countSpan = document.querySelector('.text-slate-500 span.font-medium:last-child');
+                if (countSpan) countSpan.textContent = querySnapshot.size;
+
+            } catch (error) {
+                console.error("Error fetching activities:", error);
+                tableBody.innerHTML = `<tr><td colspan="5" class="px-6 py-10 text-center text-red-500">Error loading activities: ${error.message}</td></tr>`;
+            }
+        }
+
+        function createActivityRow(id, activity) {
+            const tr = document.createElement('tr');
+            tr.className = "group hover:bg-slate-50 transition-colors";
+
+            // Status Styling
+            let statusBadge = '';
+            if (activity.status === 'planned' || activity.status === 'upcoming') {
+                statusBadge = `<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-bold border border-blue-200"><span class="size-1.5 rounded-full bg-blue-500"></span>${activity.status}</span>`;
+            } else if (activity.status === 'coming_soon' || activity.status === 'tba') {
+                statusBadge = `<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-yellow-50 text-yellow-700 text-xs font-bold border border-yellow-200"><span class="size-1.5 rounded-full bg-yellow-500"></span>${activity.status}</span>`;
+            } else {
+                statusBadge = `<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-gray-100 text-gray-600 text-xs font-bold border border-gray-200"><span class="size-1.5 rounded-full bg-gray-500"></span>${activity.status}</span>`;
+            }
+
+            tr.innerHTML = `
+                <td class="px-6 py-4 max-w-sm">
+                    <div class="flex flex-col gap-1">
+                        <span class="text-slate-900 font-semibold text-base">${activity.title}</span>
+                        <span class="text-slate-500 text-sm truncate">${activity.description || ''}</span>
+                    </div>
+                </td>
+                <td class="px-6 py-4">
+                    <span class="inline-flex items-center px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 text-xs font-medium border border-slate-200 capitalize">${activity.category}</span>
+                </td>
+                <td class="px-6 py-4">
+                    <div class="flex items-center gap-2 text-sm text-slate-500">
+                        <span class="material-symbols-outlined text-[16px]">calendar_today</span>
+                        <span>${activity.date}</span>
+                    </div>
+                </td>
+                <td class="px-6 py-4">
+                    ${statusBadge}
+                </td>
+                <td class="px-6 py-4 text-right">
+                    <div class="flex items-center justify-end gap-2">
+                        <button onclick="window.location.href='../admin_activity_editor_page/code.html?id=${id}'" class="size-8 flex items-center justify-center rounded-lg text-slate-400 hover:bg-blue-50 hover:text-blue-600 transition-all" title="Edit">
+                            <span class="material-symbols-outlined text-[18px]">edit</span>
+                        </button>
+                        <button class="delete-btn size-8 flex items-center justify-center rounded-lg text-slate-400 hover:bg-red-50 hover:text-red-600 transition-all" 
+                            data-id="${id}" title="Delete">
+                            <span class="material-symbols-outlined text-[18px]">delete</span>
+                        </button>
+                    </div>
+                </td>
+            `;
+
+            // Add delete event listener
+            const deleteBtn = tr.querySelector('.delete-btn');
+            deleteBtn.addEventListener('click', async () => {
+                if (confirm(`Are you sure you want to delete "${activity.title}"?`)) {
+                    try {
+                        await deleteDoc(doc(db, "activities", id));
+                        tr.remove();
+                        alert("Activity deleted.");
+                    } catch (err) {
+                        alert("Error deleting: " + err.message);
+                    }
+                }
+            });
+
+            return tr;
+        }
+
+        loadActivities();
     });
 </script>
 

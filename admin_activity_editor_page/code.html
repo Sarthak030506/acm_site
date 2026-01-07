@@ -69,6 +69,8 @@
 </head>
 
 <body class="bg-background-page text-text-main font-display min-h-screen flex overflow-hidden">
+    <!-- Auth Guard protection -->
+    <script type="module" src="../assets/js/auth_guard.js"></script>
     <aside id="sidebar"
         class="fixed inset-y-0 left-0 z-50 w-64 flex flex-col border-r border-border-color bg-surface h-full shrink-0 transition-transform duration-300 transform -translate-x-full md:translate-x-0 md:relative md:flex shadow-[4px_0_24px_-12px_rgba(0,0,0,0.1)]">
         <div class="flex h-full flex-col justify-between p-4">
@@ -255,17 +257,13 @@
                                 rows="5"></textarea>
                         </div>
                         <div class="flex flex-col gap-2">
-                            <label class="text-text-main text-sm font-medium">Relevant Image</label>
-                            <div
-                                class="border-2 border-dashed border-border-color rounded-xl bg-surface-highlight p-8 flex flex-col items-center justify-center text-center hover:bg-slate-100 hover:border-primary/50 transition-all cursor-pointer group">
-                                <div
-                                    class="bg-surface p-3 rounded-full mb-3 shadow-sm ring-1 ring-border-color group-hover:scale-110 transition-transform">
-                                    <span class="material-symbols-outlined text-primary text-3xl">cloud_upload</span>
-                                </div>
-                                <p class="text-text-main font-medium mb-1">Click to upload or drag and drop</p>
-                                <p class="text-text-secondary text-sm">SVG, PNG, JPG or GIF (max. 800x400px)</p>
-                                <input accept="image/*" class="hidden" type="file" />
-                            </div>
+
+                            <label class="text-text-main text-sm font-medium">Relevant Image URL</label>
+                            <input
+                                class="w-full rounded-lg bg-input-bg border border-border-color text-text-main placeholder-text-placeholder focus:border-primary focus:ring-1 focus:ring-primary h-12 px-4 transition-all shadow-sm"
+                                id="bannerUrl" placeholder="https://example.com/banner.jpg" type="url" />
+                            <p class="text-text-secondary text-xs mt-1">Paste a public link to the event banner image.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -286,16 +284,113 @@
     </main>
 
 </body>
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
+<script type="module">
+    import { db } from '../assets/js/firebase_config.js';
+    import { collection, addDoc, doc, getDoc, updateDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+    document.addEventListener('DOMContentLoaded', async function () {
         const menuBtn = document.getElementById('mobile-menu-btn');
         const sidebar = document.getElementById('sidebar');
+        const saveBtn = document.querySelector('button.bg-primary');
+        const pageTitle = document.querySelector('h1.text-3xl');
+
+        // Form Fields
+        const titleInput = document.getElementById('title');
+        const categoryInput = document.getElementById('category');
+        const statusInput = document.getElementById('status');
+        const dateInput = document.getElementById('date');
+        const descInput = document.getElementById('description');
+        const bannerInput = document.getElementById('bannerUrl');
 
         if (menuBtn && sidebar) {
             menuBtn.addEventListener('click', () => {
                 sidebar.classList.toggle('-translate-x-full');
             });
         }
+
+        // --- EDIT MODE CHECK ---
+        const urlParams = new URLSearchParams(window.location.search);
+        const activityId = urlParams.get('id');
+
+        if (activityId) {
+            // Switch UI to Edit Mode
+            if (pageTitle) pageTitle.textContent = "Edit Activity";
+            saveBtn.innerHTML = `<span class="material-symbols-outlined text-[20px]">save</span> Update Activity`;
+
+            // Load Data
+            try {
+                const docRef = doc(db, "activities", activityId);
+                const docSnap = await getDoc(docRef);
+
+                if (docSnap.exists()) {
+                    const data = docSnap.data();
+                    titleInput.value = data.title || '';
+                    categoryInput.value = data.category || 'workshop';
+                    statusInput.value = data.status || 'planned';
+                    dateInput.value = data.date || '';
+                    descInput.value = data.description || '';
+                    bannerInput.value = data.bannerUrl || '';
+                } else {
+                    alert("Activity not found!");
+                    window.location.href = "../admin_activities_list_view_page/code.html";
+                }
+            } catch (e) {
+                console.error("Error loading document:", e);
+                alert("Error loading activity details.");
+            }
+        }
+
+        // --- SAVE / UPDATE LOGIC ---
+        saveBtn.addEventListener('click', async () => {
+            const title = titleInput.value;
+            const category = categoryInput.value;
+            const status = statusInput.value;
+            const date = dateInput.value;
+            const description = descInput.value;
+            const bannerUrl = bannerInput.value || "https://source.unsplash.com/random/800x600/?tech,event";
+
+            if (!title || !date) {
+                alert("Please enter at least a Title and Date.");
+                return;
+            }
+
+            saveBtn.disabled = true;
+            saveBtn.innerHTML = `<span class="material-symbols-outlined animate-spin">refresh</span> ${activityId ? 'Updating' : 'Saving'}...`;
+
+            try {
+                if (activityId) {
+                    // Update existing
+                    await updateDoc(doc(db, "activities", activityId), {
+                        title,
+                        category,
+                        status,
+                        date,
+                        description,
+                        bannerUrl,
+                        updatedAt: new Date()
+                    });
+                    alert("Activity updated successfully!");
+                } else {
+                    // Create new
+                    await addDoc(collection(db, "activities"), {
+                        title,
+                        category,
+                        status,
+                        date,
+                        description,
+                        bannerUrl,
+                        createdAt: new Date()
+                    });
+                    alert("Activity created successfully!");
+                }
+                window.location.href = "../admin_activities_list_view_page/code.html";
+            } catch (e) {
+                console.error(e);
+                alert("Error saving: " + e.message);
+                saveBtn.disabled = false;
+                saveBtn.innerHTML = `<span class="material-symbols-outlined text-[20px]">save</span> ${activityId ? 'Update' : 'Save'} Activity`;
+            }
+        });
     });
 </script>
 

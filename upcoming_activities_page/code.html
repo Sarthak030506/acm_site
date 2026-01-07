@@ -122,139 +122,133 @@
                 </div>
             </div>
             <!-- Activity Cards Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Card 1: Workshop (Coming Soon) -->
-                <article
-                    class="group relative flex flex-col bg-card-light dark:bg-card-dark rounded-xl border border-[#e6eff4] dark:border-[#2a3b47] overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-                    <div
-                        class="h-48 w-full bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-slate-800 dark:to-slate-900 relative p-6 flex items-center justify-center">
-                        <!-- Placeholder for event image -->
-                        <div class="absolute inset-0 bg-cover bg-center opacity-30"
-                            data-alt="React code on a monitor screen"
-                            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBPSLoYmHu678DkUPPgfLHU6ZGXwQJ3REljC7puqLEpOzot_2b9AyyhsuuZ6KOok__mx7QkrR_wVG3oQ1vc93b9X4Yho1rOqSn946vCK_F0H8ETYoG1zQIWktACw9tk5oDJuNj-pNXgaow7Sn7nyZMPkhRYba9KKgUNHVq5PKNvVzpvbjoM_3JiFUb97k4kR6rzdHpDhaWYalgO74Neh-RV85SEDIxOIUGSMLIWzKcQD3k8xV1nnH-yYgiQmdZsfARgkd4JVrU06glu');">
-                        </div>
-                        <div
-                            class="size-16 bg-white dark:bg-slate-800 rounded-full flex items-center justify-center shadow-md relative z-10 text-primary">
-                            <span class="material-symbols-outlined text-3xl">code_blocks</span>
-                        </div>
-                    </div>
-                    <div class="flex flex-col flex-1 p-5 gap-3">
-                        <div class="flex justify-between items-start">
-                            <span
-                                class="inline-flex items-center rounded-md bg-blue-50 dark:bg-blue-900/30 px-2 py-1 text-xs font-medium text-blue-700 dark:text-blue-300 ring-1 ring-inset ring-blue-700/10">Coming
-                                Soon</span>
-                            <span
-                                class="text-xs font-medium text-text-sub-light dark:text-text-sub-dark flex items-center gap-1">
-                                <span class="material-symbols-outlined text-sm">calendar_month</span>
-                                Oct 2023 (Tentative)
-                            </span>
-                        </div>
-                        <h3
-                            class="text-lg font-bold text-text-main-light dark:text-text-main-dark group-hover:text-primary transition-colors">
-                            Intro to React Workshop</h3>
-                        <p class="text-sm text-text-sub-light dark:text-text-sub-dark line-clamp-2">
-                            Dive into modern web development. Learn the basics of hooks, components, and state
-                            management in this hands-on session.
-                        </p>
-                        <div class="mt-auto pt-4 flex items-center gap-2">
-                            <span
-                                class="inline-flex items-center gap-1 rounded-full bg-slate-100 dark:bg-slate-800 px-2.5 py-0.5 text-xs font-medium text-slate-600 dark:text-slate-300">
-                                #workshop
-                            </span>
-                            <span
-                                class="inline-flex items-center gap-1 rounded-full bg-slate-100 dark:bg-slate-800 px-2.5 py-0.5 text-xs font-medium text-slate-600 dark:text-slate-300">
-                                #frontend
-                            </span>
-                        </div>
-                    </div>
-                </article>
-                <!-- Card 2: Competition (Planned) -->
-                <article
-                    class="group relative flex flex-col bg-card-light dark:bg-card-dark rounded-xl border border-[#e6eff4] dark:border-[#2a3b47] overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-                    <div
-                        class="h-48 w-full bg-gradient-to-br from-amber-50 to-orange-100 dark:from-slate-800 dark:to-slate-900 relative p-6 flex items-center justify-center">
-                        <div class="absolute inset-0 bg-cover bg-center opacity-30"
-                            data-alt="People working together on laptops during a hackathon"
-                            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB7KO9pkuTIxqgUXU5K0szT9LoWHFSAvf1bT0rijiyP6FK-2YGrmKDlEVzDvf1LE5LQ29pSGjhyKib9g44G-BAFLEAC45hxFYSThm_c9uxrikVNSRkkXIEj7ij8EB6tFBnQZct4u6hIvKXLor_mrJqMX4QXVN9vTOwh08gh2JASmz6ONDqsJ7YQaSJ1IgG_yPeYgIkjR_GtJVJaVTNiDyt5XuHouliBCyxvw3T2RkYLAiQyltVZX0mTMvN_v8HHxNnjyTBMAkWJ6Qby');">
-                        </div>
-                        <div
-                            class="size-16 bg-white dark:bg-slate-800 rounded-full flex items-center justify-center shadow-md relative z-10 text-orange-500">
-                            <span class="material-symbols-outlined text-3xl">trophy</span>
-                        </div>
-                    </div>
-                    <div class="flex flex-col flex-1 p-5 gap-3">
-                        <div class="flex justify-between items-start">
-                            <span
-                                class="inline-flex items-center rounded-md bg-green-50 dark:bg-green-900/30 px-2 py-1 text-xs font-medium text-green-700 dark:text-green-300 ring-1 ring-inset ring-green-600/20">Planned</span>
-                            <span
-                                class="text-xs font-medium text-text-sub-light dark:text-text-sub-dark flex items-center gap-1">
-                                <span class="material-symbols-outlined text-sm">calendar_month</span>
-                                Nov 15, 2023
-                            </span>
-                        </div>
-                        <h3
-                            class="text-lg font-bold text-text-main-light dark:text-text-main-dark group-hover:text-primary transition-colors">
-                            Algorithm Arena 2.0</h3>
-                        <p class="text-sm text-text-sub-light dark:text-text-sub-dark line-clamp-2">
-                            Our annual competitive programming contest. Solve algorithmic challenges and win exciting
-                            prizes.
-                        </p>
-                        <div class="mt-auto pt-4 flex items-center gap-2">
-                            <span
-                                class="inline-flex items-center gap-1 rounded-full bg-slate-100 dark:bg-slate-800 px-2.5 py-0.5 text-xs font-medium text-slate-600 dark:text-slate-300">
-                                #competition
-                            </span>
-                            <span
-                                class="inline-flex items-center gap-1 rounded-full bg-slate-100 dark:bg-slate-800 px-2.5 py-0.5 text-xs font-medium text-slate-600 dark:text-slate-300">
-                                #dsa
-                            </span>
-                        </div>
-                    </div>
-                </article>
-                <!-- Card 3: Guest Lecture (TBA) -->
-                <article
-                    class="group relative flex flex-col bg-card-light dark:bg-card-dark rounded-xl border border-[#e6eff4] dark:border-[#2a3b47] overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-                    <div
-                        class="h-48 w-full bg-gradient-to-br from-purple-50 to-pink-100 dark:from-slate-800 dark:to-slate-900 relative p-6 flex items-center justify-center">
-                        <div class="absolute inset-0 bg-cover bg-center opacity-30"
-                            data-alt="Speaker presenting at a conference"
-                            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAVbyr00TiKpXrAYLWnCa10LplryLIlfzmj_pX_z_-_dJrds42u4kktJ6-1p6fCx4TXBdueZvoS2LrVUQNaiIFOtLU3W4tq5oG-FEQJ5FTodA49uzTmOpQiVau7KXN97Cz1Xpbind-RODRBrugVrBHd3aXoegZn8mnnVPuJL0E8sfZrG-slY4hkPyE6r46kSzqMkVtVMb-2j2GuW5j00_UHsx5cjoa96shgqhOfg_0xPU_Wi0rpeZHxAjY7_e5krlihrL7aJyXpsQUh');">
-                        </div>
-                        <div
-                            class="size-16 bg-white dark:bg-slate-800 rounded-full flex items-center justify-center shadow-md relative z-10 text-purple-600">
-                            <span class="material-symbols-outlined text-3xl">record_voice_over</span>
-                        </div>
-                    </div>
-                    <div class="flex flex-col flex-1 p-5 gap-3">
-                        <div class="flex justify-between items-start">
-                            <span
-                                class="inline-flex items-center rounded-md bg-yellow-50 dark:bg-yellow-900/30 px-2 py-1 text-xs font-medium text-yellow-800 dark:text-yellow-300 ring-1 ring-inset ring-yellow-600/20">To
-                                Be Announced</span>
-                            <span
-                                class="text-xs font-medium text-text-sub-light dark:text-text-sub-dark flex items-center gap-1">
-                                <span class="material-symbols-outlined text-sm">schedule</span>
-                                Late Nov
-                            </span>
-                        </div>
-                        <h3
-                            class="text-lg font-bold text-text-main-light dark:text-text-main-dark group-hover:text-primary transition-colors">
-                            Future of AI in Industry</h3>
-                        <p class="text-sm text-text-sub-light dark:text-text-sub-dark line-clamp-2">
-                            An expert session featuring industry leaders discussing the impact of Large Language Models.
-                        </p>
-                        <div class="mt-auto pt-4 flex items-center gap-2">
-                            <span
-                                class="inline-flex items-center gap-1 rounded-full bg-slate-100 dark:bg-slate-800 px-2.5 py-0.5 text-xs font-medium text-slate-600 dark:text-slate-300">
-                                #guestlecture
-                            </span>
-                            <span
-                                class="inline-flex items-center gap-1 rounded-full bg-slate-100 dark:bg-slate-800 px-2.5 py-0.5 text-xs font-medium text-slate-600 dark:text-slate-300">
-                                #ai
-                            </span>
-                        </div>
-                    </div>
-                </article>
+            <div id="activities-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Data loading... -->
+                <div class="col-span-full flex justify-center py-20">
+                    <span class="material-symbols-outlined animate-spin text-4xl text-primary">progress_activity</span>
+                </div>
             </div>
+
+            <script type="module">
+                import { db } from '../assets/js/firebase_config.js';
+                import { collection, getDocs, query, orderBy, where } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+                const grid = document.getElementById('activities-grid');
+                const filterButtons = document.querySelectorAll('.flex.flex-wrap.gap-2 button');
+
+                // Helper to render cards
+                function renderActivities(docs) {
+                    grid.innerHTML = '';
+
+                    if (docs.length === 0) {
+                        grid.innerHTML = `
+                        <div class="col-span-full flex flex-col items-center justify-center py-20 text-center border-2 border-dashed border-[#e6eff4] dark:border-[#2a3b47] rounded-xl bg-card-light/50 dark:bg-card-dark/50">
+                            <div class="bg-gray-100 dark:bg-gray-800 rounded-full p-4 mb-4">
+                                <span class="material-symbols-outlined text-4xl text-gray-400">event_busy</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-text-main-light dark:text-text-main-dark mb-2">No Activities Found</h3>
+                        </div>`;
+                        return;
+                    }
+
+                    docs.forEach(doc => {
+                        const data = doc.data();
+                        const card = document.createElement('article');
+                        card.className = "group relative flex flex-col bg-card-light dark:bg-card-dark rounded-xl border border-[#e6eff4] dark:border-[#2a3b47] overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300";
+
+                        // Status Logic
+                        let statusColor = "bg-blue-50 text-blue-700 ring-blue-700/10";
+                        if (data.status === 'coming_soon') statusColor = "bg-yellow-50 text-yellow-800 ring-yellow-600/20";
+                        if (data.status === 'past') statusColor = "bg-gray-100 text-gray-600 ring-gray-500/10";
+
+                        // Icon Logic
+                        let icon = "event";
+                        if (data.category === 'workshop') icon = "code_blocks";
+                        if (data.category === 'competition') icon = "trophy";
+                        if (data.category === 'guest_lecture') icon = "record_voice_over";
+
+                        card.innerHTML = `
+                        <div class="h-48 w-full bg-slate-100 dark:bg-slate-800 relative p-6 flex items-center justify-center">
+                            <div class="absolute inset-0 bg-cover bg-center opacity-30"
+                                style="background-image: url('${data.bannerUrl || 'https://via.placeholder.com/400x200'}');">
+                            </div>
+                            <div class="size-16 bg-white dark:bg-slate-800 rounded-full flex items-center justify-center shadow-md relative z-10 text-primary">
+                                <span class="material-symbols-outlined text-3xl">${icon}</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-col flex-1 p-5 gap-3">
+                            <div class="flex justify-between items-start">
+                                <span class="inline-flex items-center rounded-md px-2 py-1 text-xs font-medium ring-1 ring-inset ${statusColor} capitalize">
+                                    ${data.status.replace('_', ' ')}
+                                </span>
+                                <span class="text-xs font-medium text-text-sub-light dark:text-text-sub-dark flex items-center gap-1">
+                                    <span class="material-symbols-outlined text-sm">calendar_month</span>
+                                    ${data.date}
+                                </span>
+                            </div>
+                            <h3 class="text-lg font-bold text-text-main-light dark:text-text-main-dark group-hover:text-primary transition-colors">
+                                ${data.title}
+                            </h3>
+                            <p class="text-sm text-text-sub-light dark:text-text-sub-dark line-clamp-2">
+                                ${data.description || ''}
+                            </p>
+                            <div class="mt-auto pt-4 flex items-center gap-2">
+                                <span class="inline-flex items-center gap-1 rounded-full bg-slate-100 dark:bg-slate-800 px-2.5 py-0.5 text-xs font-medium text-slate-600 dark:text-slate-300">
+                                    #${data.category}
+                                </span>
+                            </div>
+                        </div>
+                        `;
+                        grid.appendChild(card);
+                    });
+                }
+
+                // Initial Load
+                let allDocs = [];
+
+                async function loadAll() {
+                    try {
+                        const q = query(collection(db, "activities"), orderBy("createdAt", "desc"));
+                        const snapshot = await getDocs(q);
+                        allDocs = snapshot.docs; // Cache all docs
+                        renderActivities(allDocs);
+                    } catch (e) {
+                        console.error(e);
+                        grid.innerHTML = '<div class="col-span-full text-center text-red-500">Failed to load activities.</div>';
+                    }
+                }
+
+                loadAll();
+
+                // Simple client-side filtering (optimization: fetch all, filter locally since dataset is small)
+                filterButtons.forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        // Visual toggle
+                        filterButtons.forEach(b => {
+                            b.classList.remove('bg-primary', 'text-white');
+                            b.classList.add('bg-card-light', 'text-text-sub-light');
+                        });
+                        btn.classList.remove('bg-card-light', 'text-text-sub-light');
+                        btn.classList.add('bg-primary', 'text-white');
+
+                        const filter = btn.innerText.toLowerCase();
+
+                        if (filter.includes("all")) {
+                            renderActivities(allDocs);
+                        } else {
+                            const filtered = allDocs.filter(doc => {
+                                const cat = doc.data().category || '';
+                                // Simple mapping based on button text
+                                if (filter.includes("workshop") && cat === 'workshop') return true;
+                                if (filter.includes("competition") && cat === 'competition') return true;
+                                if (filter.includes("guest") && cat === 'guest_lecture') return true;
+                                return false;
+                            });
+                            renderActivities(filtered);
+                        }
+                    });
+                });
+            </script>
             <!-- Empty State (Hidden by default, shown if no items) -->
             <!-- 
             <div class="flex flex-col items-center justify-center py-20 text-center border-2 border-dashed border-[#e6eff4] dark:border-[#2a3b47] rounded-xl bg-card-light/50 dark:bg-card-dark/50">

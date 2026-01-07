@@ -52,6 +52,8 @@
 </head>
 
 <body class="bg-background-light text-text-primary font-display antialiased overflow-hidden">
+    <!-- Auth Guard protection -->
+    <script type="module" src="../assets/js/auth_guard.js"></script>
     <div class="flex h-screen w-full">
         <aside id="sidebar"
             class="fixed inset-y-0 left-0 z-50 w-64 flex flex-col border-r border-border-light bg-surface-light h-full shrink-0 transition-transform duration-300 transform -translate-x-full md:translate-x-0 md:relative md:flex shadow-[4px_0_24px_-12px_rgba(0,0,0,0.1)]">
@@ -493,8 +495,11 @@
     </div>
 
 </body>
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
+<script type="module">
+    import { db } from '../assets/js/firebase_config.js';
+    import { collection, getDocs, deleteDoc, doc, query, orderBy } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+    document.addEventListener('DOMContentLoaded', async function () {
         const menuBtn = document.getElementById('mobile-menu-btn');
         const sidebar = document.getElementById('sidebar');
 
@@ -503,6 +508,86 @@
                 sidebar.classList.toggle('-translate-x-full');
             });
         }
+
+        // --- DYNAMIC DATA LOADING ---
+        const gridContainer = document.querySelector('.grid');
+
+        async function loadTeamMembers() {
+            // Show loading state (optional, or just clear existing)
+            gridContainer.innerHTML = '<div class="col-span-full text-center py-10"><span class="material-symbols-outlined animate-spin text-4xl text-primary">progress_activity</span></div>';
+
+            try {
+                const q = query(collection(db, "team_members"), orderBy("createdAt", "desc"));
+                const querySnapshot = await getDocs(q);
+
+                gridContainer.innerHTML = ''; // Clear loading
+
+                if (querySnapshot.empty) {
+                    gridContainer.innerHTML = '<div class="col-span-full text-center py-10 text-slate-500">No team members found. Click "Add New Member" to get started.</div>';
+                    return;
+                }
+
+                querySnapshot.forEach((doc) => {
+                    const member = doc.data();
+                    const card = createMemberCard(doc.id, member);
+                    gridContainer.appendChild(card);
+                });
+
+                // Update counts (simple version)
+                const countSpan = document.querySelector('.text-slate-500 span.font-bold:last-child');
+                if (countSpan) countSpan.textContent = querySnapshot.size;
+
+            } catch (error) {
+                console.error("Error fetching team members:", error);
+                gridContainer.innerHTML = `<div class="col-span-full text-center py-10 text-red-500">Error loading members: ${error.message}</div>`;
+            }
+        }
+
+        function createMemberCard(id, member) {
+            const div = document.createElement('div');
+            div.className = "group flex flex-col rounded-2xl bg-surface-light border border-slate-200 p-5 shadow-sm hover:shadow-xl hover:border-primary/30 transition-all duration-300 relative overflow-hidden";
+
+            div.innerHTML = `
+                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div class="flex flex-col items-center text-center pb-4 border-b border-slate-100 mb-4">
+                    <div class="relative mb-4">
+                        <div class="w-24 h-24 rounded-full bg-cover bg-center ring-4 ring-slate-50 shadow-md"
+                            style='background-image: url("${member.photoUrl || 'https://via.placeholder.com/150'}");'>
+                        </div>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-1 group-hover:text-primary transition-colors">${member.fullName}</h3>
+                    <p class="text-sm font-medium text-slate-500">${member.role}</p>
+                </div>
+                <div class="flex gap-2 w-full mt-auto">
+                    <button onclick="alert('Edit feature coming soon!')" class="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-lg bg-slate-50 text-slate-600 hover:bg-primary hover:text-white transition-all text-sm font-semibold border border-slate-100 shadow-sm">
+                        <span class="material-symbols-outlined text-[18px]">edit</span>
+                        Edit
+                    </button>
+                    <button class="delete-btn flex items-center justify-center px-3 py-2.5 rounded-lg bg-slate-50 text-slate-600 hover:bg-red-500 hover:text-white transition-all border border-slate-100 shadow-sm"
+                        data-id="${id}" title="Delete Member">
+                        <span class="material-symbols-outlined text-[18px]">delete</span>
+                    </button>
+                </div>
+            `;
+
+            // Add delete event listener
+            const deleteBtn = div.querySelector('.delete-btn');
+            deleteBtn.addEventListener('click', async () => {
+                if (confirm(`Are you sure you want to delete ${member.fullName}?`)) {
+                    try {
+                        await deleteDoc(doc(db, "team_members", id));
+                        div.remove();
+                        alert("Member deleted.");
+                    } catch (err) {
+                        alert("Error deleting: " + err.message);
+                    }
+                }
+            });
+
+            return div;
+        }
+
+        loadTeamMembers();
     });
 </script>
 
