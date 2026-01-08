@@ -302,12 +302,14 @@
 
             // Status Styling
             let statusBadge = '';
-            if (activity.status === 'planned' || activity.status === 'upcoming') {
-                statusBadge = `<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-bold border border-blue-200"><span class="size-1.5 rounded-full bg-blue-500"></span>${activity.status}</span>`;
-            } else if (activity.status === 'coming_soon' || activity.status === 'tba') {
-                statusBadge = `<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-yellow-50 text-yellow-700 text-xs font-bold border border-yellow-200"><span class="size-1.5 rounded-full bg-yellow-500"></span>${activity.status}</span>`;
+            if (activity.status === 'upcoming') {
+                statusBadge = `<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-bold border border-blue-200"><span class="size-1.5 rounded-full bg-blue-500"></span>Upcoming</span>`;
+            } else if (activity.status === 'ongoing') {
+                statusBadge = `<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-green-50 text-green-700 text-xs font-bold border border-green-200"><span class="size-1.5 rounded-full bg-green-500"></span>Ongoing</span>`;
+            } else if (activity.status === 'completed') {
+                statusBadge = `<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-gray-100 text-gray-600 text-xs font-bold border border-gray-200"><span class="size-1.5 rounded-full bg-gray-500"></span>Completed</span>`;
             } else {
-                statusBadge = `<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-gray-100 text-gray-600 text-xs font-bold border border-gray-200"><span class="size-1.5 rounded-full bg-gray-500"></span>${activity.status}</span>`;
+                statusBadge = `<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-gray-100 text-gray-600 text-xs font-bold border border-gray-200"><span class="size-1.5 rounded-full bg-gray-500"></span>${activity.status || 'N/A'}</span>`;
             }
 
             tr.innerHTML = `

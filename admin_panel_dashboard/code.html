@@ -184,9 +184,8 @@
                                     <span class="material-symbols-outlined text-[20px]">group</span>
                                 </div>
                             </div>
-                            <p class="text-text-main text-3xl font-bold mt-2">48</p>
-                            <p class="text-xs text-text-secondary mt-1"><span
-                                    class="text-emerald-600 font-medium">+2</span> new this week</p>
+                            <p class="text-text-main text-3xl font-bold mt-2" data-stat="team-count">0</p>
+                            <p class="text-xs text-text-secondary mt-1">Total members</p>
                         </div>
                         <div
                             class="flex flex-col gap-1 rounded-xl p-5 border border-border-light bg-surface-light shadow-sm hover:shadow-md hover:border-primary/30 transition-all group">
@@ -197,9 +196,8 @@
                                     <span class="material-symbols-outlined text-[20px]">event_upcoming</span>
                                 </div>
                             </div>
-                            <p class="text-text-main text-3xl font-bold mt-2">5</p>
-                            <p class="text-xs text-text-secondary mt-1">Next event in <span
-                                    class="text-text-main font-medium">3 days</span></p>
+                            <p class="text-text-main text-3xl font-bold mt-2" data-stat="activities-count">0</p>
+                            <p class="text-xs text-text-secondary mt-1">Upcoming events</p>
                         </div>
                         <div
                             class="flex flex-col gap-1 rounded-xl p-5 border border-border-light bg-surface-light shadow-sm hover:shadow-md hover:border-primary/30 transition-all group">
@@ -289,71 +287,11 @@
                                 Add New Member
                             </button>
                         </div>
-                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                            <div
-                                class="rounded-xl border border-border-light bg-surface-light p-4 flex items-center gap-4 relative group shadow-sm hover:shadow-md transition-shadow">
-                                <div class="size-12 rounded-full bg-cover bg-center border border-border-light shadow-sm"
-                                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCMLQdMtEnoaaSwGuOV-OYxlE039t1FSLRE2PpdfwzwqVMoyP7kXd7qn9tsqm21uKaU77Sa0ZnaDnni6xmuYArv8BN9MHz8j54_JM0r_oNiIeDLbqyvZKpIX3qyl4qwHbJyAlDZgdC0EsGKhoyZq44a2t_wAoI9FriEuqFXuBTaNuGzHllP_9-Upg04HEZT7qHgVkFU0zMbP6gZ4eXhIbxYk8zu8SPo2JketjuNrlI79nNCG9b_XCA_6fwYlclYfFLLjsPSb5ZrHUmw");'>
-                                </div>
-                                <div class="flex-1 min-w-0">
-                                    <h4 class="text-text-main font-semibold text-sm truncate">Sarah Jenkins</h4>
-                                    <p class="text-text-secondary text-xs">Chairperson</p>
-                                    <div class="flex gap-2 mt-2">
-                                        <span
-                                            class="material-symbols-outlined text-text-secondary text-[16px] cursor-pointer hover:text-primary transition-colors">link</span>
-                                        <span
-                                            class="material-symbols-outlined text-text-secondary text-[16px] cursor-pointer hover:text-primary transition-colors">code</span>
-                                    </div>
-                                </div>
-                                <div
-                                    class="absolute top-2 right-2 flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity bg-white/90 backdrop-blur-sm rounded p-1">
-                                    <button class="p-1 hover:bg-slate-100 rounded text-primary"><span
-                                            class="material-symbols-outlined text-[16px]">edit</span></button>
-                                    <button class="p-1 hover:bg-slate-100 rounded text-red-500"><span
-                                            class="material-symbols-outlined text-[16px]">delete</span></button>
-                                </div>
-                            </div>
-                            <div
-                                class="rounded-xl border border-border-light bg-surface-light p-4 flex items-center gap-4 relative group shadow-sm hover:shadow-md transition-shadow">
-                                <div
-                                    class="size-12 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center text-primary font-bold shadow-sm">
-                                    MC</div>
-                                <div class="flex-1 min-w-0">
-                                    <h4 class="text-text-main font-semibold text-sm truncate">Michael Chen</h4>
-                                    <p class="text-text-secondary text-xs">Technical Lead</p>
-                                    <div class="flex gap-2 mt-2">
-                                        <span
-                                            class="material-symbols-outlined text-text-secondary text-[16px] cursor-pointer hover:text-primary transition-colors">link</span>
-                                    </div>
-                                </div>
-                                <div
-                                    class="absolute top-2 right-2 flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity bg-white/90 backdrop-blur-sm rounded p-1">
-                                    <button class="p-1 hover:bg-slate-100 rounded text-primary"><span
-                                            class="material-symbols-outlined text-[16px]">edit</span></button>
-                                    <button class="p-1 hover:bg-slate-100 rounded text-red-500"><span
-                                            class="material-symbols-outlined text-[16px]">delete</span></button>
-                                </div>
-                            </div>
-                            <div
-                                class="rounded-xl border border-border-light bg-surface-light p-4 flex items-center gap-4 relative group shadow-sm hover:shadow-md transition-shadow">
-                                <div class="size-12 rounded-full bg-cover bg-center border border-border-light shadow-sm"
-                                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCJ8V5MFo5pemyqW0U0AMs1jaKMwgHGqwFITNpb7Ogq1LaUpGgwcFQIYzUjBhyCPXsFQj3pjqInm1iMjGFBCAfeNzxzPI-coJMGS8bfrkIDJuKKdwAeLzw5ZYQh2z6JjzK2lAIXIw_kwW98ytZ_hp7m8C49G6sy5CAkKap2_E57dcx5n-JcIKB0lF6Ii_4lY0M8QzXiG01757wZUw88PRovf_EUNR6g4dSN7Cr7zLPSWh2IQik3pX77k1FLoMCvIl1vCtqJHy2g3Qdu");'>
-                                </div>
-                                <div class="flex-1 min-w-0">
-                                    <h4 class="text-text-main font-semibold text-sm truncate">Anita Roy</h4>
-                                    <p class="text-text-secondary text-xs">Event Coordinator</p>
-                                    <div class="flex gap-2 mt-2">
-                                        <span
-                                            class="material-symbols-outlined text-text-secondary text-[16px] cursor-pointer hover:text-primary transition-colors">code</span>
-                                    </div>
-                                </div>
-                                <div
-                                    class="absolute top-2 right-2 flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity bg-white/90 backdrop-blur-sm rounded p-1">
-                                    <button class="p-1 hover:bg-slate-100 rounded text-primary"><span
-                                            class="material-symbols-outlined text-[16px]">edit</span></button>
-                                    <button class="p-1 hover:bg-slate-100 rounded text-red-500"><span
-                                            class="material-symbols-outlined text-[16px]">delete</span></button>
-                                </div>
+                        <div id="team-preview-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <!-- Team members will be loaded here dynamically -->
+                            <div class="col-span-full text-center py-8 text-text-secondary">
+                                <span class="material-symbols-outlined text-4xl mb-2">refresh</span>
+                                <p class="text-sm">Loading team members...</p>
                             </div>
                         </div>
                     </div>
@@ -366,46 +304,12 @@
                                 </h3>
                                 <button class="text-primary text-xs font-bold hover:underline">Add Activity</button>
                             </div>
-                            <div
+                            <div id="activities-preview-container"
                                 class="rounded-xl border border-border-light bg-surface-light p-4 flex flex-col gap-3 shadow-sm">
-                                <div
-                                    class="flex items-center gap-3 p-3 rounded-lg bg-slate-50 border border-border-light hover:border-primary/40 transition-colors group">
-                                    <div
-                                        class="flex flex-col items-center justify-center w-10 h-10 bg-white border border-border-light rounded text-center shrink-0 shadow-sm">
-                                        <span class="text-[9px] uppercase text-text-secondary font-bold">Oct</span>
-                                        <span class="text-sm font-bold text-text-main leading-none">24</span>
-                                    </div>
-                                    <div class="flex-1 min-w-0">
-                                        <h5 class="text-text-main text-sm font-semibold truncate">Hackathon Intro
-                                            Workshop</h5>
-                                        <p class="text-text-secondary text-xs truncate">Auditorium A</p>
-                                    </div>
-                                    <div class="flex items-center gap-2">
-                                        <span
-                                            class="hidden sm:inline-block px-2 py-0.5 bg-blue-100 text-blue-600 text-[10px] font-bold uppercase rounded border border-blue-200">Planned</span>
-                                        <button class="text-text-secondary hover:text-primary"><span
-                                                class="material-symbols-outlined text-[18px]">edit</span></button>
-                                    </div>
-                                </div>
-                                <div
-                                    class="flex items-center gap-3 p-3 rounded-lg bg-slate-50 border border-border-light hover:border-primary/40 transition-colors group">
-                                    <div
-                                        class="flex flex-col items-center justify-center w-10 h-10 bg-white border border-border-light rounded text-center shrink-0 shadow-sm">
-                                        <span class="text-[9px] uppercase text-text-secondary font-bold">Nov</span>
-                                        <span class="text-sm font-bold text-text-main leading-none">02</span>
-                                    </div>
-                                    <div class="flex-1 min-w-0">
-                                        <h5 class="text-text-main text-sm font-semibold truncate">Guest Lecture: AI
-                                            Trends</h5>
-                                        <p class="text-text-secondary text-xs truncate">Online Meeting</p>
-                                    </div>
-                                    <div class="flex items-center gap-2">
-                                        <span
-                                            class="hidden sm:inline-block px-2 py-0.5 bg-amber-100 text-amber-600 text-[10px] font-bold uppercase rounded border border-amber-200">Coming
-                                            Soon</span>
-                                        <button class="text-text-secondary hover:text-primary"><span
-                                                class="material-symbols-outlined text-[18px]">edit</span></button>
-                                    </div>
+                                <!-- Activities will be loaded here dynamically -->
+                                <div class="text-center py-8 text-text-secondary">
+                                    <span class="material-symbols-outlined text-4xl mb-2">refresh</span>
+                                    <p class="text-sm">Loading activities...</p>
                                 </div>
                             </div>
                         </div>
@@ -470,6 +374,142 @@
             });
         }
     });
+</script>
+
+<script type="module">
+    import { db } from '../assets/js/firebase_config.js';
+    import { collection, getDocs, query, orderBy, limit, where } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+    async function loadDashboardData() {
+        try {
+            // Fetch Team Members Count
+            const teamSnapshot = await getDocs(collection(db, "team_members"));
+            const teamCount = teamSnapshot.size;
+            document.querySelector('[data-stat="team-count"]').textContent = teamCount;
+
+            // Fetch Activities Count (only upcoming)
+            const activitiesSnapshot = await getDocs(collection(db, "activities"));
+            const activitiesCount = activitiesSnapshot.size;
+            const upcomingCount = activitiesSnapshot.docs.filter(doc => doc.data().status === 'upcoming').length;
+            document.querySelector('[data-stat="activities-count"]').textContent = upcomingCount;
+
+            // Display recent team members (top 3)
+            const teamQuery = query(collection(db, "team_members"), orderBy("createdAt", "desc"), limit(3));
+            const teamDocs = await getDocs(teamQuery);
+            const teamContainer = document.getElementById('team-preview-container');
+            teamContainer.innerHTML = ''; // Clear placeholder
+
+            teamDocs.forEach(doc => {
+                const member = doc.data();
+                const card = createTeamCard(member);
+                teamContainer.appendChild(card);
+            });
+
+            // Display upcoming activities (next 2)
+            const activitiesQuery = query(
+                collection(db, "activities"),
+                orderBy("createdAt", "desc"),
+                limit(5)
+            );
+            const activitiesDocs = await getDocs(activitiesQuery);
+            const activitiesContainer = document.getElementById('activities-preview-container');
+            activitiesContainer.innerHTML = ''; // Clear placeholder
+
+            let count = 0;
+            activitiesDocs.forEach(doc => {
+                if (count < 2) { // Show only first 2
+                    const activity = doc.data();
+                    const card = createActivityCard(activity);
+                    activitiesContainer.appendChild(card);
+                    count++;
+                }
+            });
+
+        } catch (error) {
+            console.error("Error loading dashboard data:", error);
+        }
+    }
+
+    function createTeamCard(member) {
+        const div = document.createElement('div');
+        div.className = "rounded-xl border border-border-light bg-surface-light p-4 flex items-center gap-4 relative group shadow-sm hover:shadow-md transition-shadow";
+
+        // Handle photo with fallback to initials
+        let photoHTML;
+        if (member.photoURL) {
+            photoHTML = `<div class="size-12 rounded-full bg-cover bg-center border border-border-light shadow-sm" style="background-image: url('${member.photoURL}');"></div>`;
+        } else {
+            const initials = member.name ? member.name.split(' ').map(n => n[0]).join('').toUpperCase().substring(0, 2) : 'NA';
+            photoHTML = `<div class="size-12 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center text-primary font-bold shadow-sm">${initials}</div>`;
+        }
+
+        div.innerHTML = `
+            ${photoHTML}
+            <div class="flex-1 min-w-0">
+                <h4 class="text-text-main font-semibold text-sm truncate">${member.name}</h4>
+                <p class="text-text-secondary text-xs">${member.role}</p>
+                <div class="flex gap-2 mt-2">
+                    ${member.linkedin ? '<span class="material-symbols-outlined text-text-secondary text-[16px] cursor-pointer hover:text-primary transition-colors">link</span>' : ''}
+                    ${member.github ? '<span class="material-symbols-outlined text-text-secondary text-[16px] cursor-pointer hover:text-primary transition-colors">code</span>' : ''}
+                </div>
+            </div>
+            <div class="absolute top-2 right-2 flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity bg-white/90 backdrop-blur-sm rounded p-1">
+                <button class="p-1 hover:bg-slate-100 rounded text-primary"><span class="material-symbols-outlined text-[16px]">edit</span></button>
+                <button class="p-1 hover:bg-slate-100 rounded text-red-500"><span class="material-symbols-outlined text-[16px]">delete</span></button>
+            </div>
+        `;
+        return div;
+    }
+
+    function createActivityCard(activity) {
+        const div = document.createElement('div');
+        div.className = "flex items-center gap-3 p-3 rounded-lg bg-slate-50 border border-border-light hover:border-primary/40 transition-colors group";
+
+        // Parse date if available
+        let dateDisplay = 'TBA';
+        let monthDisplay = 'TBA';
+        let dayDisplay = '';
+
+        if (activity.date) {
+            try {
+                const dateObj = new Date(activity.date);
+                monthDisplay = dateObj.toLocaleDateString('en-US', { month: 'short' });
+                dayDisplay = dateObj.getDate();
+            } catch (e) {
+                // If date parsing fails, use the raw date string
+                dateDisplay = activity.date;
+            }
+        }
+
+        // Status badge
+        let statusBadge = '';
+        if (activity.status === 'upcoming') {
+            statusBadge = '<span class="hidden sm:inline-block px-2 py-0.5 bg-blue-100 text-blue-600 text-[10px] font-bold uppercase rounded border border-blue-200">Upcoming</span>';
+        } else if (activity.status === 'ongoing') {
+            statusBadge = '<span class="hidden sm:inline-block px-2 py-0.5 bg-green-100 text-green-600 text-[10px] font-bold uppercase rounded border border-green-200">Ongoing</span>';
+        } else if (activity.status === 'completed') {
+            statusBadge = '<span class="hidden sm:inline-block px-2 py-0.5 bg-gray-100 text-gray-600 text-[10px] font-bold uppercase rounded border border-gray-200">Completed</span>';
+        }
+
+        div.innerHTML = `
+            <div class="flex flex-col items-center justify-center w-10 h-10 bg-white border border-border-light rounded text-center shrink-0 shadow-sm">
+                <span class="text-[9px] uppercase text-text-secondary font-bold">${monthDisplay}</span>
+                <span class="text-sm font-bold text-text-main leading-none">${dayDisplay || dateDisplay}</span>
+            </div>
+            <div class="flex-1 min-w-0">
+                <h5 class="text-text-main text-sm font-semibold truncate">${activity.title}</h5>
+                <p class="text-text-secondary text-xs truncate">${activity.location || 'Location TBA'}</p>
+            </div>
+            <div class="flex items-center gap-2">
+                ${statusBadge}
+                <button class="text-text-secondary hover:text-primary"><span class="material-symbols-outlined text-[18px]">edit</span></button>
+            </div>
+        `;
+        return div;
+    }
+
+    // Load data when page loads
+    loadDashboardData();
 </script>
 
 </html>
