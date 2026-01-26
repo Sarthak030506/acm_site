@@ -353,9 +353,138 @@
 </body>
 <script type="module">
   import { db } from '../assets/js/firebase_config.js';
-  import { collection, addDoc, doc, getDoc, updateDoc, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+  import { collection, addDoc, doc, getDoc, updateDoc, deleteDoc, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-  document.addEventListener('DOMContentLoaded', async function () {
+  // --- GET FORM ELEMENTS ---
+  const roleSelect = document.getElementById('role');
+  const submitBtn = document.querySelector('button[type="submit"]');
+  const photoUrlInput = document.getElementById('photoUrl');
+  const previewImage = document.querySelector('[data-alt="Current profile photo of the team member showing a professional headshot"]');
+  const fullNameInput = document.getElementById('fullName');
+  const designationInput = document.getElementById('designation');
+  const departmentInput = document.getElementById('department');
+  const linkedinInput = document.getElementById('linkedin');
+  const githubInput = document.getElementById('github');
+  const pageTitle = document.querySelector('h1');
+  const pageDescription = document.querySelector('h1 + p');
+  const deleteBtn = document.querySelector('.text-red-600');
+
+  // --- CHECK FOR EDIT MODE ---
+  const urlParams = new URLSearchParams(window.location.search);
+  const memberId = urlParams.get('id');
+  const isEditMode = memberId && memberId.length > 0;
+
+  console.log('Edit Mode:', isEditMode, 'Member ID:', memberId);
+
+  // Store original createdAt for edit mode
+  let originalCreatedAt = null;
+
+  // --- CLEAR ALL FORM FIELDS ---
+  function clearForm() {
+    fullNameInput.value = '';
+    designationInput.value = '';
+    departmentInput.value = '';
+    linkedinInput.value = '';
+    githubInput.value = '';
+    photoUrlInput.value = '';
+  }
+
+  // --- LOAD POSITIONS FROM SECTIONS ---
+  async function loadPositions(selectedRole = '') {
+    try {
+      const q = query(collection(db, "team_sections"), orderBy("order", "asc"));
+      const snapshot = await getDocs(q);
+
+      const allPositions = [];
+      snapshot.forEach(docSnap => {
+        const section = docSnap.data();
+        const positions = section.positions || [];
+        positions.forEach(pos => {
+          if (!allPositions.includes(pos)) {
+            allPositions.push(pos);
+          }
+        });
+      });
+
+      roleSelect.innerHTML = '';
+
+      if (allPositions.length === 0) {
+        roleSelect.innerHTML = '<option value="">No positions defined - Add sections first</option>';
+        return;
+      }
+
+      const defaultOption = document.createElement('option');
+      defaultOption.value = '';
+      defaultOption.textContent = 'Select a position...';
+      roleSelect.appendChild(defaultOption);
+
+      allPositions.forEach(pos => {
+        const option = document.createElement('option');
+        option.value = pos;
+        option.textContent = pos;
+        if (selectedRole && pos.toLowerCase() === selectedRole.toLowerCase()) {
+          option.selected = true;
+        }
+        roleSelect.appendChild(option);
+      });
+
+      console.log('Positions loaded:', allPositions.length, 'Selected:', selectedRole);
+
+    } catch (error) {
+      console.error("Error loading positions:", error);
+      roleSelect.innerHTML = '<option value="">Error loading positions</option>';
+    }
+  }
+
+  // --- LOAD MEMBER DATA ---
+  async function loadMemberData() {
+    if (!isEditMode) return null;
+
+    try {
+      console.log('Loading member with ID:', memberId);
+      const memberRef = doc(db, "team_members", memberId);
+      const memberDoc = await getDoc(memberRef);
+
+      if (!memberDoc.exists()) {
+        alert('Member not found!');
+        window.location.href = '../admin_team_members_list_view_page/code.html';
+        return null;
+      }
+
+      const member = memberDoc.data();
+      console.log('Member data loaded:', member);
+      return member;
+
+    } catch (error) {
+      console.error("Error loading member:", error);
+      alert('Error loading member: ' + error.message);
+      return null;
+    }
+  }
+
+  // --- POPULATE FORM WITH MEMBER DATA ---
+  function populateForm(member) {
+    if (!member) return;
+
+    console.log('Populating form with:', member);
+
+    fullNameInput.value = member.name || '';
+    designationInput.value = member.position || '';
+    departmentInput.value = member.department || '';
+    linkedinInput.value = member.linkedin || '';
+    githubInput.value = member.github || '';
+    photoUrlInput.value = member.photoURL || '';
+
+    originalCreatedAt = member.createdAt;
+
+    if (member.photoURL) {
+      previewImage.style.backgroundImage = `url("${member.photoURL}")`;
+    }
+  }
+
+  // --- INITIALIZE PAGE ---
+  async function initPage() {
+    // Mobile menu
     const menuBtn = document.getElementById('mobile-menu-btn');
     const sidebar = document.getElementById('sidebar');
     if (menuBtn && sidebar) {
@@ -364,63 +493,41 @@
       });
     }
 
-    // --- LOAD POSITIONS FROM SECTIONS ---
-    const roleSelect = document.getElementById('role');
+    // Clear form first
+    clearForm();
 
-    async function loadPositions() {
-      try {
-        const q = query(collection(db, "team_sections"), orderBy("order", "asc"));
-        const snapshot = await getDocs(q);
+    if (isEditMode) {
+      // EDIT MODE
+      console.log('Initializing in EDIT mode');
 
-        // Collect all positions from all sections
-        const allPositions = [];
-        snapshot.forEach(doc => {
-          const section = doc.data();
-          const positions = section.positions || [];
-          positions.forEach(pos => {
-            if (!allPositions.includes(pos)) {
-              allPositions.push(pos);
-            }
-          });
-        });
+      // Update UI for edit mode
+      if (pageTitle) pageTitle.textContent = 'Edit Team Member';
+      if (submitBtn) submitBtn.innerHTML = '<span class="material-symbols-outlined text-lg">save</span> Update Member';
 
-        // Clear and populate the dropdown
-        roleSelect.innerHTML = '';
+      // Load member data first
+      const member = await loadMemberData();
 
-        if (allPositions.length === 0) {
-          roleSelect.innerHTML = '<option value="">No positions defined - Add sections first</option>';
-          return;
-        }
+      if (member) {
+        // Load positions with member's current role selected
+        await loadPositions(member.role || '');
 
-        // Add a default option
-        const defaultOption = document.createElement('option');
-        defaultOption.value = '';
-        defaultOption.textContent = 'Select a position...';
-        roleSelect.appendChild(defaultOption);
-
-        // Add all positions
-        allPositions.forEach(pos => {
-          const option = document.createElement('option');
-          option.value = pos;
-          option.textContent = pos;
-          roleSelect.appendChild(option);
-        });
-
-      } catch (error) {
-        console.error("Error loading positions:", error);
-        roleSelect.innerHTML = '<option value="">Error loading positions</option>';
+        // Then populate the form
+        populateForm(member);
       }
+
+    } else {
+      // ADD MODE
+      console.log('Initializing in ADD mode');
+
+      if (pageTitle) pageTitle.textContent = 'Add New Team Member';
+      if (pageDescription) pageDescription.textContent = 'Fill in the details to add a new team member to your organization.';
+      if (deleteBtn) deleteBtn.style.display = 'none';
+
+      // Just load positions
+      await loadPositions();
     }
 
-    // Load positions on page load
-    await loadPositions();
-
-    // --- LOGIC START ---
-    const submitBtn = document.querySelector('button[type="submit"]');
-    const photoUrlInput = document.getElementById('photoUrl');
-    const previewImage = document.querySelector('[data-alt="Current profile photo of the team member showing a professional headshot"]');
-
-    // Live Preview
+    // --- LIVE PREVIEW FOR PHOTO ---
     photoUrlInput.addEventListener('input', (e) => {
       const url = e.target.value;
       if (url && url.length > 10) {
@@ -428,22 +535,39 @@
       }
     });
 
+    // --- DELETE MEMBER ---
+    if (deleteBtn && isEditMode) {
+      deleteBtn.addEventListener('click', async () => {
+        if (!confirm('Are you sure you want to delete this team member? This action cannot be undone.')) {
+          return;
+        }
+
+        try {
+          await deleteDoc(doc(db, "team_members", memberId));
+          alert('Team member deleted successfully!');
+          window.location.href = '../admin_team_members_list_view_page/code.html';
+        } catch (error) {
+          console.error("Error deleting member:", error);
+          alert('Error deleting member: ' + error.message);
+        }
+      });
+    }
+
+    // --- SAVE/UPDATE MEMBER ---
     submitBtn.addEventListener('click', async (e) => {
       e.preventDefault();
 
-      // Disable button
       const originalText = submitBtn.innerHTML;
       submitBtn.disabled = true;
-      submitBtn.innerHTML = `<span class="material-symbols-outlined animate-spin">refresh</span> Saving...`;
+      submitBtn.innerHTML = '<span class="material-symbols-outlined animate-spin">refresh</span> Saving...';
 
-      // Gather Data
-      const fullName = document.getElementById('fullName').value;
-      const role = document.getElementById('role').value;
-      const designation = document.getElementById('designation').value;
-      const department = document.getElementById('department').value;
-      const linkedin = document.getElementById('linkedin').value;
-      const github = document.getElementById('github').value;
-      const photoUrl = photoUrlInput.value || "https://lh3.googleusercontent.com/aida-public/AB6AXuD3SGRhumRt1dMJma6YAdChVPLDBdkpLE-fJn5cEA6E4BMd64UjSn7ZepgBDqDvhj05_JBIFGI2IPTbl5lVlBW6pHKNeQ_0E2CtTIatywfQKzBGEMZ2zCNTrYuXUGDYYRO-Dxjg6HXe9Nf1RrW6_tNKRtw_dCKUuan8PHrO7k4lkpLwLGb4QgIAwZhI_vHizlDrZBUXTamDycwiTrQw756xHw303Ei8im97QWnaylnPjxVUnCSMV5lvzkfaauJapAZt1a9JcBeZocCU"; // default placeholder
+      const fullName = fullNameInput.value.trim();
+      const role = roleSelect.value;
+      const designation = designationInput.value.trim();
+      const department = departmentInput.value.trim();
+      const linkedin = linkedinInput.value.trim();
+      const github = githubInput.value.trim();
+      const photoUrl = photoUrlInput.value.trim() || "";
 
       if (!fullName || !role) {
         alert("Please fill in at least Name and Role.");
@@ -453,30 +577,40 @@
       }
 
       try {
-        const teamRef = collection(db, "team_members");
-        await addDoc(teamRef, {
+        const memberData = {
           name: fullName,
           role: role,
-          position: designation || role, // Use role if designation is empty
+          position: designation || role,
           department: department,
           linkedin: linkedin,
           github: github,
           photoURL: photoUrl,
-          createdAt: new Date()
-        });
+          updatedAt: new Date()
+        };
 
-        alert("Team member saved successfully!");
-        // Redirect back to list
+        if (isEditMode && memberId) {
+          memberData.createdAt = originalCreatedAt || new Date();
+          await updateDoc(doc(db, "team_members", memberId), memberData);
+          alert("Team member updated successfully!");
+        } else {
+          memberData.createdAt = new Date();
+          await addDoc(collection(db, "team_members"), memberData);
+          alert("Team member added successfully!");
+        }
+
         window.location.href = "../admin_team_members_list_view_page/code.html";
 
       } catch (error) {
-        console.error("Error adding document: ", error);
+        console.error("Error saving document: ", error);
         alert("Error saving: " + error.message);
         submitBtn.disabled = false;
         submitBtn.innerHTML = originalText;
       }
     });
-  });
+  }
+
+  // Start initialization
+  initPage();
 </script>
 
 </html>
