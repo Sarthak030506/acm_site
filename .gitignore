@@ -1,0 +1,15 @@
+# Development
+node_modules/
+.DS_Store
+*.log
+
+# Local
+.env.local
+.env
+
+# IDE
+.vscode/
+.idea/
+
+# Netlify
+.netlify/

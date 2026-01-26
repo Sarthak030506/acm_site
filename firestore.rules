@@ -1,0 +1,210 @@
+rules_version = '2';
+
+/**
+ * ACM NMIET Firestore Security Rules
+ * Production-Ready Configuration
+ *
+ * Security Model:
+ * - Public: Can READ team members and activities
+ * - Authenticated Users: Can WRITE team members and activities
+ * - All other collections: Denied by default
+ */
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ============================================
+    // HELPER FUNCTIONS
+    // ============================================
+
+    // Check if user is authenticated
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    // Check if user email is verified (optional extra security)
+    function isVerified() {
+      return request.auth != null && request.auth.token.email_verified == true;
+    }
+
+    // Validate string field exists and is not empty
+    function isValidString(field) {
+      return field is string && field.size() > 0 && field.size() <= 500;
+    }
+
+    // Validate required fields exist in request
+    function hasRequiredFields(fields) {
+      return request.resource.data.keys().hasAll(fields);
+    }
+
+
+    // ============================================
+    // TEAM SECTIONS COLLECTION
+    // ============================================
+
+    match /team_sections/{sectionId} {
+      // Anyone can READ team sections (public website display)
+      allow read: if true;
+
+      // Only authenticated users can CREATE team sections
+      allow create: if isAuthenticated()
+                    && hasRequiredFields(['name', 'tagline', 'order', 'positions'])
+                    && isValidString(request.resource.data.name)
+                    && isValidString(request.resource.data.tagline)
+                    && request.resource.data.order is int
+                    && request.resource.data.positions is list;
+
+      // Only authenticated users can UPDATE team sections
+      allow update: if isAuthenticated()
+                    && hasRequiredFields(['name', 'tagline', 'order', 'positions'])
+                    && isValidString(request.resource.data.name)
+                    && isValidString(request.resource.data.tagline)
+                    && request.resource.data.order is int
+                    && request.resource.data.positions is list;
+
+      // Only authenticated users can DELETE team sections
+      allow delete: if isAuthenticated();
+    }
+
+
+    // ============================================
+    // TEAM MEMBERS COLLECTION
+    // ============================================
+
+    match /team_members/{memberId} {
+      // Anyone can READ team members (public website display)
+      allow read: if true;
+
+      // Only authenticated users can CREATE team members
+      allow create: if isAuthenticated()
+                    && hasRequiredFields(['name', 'role', 'position', 'createdAt'])
+                    && isValidString(request.resource.data.name)
+                    && isValidString(request.resource.data.role)
+                    && isValidString(request.resource.data.position)
+                    && request.resource.data.createdAt is timestamp
+                    // Optional fields validation
+                    && (!('photoURL' in request.resource.data) || request.resource.data.photoURL is string)
+                    && (!('bio' in request.resource.data) || request.resource.data.bio is string)
+                    && (!('email' in request.resource.data) || request.resource.data.email is string)
+                    && (!('linkedin' in request.resource.data) || request.resource.data.linkedin is string)
+                    && (!('github' in request.resource.data) || request.resource.data.github is string);
+
+      // Only authenticated users can UPDATE team members
+      allow update: if isAuthenticated()
+                    && hasRequiredFields(['name', 'role', 'position'])
+                    && isValidString(request.resource.data.name)
+                    && isValidString(request.resource.data.role)
+                    && isValidString(request.resource.data.position)
+                    // Prevent modification of createdAt timestamp
+                    && request.resource.data.createdAt == resource.data.createdAt;
+
+      // Only authenticated users can DELETE team members
+      allow delete: if isAuthenticated();
+    }
+
+
+    // ============================================
+    // ACTIVITIES COLLECTION
+    // ============================================
+
+    match /activities/{activityId} {
+      // Anyone can READ activities (public website display)
+      allow read: if true;
+
+      // Only authenticated users can CREATE activities
+      allow create: if isAuthenticated()
+                    && hasRequiredFields(['title', 'description', 'activityType', 'createdAt'])
+                    && isValidString(request.resource.data.title)
+                    && isValidString(request.resource.data.description)
+                    && isValidString(request.resource.data.activityType)
+                    && request.resource.data.activityType in ['workshop', 'event', 'competition', 'seminar', 'hackathon']
+                    && request.resource.data.createdAt is timestamp
+                    // Optional fields validation
+                    && (!('date' in request.resource.data) || request.resource.data.date is string)
+                    && (!('location' in request.resource.data) || request.resource.data.location is string)
+                    && (!('imageURL' in request.resource.data) || request.resource.data.imageURL is string)
+                    && (!('registrationLink' in request.resource.data) || request.resource.data.registrationLink is string)
+                    && (!('status' in request.resource.data) || request.resource.data.status in ['upcoming', 'ongoing', 'completed']);
+
+      // Only authenticated users can UPDATE activities
+      allow update: if isAuthenticated()
+                    && hasRequiredFields(['title', 'description', 'activityType'])
+                    && isValidString(request.resource.data.title)
+                    && isValidString(request.resource.data.description)
+                    && isValidString(request.resource.data.activityType)
+                    && request.resource.data.activityType in ['workshop', 'event', 'competition', 'seminar', 'hackathon']
+                    // Prevent modification of createdAt timestamp
+                    && request.resource.data.createdAt == resource.data.createdAt;
+
+      // Only authenticated users can DELETE activities
+      allow delete: if isAuthenticated();
+    }
+
+
+    // ============================================
+    // BLOG POSTS COLLECTION (Future-Ready)
+    // ============================================
+
+    match /blog_posts/{postId} {
+      // Anyone can READ blog posts
+      allow read: if true;
+
+      // Only authenticated users can WRITE blog posts
+      allow create, update: if isAuthenticated()
+                            && hasRequiredFields(['title', 'content', 'author'])
+                            && isValidString(request.resource.data.title)
+                            && isValidString(request.resource.data.content)
+                            && isValidString(request.resource.data.author);
+
+      allow delete: if isAuthenticated();
+    }
+
+
+    // ============================================
+    // CONTACT/RECRUITMENT SUBMISSIONS (Future-Ready)
+    // ============================================
+
+    match /contact_submissions/{submissionId} {
+      // Only authenticated users can READ submissions
+      allow read: if isAuthenticated();
+
+      // Anyone can CREATE submissions (public contact form)
+      allow create: if hasRequiredFields(['name', 'email', 'message', 'submittedAt'])
+                    && isValidString(request.resource.data.name)
+                    && isValidString(request.resource.data.email)
+                    && isValidString(request.resource.data.message)
+                    && request.resource.data.email.matches('.*@.*\\..*') // Basic email format
+                    && request.resource.data.submittedAt is timestamp;
+
+      // Only authenticated users can UPDATE/DELETE
+      allow update, delete: if isAuthenticated();
+    }
+
+    match /join_requests/{requestId} {
+      // Only authenticated users can READ join requests
+      allow read: if isAuthenticated();
+
+      // Anyone can CREATE join requests (public join form)
+      allow create: if hasRequiredFields(['name', 'email', 'year', 'department', 'submittedAt'])
+                    && isValidString(request.resource.data.name)
+                    && isValidString(request.resource.data.email)
+                    && isValidString(request.resource.data.year)
+                    && isValidString(request.resource.data.department)
+                    && request.resource.data.email.matches('.*@.*\\..*')
+                    && request.resource.data.submittedAt is timestamp;
+
+      // Only authenticated users can UPDATE/DELETE
+      allow update, delete: if isAuthenticated();
+    }
+
+
+    // ============================================
+    // DEFAULT DENY ALL
+    // ============================================
+
+    // Deny access to any other collections not explicitly defined above
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

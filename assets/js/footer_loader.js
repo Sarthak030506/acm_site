@@ -63,6 +63,9 @@ document.addEventListener("DOMContentLoaded", function () {
                         <li>
                             <a class="text-blue-100/70 hover:text-white hover:translate-x-1 transition-all duration-200 text-sm" href="../contact_page/code.html">Contact Us</a>
                         </li>
+                        <li>
+                            <a class="text-blue-100/70 hover:text-white hover:translate-x-1 transition-all duration-200 text-sm" href="../admin_panel_login_screen/code.html">Admin Dashboard</a>
+                        </li>
                     </ul>
                 </div>
                 <!-- Column 3: Focus Areas -->

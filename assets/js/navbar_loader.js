@@ -62,10 +62,31 @@ const navbarHTML = `
                     href="../our_team_page/code.html" data-page="our_team_page">
                     Our Team
                 </a>
-                <a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary nav-link"
-                    href="../upcoming_activities_page/code.html" data-page="upcoming_activities_page">
-                    Upcoming Activities
-                </a>
+                <!-- ACM Events Dropdown -->
+                <div class="relative group h-full flex items-center">
+                    <button id="events-dropdown-btn"
+                        class="flex items-center gap-1 text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary focus:outline-none py-8">
+                        ACM Events
+                        <span class="material-symbols-outlined text-[20px]">keyboard_arrow_down</span>
+                    </button>
+                    <!-- Dropdown Panel -->
+                    <div
+                        class="absolute top-[80%] left-1/2 -translate-x-1/2 w-56 invisible opacity-0 group-hover:visible group-hover:opacity-100 pt-2">
+                        <div
+                            class="bg-white dark:bg-slate-800 rounded-xl shadow-xl border border-slate-100 dark:border-slate-700 overflow-hidden ring-1 ring-black ring-opacity-5 p-1">
+                            <a class="flex items-center gap-3 px-4 py-3 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700/50 hover:text-primary rounded-lg"
+                                href="../upcoming_activities_page/code.html">
+                                <span class="material-symbols-outlined text-lg text-slate-400">event_upcoming</span>
+                                Upcoming Events
+                            </a>
+                            <a class="flex items-center gap-3 px-4 py-3 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700/50 hover:text-primary rounded-lg"
+                                href="../past_events_page/code.html">
+                                <span class="material-symbols-outlined text-lg text-slate-400">history</span>
+                                Past Events
+                            </a>
+                        </div>
+                    </div>
+                </div>
                 <a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary nav-link"
                     href="../contact_page/code.html" data-page="contact_page">
                     Contact Us
@@ -112,9 +133,14 @@ const navbarHTML = `
                 href="../focus_areas_page/code.html" data-page="focus_areas_page">Focus Areas</a>
             <a class="block px-3 py-3 rounded-md text-base font-medium text-slate-600 dark:text-slate-300 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800 nav-link-mobile"
                 href="../our_team_page/code.html" data-page="our_team_page">Our Team</a>
-            <a class="block px-3 py-3 rounded-md text-base font-medium text-slate-600 dark:text-slate-300 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800 nav-link-mobile"
-                href="../upcoming_activities_page/code.html" data-page="upcoming_activities_page">Upcoming
-                Activities</a>
+            <!-- Mobile ACM Events Submenu -->
+            <div class="pl-4 border-l-2 border-slate-100 dark:border-slate-700 ml-3 my-2 space-y-1">
+                <p class="px-3 py-2 text-xs font-bold uppercase tracking-wider text-slate-400">ACM Events</p>
+                <a class="block px-3 py-2 rounded-md text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary"
+                    href="../upcoming_activities_page/code.html">Upcoming Events</a>
+                <a class="block px-3 py-2 rounded-md text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary"
+                    href="../past_events_page/code.html">Past Events</a>
+            </div>
             <a class="block px-3 py-3 rounded-md text-base font-medium text-slate-600 dark:text-slate-300 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800 nav-link-mobile"
                 href="../contact_page/code.html" data-page="contact_page">Contact Us</a>
             <div class="pt-4">

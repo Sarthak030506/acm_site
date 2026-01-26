@@ -1,0 +1,40 @@
+[build]
+  publish = "."
+  command = "echo 'No build needed - static site'"
+
+[[redirects]]
+  from = "/"
+  to = "/home_page/code.html"
+  status = 200
+
+[[redirects]]
+  from = "/home"
+  to = "/home_page/code.html"
+  status = 200
+
+[[redirects]]
+  from = "/team"
+  to = "/our_team_page/code.html"
+  status = 200
+
+[[redirects]]
+  from = "/events"
+  to = "/upcoming_activities_page/code.html"
+  status = 200
+
+[[redirects]]
+  from = "/past-events"
+  to = "/past_events_page/code.html"
+  status = 200
+
+[[redirects]]
+  from = "/contact"
+  to = "/contact_page/code.html"
+  status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "no-referrer-when-downgrade"

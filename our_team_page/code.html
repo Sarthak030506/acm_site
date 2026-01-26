@@ -77,118 +77,174 @@
           </p>
         </div>
       </section>
-      <!-- Faculty Sponsor Section -->
-      <section class="py-16 px-4 lg:px-40 bg-white dark:bg-[#13222b]">
-        <div class="max-w-[1200px] mx-auto">
-          <div class="text-center mb-12">
-            <h2 class="text-slate-900 dark:text-white text-3xl font-bold tracking-tight mb-2">Faculty Sponsor</h2>
-            <div class="h-1 w-20 bg-primary mx-auto rounded-full"></div>
+      <!-- Team Sections Container -->
+      <div id="team-sections-container">
+        <!-- Loading indicator -->
+        <section class="py-16 px-4 lg:px-40 bg-background-light dark:bg-background-dark">
+          <div class="max-w-[1200px] mx-auto flex justify-center p-10">
+            <span class="material-symbols-outlined animate-spin text-4xl text-primary">progress_activity</span>
           </div>
-          <div class="flex justify-center">
-            <div
-              class="flex flex-col md:flex-row items-center gap-8 bg-background-light dark:bg-card-dark p-8 rounded-2xl shadow-sm border border-border-light dark:border-border-dark max-w-3xl w-full hover:shadow-lg transition-shadow duration-300">
-              <div class="shrink-0">
-                <div
-                  class="w-40 h-40 md:w-48 md:h-48 rounded-full bg-cover bg-center border-4 border-white dark:border-border-dark shadow-md"
-                  data-alt="Portrait of Dr. Faculty Sponsor smiling professionally"
-                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCRAMvYG6ilxPmuxxf16iA0hrtmj6M575axYBvF_WansT6BiMZcx4_ahymSn5Iqp2EXXa-cfkUhEkHpIqnPcykNca5p95YK-dXvr8O--_QKb4JuP6zGBrQYMLcisezzbTEagq6tJ2BrrjVTxem4MG5sdsYBMrwotnEZgXcNFvFyHPHBzEDro8KUsq3ajZQYpDJEodeYbZk6Mla9ZYBascBYjF5vkEPs6te2H14fOH5nD0Fsl9n_BEtuCcD3d_wFirxIP7C7qvCI_4yA");'>
-                </div>
-              </div>
-              <div class="flex flex-col items-center md:items-start text-center md:text-left space-y-3 w-full">
-                <div>
-                  <h3 class="text-2xl font-bold text-slate-900 dark:text-white">Dr. Robert Smith</h3>
-                  <p class="text-primary text-lg font-semibold">Faculty Sponsor</p>
-                </div>
-                <div class="space-y-1 text-slate-600 dark:text-slate-300">
-                  <p class="flex items-center gap-2 justify-center md:justify-start">
-                    <span class="material-symbols-outlined text-[20px]">school</span>
-                    Ph.D. in Computer Science
-                  </p>
-                  <p class="flex items-center gap-2 justify-center md:justify-start">
-                    <span class="material-symbols-outlined text-[20px]">apartment</span>
-                    Dept. of Computer Science &amp; Engineering
-                  </p>
-                </div>
-                <div class="pt-4 w-full md:w-auto">
-                  <a class="inline-flex items-center justify-center gap-2 w-full md:w-auto px-6 py-2.5 bg-white dark:bg-[#1f3642] border border-border-light dark:border-border-dark rounded-lg text-slate-700 dark:text-slate-200 font-medium hover:border-primary hover:text-primary dark:hover:text-primary transition-colors group shadow-sm"
-                    href="#">
-                    <span>View Profile</span>
-                    <span
-                      class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_outward</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- Team Members Section -->
-      <section class="py-16 px-4 lg:px-40 bg-background-light dark:bg-background-dark">
-        <div class="max-w-[1200px] mx-auto">
-          <div class="text-center mb-12">
-            <h2 class="text-slate-900 dark:text-white text-3xl font-bold tracking-tight mb-2">Our Team</h2>
-            <div class="h-1 w-20 bg-primary mx-auto rounded-full"></div>
-          </div>
-
-          <div id="team-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <!-- Dynamic Content Loading... -->
-            <div class="col-span-full flex justify-center p-10">
-              <span class="material-symbols-outlined animate-spin text-4xl text-primary">progress_activity</span>
-            </div>
-          </div>
-        </div>
-      </section>
+        </section>
+      </div>
 
       <script type="module">
         import { db } from '../assets/js/firebase_config.js';
         import { collection, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-        const teamGrid = document.getElementById('team-grid');
+        const sectionsContainer = document.getElementById('team-sections-container');
 
-        async function loadTeam() {
+        // Create member card HTML
+        function createMemberCard(member) {
+          return `
+            <div class="group bg-white dark:bg-[#1a2e38] rounded-xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center">
+              <div class="w-28 h-28 mb-4 rounded-full bg-cover bg-center border-2 border-primary/20 group-hover:border-primary transition-colors"
+                style="background-image: url('${member.photoURL || 'https://via.placeholder.com/150'}');">
+              </div>
+              <h3 class="text-lg font-bold text-slate-900 dark:text-white">${member.name}</h3>
+              <p class="text-primary font-medium text-sm mb-4">${member.role}</p>
+              <div class="flex gap-3 mt-auto">
+                ${member.linkedin ? `
+                <a href="${member.linkedin}" target="_blank" class="p-2 rounded-full bg-background-light dark:bg-[#1f3642] text-slate-600 dark:text-slate-300 hover:text-primary hover:bg-primary/10 transition-colors">
+                  <span class="material-symbols-outlined text-[20px]">link</span>
+                </a>` : ''}
+                ${member.github ? `
+                <a href="${member.github}" target="_blank" class="p-2 rounded-full bg-background-light dark:bg-[#1f3642] text-slate-600 dark:text-slate-300 hover:text-primary hover:bg-primary/10 transition-colors">
+                  <span class="material-symbols-outlined text-[20px]">code</span>
+                </a>` : ''}
+              </div>
+            </div>
+          `;
+        }
+
+        // Create section header HTML
+        function createSectionHeader(section) {
+          return `
+            <div class="text-center mb-12">
+              <h2 class="text-slate-900 dark:text-white text-3xl font-bold tracking-tight mb-3 italic">${section.name}</h2>
+              <p class="text-slate-600 dark:text-slate-400 text-lg italic max-w-2xl mx-auto">"${section.tagline}"</p>
+            </div>
+          `;
+        }
+
+        // Create full section HTML
+        function createSection(section, members, index) {
+          const bgClass = index % 2 === 0
+            ? 'bg-background-light dark:bg-background-dark'
+            : 'bg-white dark:bg-[#13222b]';
+
+          const memberCards = members.map(m => createMemberCard(m)).join('');
+
+          return `
+            <section class="py-16 px-4 lg:px-40 ${bgClass}">
+              <div class="max-w-[1200px] mx-auto">
+                ${createSectionHeader(section)}
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                  ${memberCards}
+                </div>
+              </div>
+            </section>
+          `;
+        }
+
+        async function loadTeamWithSections() {
           try {
-            const q = query(collection(db, "team_members"), orderBy("createdAt", "desc"));
-            const querySnapshot = await getDocs(q);
+            // Fetch all sections ordered by 'order' field
+            const sectionsQuery = query(collection(db, "team_sections"), orderBy("order", "asc"));
+            const sectionsSnapshot = await getDocs(sectionsQuery);
 
-            teamGrid.innerHTML = '';
+            // Fetch all team members
+            const membersQuery = query(collection(db, "team_members"), orderBy("createdAt", "desc"));
+            const membersSnapshot = await getDocs(membersQuery);
 
-            if (querySnapshot.empty) {
-              teamGrid.innerHTML = '<div class="col-span-full text-center text-slate-500">No team members to show yet.</div>';
+            // Convert members to array
+            const allMembers = [];
+            membersSnapshot.forEach(doc => {
+              allMembers.push({ id: doc.id, ...doc.data() });
+            });
+
+            // If no sections defined, show all members in one section
+            if (sectionsSnapshot.empty) {
+              sectionsContainer.innerHTML = `
+                <section class="py-16 px-4 lg:px-40 bg-background-light dark:bg-background-dark">
+                  <div class="max-w-[1200px] mx-auto">
+                    <div class="text-center mb-12">
+                      <h2 class="text-slate-900 dark:text-white text-3xl font-bold tracking-tight mb-2">Our Team</h2>
+                      <div class="h-1 w-20 bg-primary mx-auto rounded-full"></div>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                      ${allMembers.length > 0
+                        ? allMembers.map(m => createMemberCard(m)).join('')
+                        : '<div class="col-span-full text-center text-slate-500">No team members to show yet.</div>'}
+                    </div>
+                  </div>
+                </section>
+              `;
               return;
             }
 
-            querySnapshot.forEach(doc => {
-              const member = doc.data();
-              const card = document.createElement('div');
-              card.className = "group bg-white dark:bg-card-dark rounded-xl p-6 border border-border-light dark:border-border-dark shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center";
+            // Group members by section based on their role matching section's positions
+            let sectionsHTML = '';
+            let assignedMembers = new Set();
+            let sectionIndex = 0;
 
-              card.innerHTML = `
-                        <div class="w-28 h-28 mb-4 rounded-full bg-cover bg-center border-2 border-primary/20 group-hover:border-primary transition-colors"
-                            style="background-image: url('${member.photoURL || 'https://via.placeholder.com/150'}');">
-                        </div>
-                        <h3 class="text-lg font-bold text-slate-900 dark:text-white">${member.name}</h3>
-                        <p class="text-primary font-medium text-sm mb-4">${member.role}</p>
-                        <div class="flex gap-3 mt-auto">
-                            ${member.linkedin ? `
-                            <a href="${member.linkedin}" target="_blank" class="p-2 rounded-full bg-background-light dark:bg-[#1f3642] text-slate-600 dark:text-slate-300 hover:text-primary hover:bg-primary/10 transition-colors">
-                                <span class="material-symbols-outlined text-[20px]">link</span>
-                            </a>` : ''}
-                            ${member.github ? `
-                            <a href="${member.github}" target="_blank" class="p-2 rounded-full bg-background-light dark:bg-[#1f3642] text-slate-600 dark:text-slate-300 hover:text-primary hover:bg-primary/10 transition-colors">
-                                <span class="material-symbols-outlined text-[20px]">code</span>
-                            </a>` : ''}
-                        </div>
-                    `;
-              teamGrid.appendChild(card);
+            sectionsSnapshot.forEach(doc => {
+              const section = doc.data();
+              const positions = section.positions || [];
+
+              // Find members whose role matches any position in this section
+              const sectionMembers = allMembers.filter(member => {
+                const memberRole = (member.role || '').toLowerCase().trim();
+                return positions.some(pos => pos.toLowerCase().trim() === memberRole);
+              });
+
+              // Track assigned members
+              sectionMembers.forEach(m => assignedMembers.add(m.id));
+
+              // Only show section if it has members
+              if (sectionMembers.length > 0) {
+                sectionsHTML += createSection(section, sectionMembers, sectionIndex);
+                sectionIndex++;
+              }
             });
+
+            // Find unassigned members (those whose role doesn't match any section)
+            const unassignedMembers = allMembers.filter(m => !assignedMembers.has(m.id));
+
+            // Show unassigned members in "Other Members" section if any exist
+            if (unassignedMembers.length > 0) {
+              const otherSection = {
+                name: "Other Members",
+                tagline: "Contributing to the success of ACM NMIET"
+              };
+              sectionsHTML += createSection(otherSection, unassignedMembers, sectionIndex);
+            }
+
+            // If no sections had members, show empty state
+            if (sectionsHTML === '') {
+              sectionsHTML = `
+                <section class="py-16 px-4 lg:px-40 bg-background-light dark:bg-background-dark">
+                  <div class="max-w-[1200px] mx-auto text-center">
+                    <p class="text-slate-500">No team members to show yet.</p>
+                  </div>
+                </section>
+              `;
+            }
+
+            sectionsContainer.innerHTML = sectionsHTML;
 
           } catch (error) {
             console.error("Error loading team:", error);
-            teamGrid.innerHTML = '<div class="col-span-full text-center text-red-500">Failed to load team members.</div>';
+            sectionsContainer.innerHTML = `
+              <section class="py-16 px-4 lg:px-40 bg-background-light dark:bg-background-dark">
+                <div class="max-w-[1200px] mx-auto text-center text-red-500">
+                  Failed to load team members. Please try again later.
+                </div>
+              </section>
+            `;
           }
         }
 
-        loadTeam();
+        loadTeamWithSections();
       </script>
       <!-- Recruitment CTA -->
       <section class="py-20 px-4 bg-primary text-white">
