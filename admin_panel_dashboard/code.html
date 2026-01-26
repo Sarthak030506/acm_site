@@ -445,7 +445,7 @@
         // Handle photo with fallback to initials
         let photoHTML;
         if (member.photoURL) {
-            photoHTML = `<div class="size-12 rounded-full bg-cover bg-center border border-border-light shadow-sm" style="background-image: url('${member.photoURL}');"></div>`;
+            photoHTML = `<img src="${member.photoURL}" alt="${member.name}" class="size-12 rounded-full object-cover border border-border-light shadow-sm bg-slate-100" onerror="this.onerror=null; this.src='https://via.placeholder.com/150';"/>`;
         } else {
             const initials = member.name ? member.name.split(' ').map(n => n[0]).join('').toUpperCase().substring(0, 2) : 'NA';
             photoHTML = `<div class="size-12 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center text-primary font-bold shadow-sm">${initials}</div>`;
