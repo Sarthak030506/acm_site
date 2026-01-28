@@ -103,14 +103,6 @@
                 class="text-text-muted group-hover:text-text-main text-sm font-medium leading-normal transition-colors">
                 Blog Management</p>
             </a>
-            <a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-50 transition-colors group"
-              href="../admin_team_sections_page/code.html">
-              <span
-                class="material-symbols-outlined text-text-muted group-hover:text-primary transition-colors">category</span>
-              <p
-                class="text-text-muted group-hover:text-text-main text-sm font-medium leading-normal transition-colors">
-                Team Sections</p>
-            </a>
             <a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/10 border-l-4 border-primary shadow-sm"
               href="../admin_team_members_list_view_page/code.html">
               <span class="material-symbols-outlined text-primary fill-current">group</span>
@@ -270,14 +262,41 @@
                         <select
                           class="w-full bg-white text-text-main border border-gray-300 rounded-lg px-4 py-2.5 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all appearance-none cursor-pointer shadow-sm"
                           id="role">
-                          <option value="">Loading positions...</option>
+                          <option value="">Select a role...</option>
+                          <optgroup label="Faculty">
+                            <option value="Faculty Sponsor">Faculty Sponsor</option>
+                            <option value="Faculty Coordinator">Faculty Coordinator</option>
+                          </optgroup>
+                          <optgroup label="Core Team">
+                            <option value="President">President</option>
+                            <option value="Vice President">Vice President</option>
+                            <option value="Secretary">Secretary</option>
+                            <option value="Co-Secretary">Co-Secretary</option>
+                            <option value="Treasurer">Treasurer</option>
+                            <option value="Co-Treasurer">Co-Treasurer</option>
+                            <option value="Management Head">Management Head</option>
+                            <option value="Executive Member">Executive Member</option>
+                          </optgroup>
+                          <optgroup label="Technical">
+                            <option value="Technical Head">Technical Head</option>
+                            <option value="Web Master">Web Master</option>
+                          </optgroup>
+                          <optgroup label="Design & Media">
+                            <option value="Design Head">Design Head</option>
+                            <option value="Design Coordinator">Design Coordinator</option>
+                            <option value="Design Team">Design Team</option>
+                            <option value="Visual Media">Visual Media</option>
+                            <option value="Media/ Marketing Team">Media/ Marketing Team</option>
+                          </optgroup>
+                          <optgroup label="Members">
+                            <option value="ACM Student Member">ACM Student Member</option>
+                          </optgroup>
                         </select>
                         <div
                           class="absolute inset-y-0 right-0 flex items-center px-3 pointer-events-none text-gray-500">
                           <span class="material-symbols-outlined">expand_more</span>
                         </div>
                       </div>
-                      <p class="text-text-muted text-xs">Positions are managed in <a href="../admin_team_sections_page/code.html" class="text-primary hover:underline">Team Sections</a></p>
                     </div>
                   </div>
                 </div>
@@ -318,15 +337,15 @@
                       </div>
                     </div>
                     <div class="flex flex-col gap-2">
-                      <label class="text-text-muted text-xs font-semibold uppercase tracking-wider" for="github">GitHub
+                      <label class="text-text-muted text-xs font-semibold uppercase tracking-wider" for="instagram">Instagram
                         URL</label>
                       <div class="relative flex items-center">
                         <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                          <span class="material-symbols-outlined text-gray-400">code</span>
+                          <span class="material-symbols-outlined text-gray-400">photo_camera</span>
                         </div>
                         <input
                           class="w-full bg-white text-text-main border border-gray-300 rounded-lg pl-10 pr-4 py-2.5 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all placeholder:text-gray-400 shadow-sm"
-                          id="github" placeholder="https://github.com/username" type="url" />
+                          id="instagram" placeholder="https://instagram.com/username" type="url" />
                       </div>
                     </div>
                   </div>
@@ -353,7 +372,7 @@
 </body>
 <script type="module">
   import { db } from '../assets/js/firebase_config.js';
-  import { collection, addDoc, doc, getDoc, updateDoc, deleteDoc, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+  import { collection, addDoc, doc, getDoc, updateDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
   // --- GET FORM ELEMENTS ---
   const roleSelect = document.getElementById('role');
@@ -364,7 +383,7 @@
   const designationInput = document.getElementById('designation');
   const departmentInput = document.getElementById('department');
   const linkedinInput = document.getElementById('linkedin');
-  const githubInput = document.getElementById('github');
+  const instagramInput = document.getElementById('instagram');
   const pageTitle = document.querySelector('h1');
   const pageDescription = document.querySelector('h1 + p');
   const deleteBtn = document.querySelector('.text-red-600');
@@ -374,66 +393,18 @@
   const memberId = urlParams.get('id');
   const isEditMode = memberId && memberId.length > 0;
 
-  console.log('Edit Mode:', isEditMode, 'Member ID:', memberId);
-
   // Store original createdAt for edit mode
   let originalCreatedAt = null;
 
   // --- CLEAR ALL FORM FIELDS ---
   function clearForm() {
     fullNameInput.value = '';
+    roleSelect.value = '';
     designationInput.value = '';
     departmentInput.value = '';
     linkedinInput.value = '';
-    githubInput.value = '';
+    instagramInput.value = '';
     photoUrlInput.value = '';
-  }
-
-  // --- LOAD POSITIONS FROM SECTIONS ---
-  async function loadPositions(selectedRole = '') {
-    try {
-      const q = query(collection(db, "team_sections"), orderBy("order", "asc"));
-      const snapshot = await getDocs(q);
-
-      const allPositions = [];
-      snapshot.forEach(docSnap => {
-        const section = docSnap.data();
-        const positions = section.positions || [];
-        positions.forEach(pos => {
-          if (!allPositions.includes(pos)) {
-            allPositions.push(pos);
-          }
-        });
-      });
-
-      roleSelect.innerHTML = '';
-
-      if (allPositions.length === 0) {
-        roleSelect.innerHTML = '<option value="">No positions defined - Add sections first</option>';
-        return;
-      }
-
-      const defaultOption = document.createElement('option');
-      defaultOption.value = '';
-      defaultOption.textContent = 'Select a position...';
-      roleSelect.appendChild(defaultOption);
-
-      allPositions.forEach(pos => {
-        const option = document.createElement('option');
-        option.value = pos;
-        option.textContent = pos;
-        if (selectedRole && pos.toLowerCase() === selectedRole.toLowerCase()) {
-          option.selected = true;
-        }
-        roleSelect.appendChild(option);
-      });
-
-      console.log('Positions loaded:', allPositions.length, 'Selected:', selectedRole);
-
-    } catch (error) {
-      console.error("Error loading positions:", error);
-      roleSelect.innerHTML = '<option value="">Error loading positions</option>';
-    }
   }
 
   // --- LOAD MEMBER DATA ---
@@ -441,7 +412,6 @@
     if (!isEditMode) return null;
 
     try {
-      console.log('Loading member with ID:', memberId);
       const memberRef = doc(db, "team_members", memberId);
       const memberDoc = await getDoc(memberRef);
 
@@ -451,9 +421,7 @@
         return null;
       }
 
-      const member = memberDoc.data();
-      console.log('Member data loaded:', member);
-      return member;
+      return memberDoc.data();
 
     } catch (error) {
       console.error("Error loading member:", error);
@@ -466,13 +434,12 @@
   function populateForm(member) {
     if (!member) return;
 
-    console.log('Populating form with:', member);
-
     fullNameInput.value = member.name || '';
+    roleSelect.value = member.role || '';
     designationInput.value = member.position || '';
     departmentInput.value = member.department || '';
     linkedinInput.value = member.linkedin || '';
-    githubInput.value = member.github || '';
+    instagramInput.value = member.instagram || '';
     photoUrlInput.value = member.photoURL || '';
 
     originalCreatedAt = member.createdAt;
@@ -498,33 +465,20 @@
 
     if (isEditMode) {
       // EDIT MODE
-      console.log('Initializing in EDIT mode');
-
-      // Update UI for edit mode
       if (pageTitle) pageTitle.textContent = 'Edit Team Member';
       if (submitBtn) submitBtn.innerHTML = '<span class="material-symbols-outlined text-lg">save</span> Update Member';
 
-      // Load member data first
+      // Load and populate member data
       const member = await loadMemberData();
-
       if (member) {
-        // Load positions with member's current role selected
-        await loadPositions(member.role || '');
-
-        // Then populate the form
         populateForm(member);
       }
 
     } else {
       // ADD MODE
-      console.log('Initializing in ADD mode');
-
       if (pageTitle) pageTitle.textContent = 'Add New Team Member';
       if (pageDescription) pageDescription.textContent = 'Fill in the details to add a new team member to your organization.';
       if (deleteBtn) deleteBtn.style.display = 'none';
-
-      // Just load positions
-      await loadPositions();
     }
 
     // --- LIVE PREVIEW FOR PHOTO ---
@@ -566,7 +520,7 @@
       const designation = designationInput.value.trim();
       const department = departmentInput.value.trim();
       const linkedin = linkedinInput.value.trim();
-      const github = githubInput.value.trim();
+      const instagram = instagramInput.value.trim();
       const photoUrl = photoUrlInput.value.trim() || "";
 
       if (!fullName || !role) {
@@ -583,7 +537,7 @@
           position: designation || role,
           department: department,
           linkedin: linkedin,
-          github: github,
+          instagram: instagram,
           photoURL: photoUrl,
           updatedAt: new Date()
         };
