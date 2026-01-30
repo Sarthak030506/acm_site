@@ -75,17 +75,24 @@
                 </div>
                 <div class="w-full max-w-md z-10">
                     <label class="flex flex-col w-full">
-                        <div class="flex w-full items-stretch rounded-lg shadow-sm">
+                        <div id="notify-form" class="flex w-full items-stretch rounded-lg shadow-sm">
                             <input
+                                id="notify-email"
                                 class="flex-1 rounded-l-lg border border-r-0 border-[#e6eff4] dark:border-[#2a3b47] bg-[#f8fbfc] dark:bg-[#0f1c23] px-4 py-3 text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none min-w-0"
                                 placeholder="Enter your email address" type="email" />
                             <button
+                                id="notify-btn"
+                                type="button"
                                 class="bg-primary hover:bg-primary/90 text-white font-bold px-6 py-3 rounded-r-lg text-sm whitespace-nowrap transition-all flex items-center gap-2">
                                 <span>Notify Me</span>
                                 <span class="material-symbols-outlined text-[18px]">send</span>
                             </button>
                         </div>
-                        <p class="text-xs text-text-sub-light dark:text-text-sub-dark mt-2 ml-1">
+                        <div id="notify-success" class="hidden flex items-center gap-2 bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400 px-4 py-3 rounded-lg">
+                            <span class="material-symbols-outlined text-[20px]">check_circle</span>
+                            <span class="text-sm font-medium">You're on the list! We'll notify you about upcoming events.</span>
+                        </div>
+                        <p id="notify-hint" class="text-xs text-text-sub-light dark:text-text-sub-dark mt-2 ml-1">
                             No spam, just updates on upcoming tech events.
                         </p>
                     </label>
@@ -153,8 +160,9 @@
 
                     docs.forEach(doc => {
                         const data = doc.data();
-                        const card = document.createElement('article');
-                        card.className = "group relative flex flex-col bg-card-light dark:bg-card-dark rounded-xl border border-[#e6eff4] dark:border-[#2a3b47] overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300";
+                        const card = document.createElement('a');
+                        card.href = `../event_detail_page/code.html?id=${doc.id}`;
+                        card.className = "group relative flex flex-col bg-card-light dark:bg-card-dark rounded-xl border border-[#e6eff4] dark:border-[#2a3b47] overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer";
 
                         // Status Logic
                         let statusColor = "bg-blue-50 text-blue-700 ring-blue-700/10";
@@ -210,7 +218,12 @@
 
                 async function loadAll() {
                     try {
-                        const q = query(collection(db, "activities"), orderBy("createdAt", "desc"));
+                        // Only fetch upcoming and ongoing activities (exclude completed)
+                        const q = query(
+                            collection(db, "activities"),
+                            where("status", "in", ["upcoming", "ongoing"]),
+                            orderBy("createdAt", "desc")
+                        );
                         const snapshot = await getDocs(q);
                         allDocs = snapshot.docs; // Cache all docs
                         renderActivities(allDocs);
@@ -249,6 +262,37 @@
                             renderActivities(filtered);
                         }
                     });
+                });
+
+                // Notify Me button handler
+                const notifyBtn = document.getElementById('notify-btn');
+                const notifyEmail = document.getElementById('notify-email');
+                const notifyForm = document.getElementById('notify-form');
+                const notifySuccess = document.getElementById('notify-success');
+                const notifyHint = document.getElementById('notify-hint');
+
+                notifyBtn.addEventListener('click', () => {
+                    const email = notifyEmail.value.trim();
+
+                    // Basic email validation
+                    if (!email || !email.includes('@') || !email.includes('.')) {
+                        notifyEmail.classList.add('ring-2', 'ring-red-500', 'border-red-500');
+                        setTimeout(() => {
+                            notifyEmail.classList.remove('ring-2', 'ring-red-500', 'border-red-500');
+                        }, 2000);
+                        return;
+                    }
+
+                    // Show loading state
+                    notifyBtn.disabled = true;
+                    notifyBtn.innerHTML = `<span class="material-symbols-outlined animate-spin text-[18px]">progress_activity</span>`;
+
+                    // Simulate submission delay
+                    setTimeout(() => {
+                        notifyForm.classList.add('hidden');
+                        notifySuccess.classList.remove('hidden');
+                        notifyHint.classList.add('hidden');
+                    }, 800);
                 });
             </script>
             <!-- Empty State (Hidden by default, shown if no items) -->

@@ -258,12 +258,53 @@
                         </div>
                         <div class="flex flex-col gap-2">
 
-                            <label class="text-text-main text-sm font-medium">Relevant Image URL</label>
+                            <label class="text-text-main text-sm font-medium">Banner Image URL</label>
                             <input
                                 class="w-full rounded-lg bg-input-bg border border-border-color text-text-main placeholder-text-placeholder focus:border-primary focus:ring-1 focus:ring-primary h-12 px-4 transition-all shadow-sm"
                                 id="bannerUrl" placeholder="https://example.com/banner.jpg" type="url" />
                             <p class="text-text-secondary text-xs mt-1">Paste a public link to the event banner image.
                             </p>
+                        </div>
+                    </div>
+                    <div class="h-px bg-border-color w-full"></div>
+                    <!-- Event Images Gallery Section -->
+                    <div class="grid grid-cols-1 gap-6">
+                        <div class="flex flex-col gap-4">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <label class="text-text-main text-sm font-medium" id="images-section-label">Event Images</label>
+                                    <p class="text-text-secondary text-xs mt-1" id="images-section-hint">Add posters for upcoming events or photos for completed events.</p>
+                                </div>
+                            </div>
+
+                            <!-- Current Images Grid -->
+                            <div id="images-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                                <!-- Images will be dynamically inserted here -->
+                            </div>
+
+                            <!-- Empty State -->
+                            <div id="images-empty" class="text-center py-6 border-2 border-dashed border-border-color rounded-lg">
+                                <span class="material-symbols-outlined text-3xl text-text-secondary mb-2">photo_library</span>
+                                <p class="text-text-secondary text-sm">No images added yet</p>
+                            </div>
+
+                            <!-- Add Image Form -->
+                            <div class="flex flex-col gap-3 p-4 bg-surface-highlight rounded-lg border border-border-color">
+                                <label class="text-text-main text-sm font-medium">Add New Image</label>
+                                <div class="flex flex-col sm:flex-row gap-3">
+                                    <input
+                                        class="flex-1 rounded-lg bg-white border border-border-color text-text-main placeholder-text-placeholder focus:border-primary focus:ring-1 focus:ring-primary h-10 px-3 text-sm transition-all shadow-sm"
+                                        id="newImageUrl" placeholder="https://example.com/image.jpg" type="url" />
+                                    <input
+                                        class="flex-1 rounded-lg bg-white border border-border-color text-text-main placeholder-text-placeholder focus:border-primary focus:ring-1 focus:ring-primary h-10 px-3 text-sm transition-all shadow-sm"
+                                        id="newImageCaption" placeholder="Optional caption" type="text" />
+                                    <button type="button" id="addImageBtn"
+                                        class="px-4 py-2 rounded-lg bg-primary text-white font-medium hover:bg-primary/90 transition-all text-sm flex items-center gap-2 whitespace-nowrap">
+                                        <span class="material-symbols-outlined text-[18px]">add_photo_alternate</span>
+                                        Add
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -302,11 +343,109 @@
         const descInput = document.getElementById('description');
         const bannerInput = document.getElementById('bannerUrl');
 
+        // Image Gallery Elements
+        const imagesGrid = document.getElementById('images-grid');
+        const imagesEmpty = document.getElementById('images-empty');
+        const newImageUrl = document.getElementById('newImageUrl');
+        const newImageCaption = document.getElementById('newImageCaption');
+        const addImageBtn = document.getElementById('addImageBtn');
+        const imagesSectionLabel = document.getElementById('images-section-label');
+        const imagesSectionHint = document.getElementById('images-section-hint');
+
+        // Current images array
+        let eventImages = [];
+
         if (menuBtn && sidebar) {
             menuBtn.addEventListener('click', () => {
                 sidebar.classList.toggle('-translate-x-full');
             });
         }
+
+        // Update section label based on status
+        function updateImageSectionLabels() {
+            const status = statusInput.value;
+            if (status === 'completed') {
+                imagesSectionLabel.textContent = 'Event Photos';
+                imagesSectionHint.textContent = 'Add photos from the completed event.';
+            } else {
+                imagesSectionLabel.textContent = 'Event Posters';
+                imagesSectionHint.textContent = 'Add promotional posters for this upcoming event.';
+            }
+        }
+
+        // Listen for status changes
+        statusInput.addEventListener('change', updateImageSectionLabels);
+
+        // Render images grid
+        function renderImagesGrid() {
+            imagesGrid.innerHTML = '';
+
+            if (eventImages.length === 0) {
+                imagesEmpty.classList.remove('hidden');
+                imagesGrid.classList.add('hidden');
+                return;
+            }
+
+            imagesEmpty.classList.add('hidden');
+            imagesGrid.classList.remove('hidden');
+
+            eventImages.forEach((image, index) => {
+                const imageCard = document.createElement('div');
+                imageCard.className = 'relative group aspect-square rounded-lg overflow-hidden bg-slate-100 border border-border-color';
+                imageCard.innerHTML = `
+                    <img src="${image.url}" alt="${image.caption || 'Event image'}"
+                         class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/200?text=Image+Error'" />
+                    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <button type="button" class="delete-image-btn p-2 bg-red-500 text-white rounded-full hover:bg-red-600 transition-colors" data-index="${index}">
+                            <span class="material-symbols-outlined">delete</span>
+                        </button>
+                    </div>
+                    ${image.caption ? `<div class="absolute bottom-0 left-0 right-0 bg-black/60 text-white text-xs p-2 truncate">${image.caption}</div>` : ''}
+                `;
+                imagesGrid.appendChild(imageCard);
+            });
+
+            // Attach delete handlers
+            document.querySelectorAll('.delete-image-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const index = parseInt(e.currentTarget.dataset.index);
+                    eventImages.splice(index, 1);
+                    renderImagesGrid();
+                });
+            });
+        }
+
+        // Add image handler
+        addImageBtn.addEventListener('click', () => {
+            const url = newImageUrl.value.trim();
+            const caption = newImageCaption.value.trim();
+
+            if (!url) {
+                alert('Please enter an image URL.');
+                return;
+            }
+
+            // Basic URL validation
+            try {
+                new URL(url);
+            } catch (e) {
+                alert('Please enter a valid URL.');
+                return;
+            }
+
+            const status = statusInput.value;
+            const imageType = status === 'completed' ? 'photo' : 'poster';
+
+            eventImages.push({
+                url: url,
+                caption: caption || '',
+                type: imageType
+            });
+
+            newImageUrl.value = '';
+            newImageCaption.value = '';
+            renderImagesGrid();
+        });
 
         // --- EDIT MODE CHECK ---
         const urlParams = new URLSearchParams(window.location.search);
@@ -325,11 +464,20 @@
                 if (docSnap.exists()) {
                     const data = docSnap.data();
                     titleInput.value = data.title || '';
-                    categoryInput.value = data.category || 'workshop';
-                    statusInput.value = data.status || 'planned';
+                    categoryInput.value = data.activityType || 'workshop';
+                    statusInput.value = data.status || 'upcoming';
                     dateInput.value = data.date || '';
                     descInput.value = data.description || '';
-                    bannerInput.value = data.bannerUrl || '';
+                    bannerInput.value = data.imageURL || '';
+
+                    // Load existing images
+                    if (data.images && Array.isArray(data.images)) {
+                        eventImages = data.images;
+                        renderImagesGrid();
+                    }
+
+                    // Update labels based on loaded status
+                    updateImageSectionLabels();
                 } else {
                     alert("Activity not found!");
                     window.location.href = "../admin_activities_list_view_page/code.html";
@@ -338,6 +486,10 @@
                 console.error("Error loading document:", e);
                 alert("Error loading activity details.");
             }
+        } else {
+            // Initialize labels for new activity
+            updateImageSectionLabels();
+            renderImagesGrid();
         }
 
         // --- SAVE / UPDATE LOGIC ---
@@ -367,6 +519,7 @@
                         date: date,
                         status: status,
                         imageURL: bannerUrl,
+                        images: eventImages,
                         updatedAt: new Date()
                     });
                     alert("Activity updated successfully!");
@@ -375,10 +528,11 @@
                     await addDoc(collection(db, "activities"), {
                         title: title,
                         description: description,
-                        activityType: category.toLowerCase(), // Map category to activityType
+                        activityType: category.toLowerCase(),
                         date: date,
                         status: status,
                         imageURL: bannerUrl,
+                        images: eventImages,
                         createdAt: new Date()
                     });
                     alert("Activity created successfully!");

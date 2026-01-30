@@ -124,7 +124,9 @@ service cloud.firestore {
                     && (!('location' in request.resource.data) || request.resource.data.location is string)
                     && (!('imageURL' in request.resource.data) || request.resource.data.imageURL is string)
                     && (!('registrationLink' in request.resource.data) || request.resource.data.registrationLink is string)
-                    && (!('status' in request.resource.data) || request.resource.data.status in ['upcoming', 'ongoing', 'completed']);
+                    && (!('status' in request.resource.data) || request.resource.data.status in ['upcoming', 'ongoing', 'completed'])
+                    // Images array validation (for gallery)
+                    && (!('images' in request.resource.data) || request.resource.data.images is list);
 
       // Only authenticated users can UPDATE activities
       allow update: if isAuthenticated()
@@ -134,7 +136,9 @@ service cloud.firestore {
                     && isValidString(request.resource.data.activityType)
                     && request.resource.data.activityType in ['workshop', 'event', 'competition', 'seminar', 'hackathon']
                     // Prevent modification of createdAt timestamp
-                    && request.resource.data.createdAt == resource.data.createdAt;
+                    && request.resource.data.createdAt == resource.data.createdAt
+                    // Images array validation (for gallery)
+                    && (!('images' in request.resource.data) || request.resource.data.images is list);
 
       // Only authenticated users can DELETE activities
       allow delete: if isAuthenticated();
