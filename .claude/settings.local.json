@@ -8,7 +8,10 @@
       "Bash(done)",
       "Bash(wc:*)",
       "Bash(ls:*)",
-      "Bash(python:*)"
+      "Bash(python:*)",
+      "Bash(firebase deploy:*)",
+      "Bash(firebase login:*)",
+      "Bash(firebase login:list:*)"
     ]
   }
 }

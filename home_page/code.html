@@ -5,7 +5,8 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>ACM NMIET Header Design</title>
+    <link rel="icon" type="image/png" href="../components/ACM_NMIET_LOGO.png" />
+    <title>ACM NMIET - Home</title>
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
@@ -56,7 +57,7 @@
         <script src="../assets/js/navbar_loader.js"></script>
         <!-- Hero Section (for context) -->
         <main class="flex-grow">
-            <div class="relative w-full h-[600px] flex items-center overflow-hidden">
+            <div class="relative w-full min-h-[500px] md:min-h-[600px] py-16 md:py-0 flex items-center overflow-hidden">
                 <!-- Background Image with Overlay -->
                 <div class="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
                     style='background-image: linear-gradient(rgba(15, 28, 35, 0.7), rgba(15, 28, 35, 0.85)), url("NMIET-SKY-VIEW.jpg");'>
@@ -167,16 +168,7 @@
         <div id="acm-footer"></div>
         <script src="../assets/js/footer_loader.js"></script>
     </div>
-    <script>
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
 
-        if (mobileMenuBtn && mobileMenu) {
-            mobileMenuBtn.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
-        }
-    </script>
 
     <script type="module">
         import { db } from '../assets/js/firebase_config.js';
@@ -186,10 +178,10 @@
             const container = document.getElementById('activities-container');
 
             try {
-                // Fetch upcoming activities (requires composite index: status + createdAt)
+                // Fetch upcoming and ongoing activities
                 const q = query(
                     collection(db, "activities"),
-                    where("status", "==", "upcoming"),
+                    where("status", "in", ["upcoming", "ongoing"]),
                     orderBy("createdAt", "desc"),
                     limit(3)
                 );
@@ -212,7 +204,7 @@
                 // Create activity cards
                 snapshot.forEach(doc => {
                     const activity = doc.data();
-                    const card = createActivityCard(activity);
+                    const card = createActivityCard(activity, doc.id);
                     container.appendChild(card);
                 });
 
@@ -228,9 +220,10 @@
             }
         }
 
-        function createActivityCard(activity) {
-            const div = document.createElement('div');
-            div.className = "flex flex-col overflow-hidden rounded-xl bg-white dark:bg-slate-800 shadow-sm hover:shadow-md transition-shadow border border-slate-100 dark:border-slate-700 h-full";
+        function createActivityCard(activity, docId) {
+            const div = document.createElement('a');
+            div.href = `../event_detail_page/code.html?id=${docId}`;
+            div.className = "flex flex-col overflow-hidden rounded-xl bg-white dark:bg-slate-800 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all border border-slate-100 dark:border-slate-700 h-full cursor-pointer";
 
             // Activity type badge color
             const badgeColors = {
@@ -278,9 +271,9 @@
                     </div>
                     <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">${activity.title}</h3>
                     <p class="text-slate-600 dark:text-slate-400 text-sm mb-6 flex-1">${activity.description || 'More details coming soon!'}</p>
-                    <button class="w-full py-2.5 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white font-semibold hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">
+                    <span class="w-full py-2.5 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white font-semibold hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors text-center block">
                         View Details
-                    </button>
+                    </span>
                 </div>
             `;
 

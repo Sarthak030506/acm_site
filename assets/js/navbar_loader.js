@@ -173,13 +173,17 @@ function loadNavbar() {
 }
 
 function initMobileMenu() {
+    // console.log("Initializing mobile menu..."); // Debug log
     const btn = document.getElementById("mobile-menu-btn");
     const menu = document.getElementById("mobile-menu");
 
     if (btn && menu) {
-        btn.addEventListener("click", () => {
+        // console.log("Mobile menu elements found."); // Debug log
+        btn.onclick = (e) => {
+            e.stopPropagation();
             menu.classList.toggle("hidden");
-        });
+            // console.log("Menu toggled, hidden:", menu.classList.contains("hidden")); // Debug log
+        };
 
         // Close menu when clicking links
         menu.querySelectorAll('a').forEach(link => {
@@ -187,6 +191,15 @@ function initMobileMenu() {
                 menu.classList.add('hidden');
             });
         });
+
+        // Close when clicking outside
+        document.addEventListener('click', (event) => {
+            if (!menu.contains(event.target) && !btn.contains(event.target) && !menu.classList.contains('hidden')) {
+                menu.classList.add('hidden');
+            }
+        });
+    } else {
+        console.warn("Mobile menu elements (btn or menu) not found!");
     }
 }
 
@@ -215,4 +228,9 @@ function highlightActivePage() {
 }
 
 // Execute immediately
-loadNavbar();
+// Execute safely
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', loadNavbar);
+} else {
+    loadNavbar();
+}
