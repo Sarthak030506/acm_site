@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Team Sections - Admin Panel - ACM NMIET</title>
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#118dd4",
+            "background-light": "#f8fafc", "surface-light": "#ffffff", "card-light": "#ffffff", "surface-highlight": "#f1f5f9", "text-main": "#0f172a", "text-secondary": "#64748b", "text-muted": "#64748b", "border-light": "#e2e8f0",
+          },
+          fontFamily: {
+            "display": ["Inter", "sans-serif"]
+          },
+          borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+        },
+      },
+    }
+  </script>
+  <style>
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #f1f5f9; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24 }
+  </style>
+</head>
+
+<body class="bg-background-light text-text-main font-display overflow-x-hidden antialiased">
+  <!-- Auth Guard protection -->
+  <script type="module" src="../assets/js/auth_guard.js"></script>
+
+  <div class="relative flex min-h-screen w-full flex-col lg:flex-row">
+    <aside id="sidebar"
+      class="fixed inset-y-0 left-0 z-50 w-64 flex flex-col border-r border-border-light bg-surface-light h-full shrink-0 transition-transform duration-300 transform -translate-x-full md:translate-x-0 md:relative md:flex shadow-[4px_0_24px_-12px_rgba(0,0,0,0.1)]">
+      <div class="flex h-full flex-col justify-between p-4">
+        <div class="flex flex-col gap-6">
+          <div class="flex items-center gap-3 px-2">
+            <div class="bg-center bg-no-repeat bg-cover rounded-full size-10 shadow-md ring-2 ring-primary/20"
+              style="background-image: linear-gradient(135deg, #118dd4 0%, #0a4d75 100%);"></div>
+            <div class="flex flex-col">
+              <h1 class="text-text-main text-base font-bold leading-normal tracking-wide">ACM NMIET</h1>
+              <p class="text-primary text-xs font-medium leading-normal">Admin Portal</p>
+            </div>
+          </div>
+          <nav class="flex flex-col gap-2">
+            <a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-50 transition-colors group"
+              href="../admin-dashboard/">
+              <span class="material-symbols-outlined text-text-muted group-hover:text-primary transition-colors">dashboard</span>
+              <p class="text-text-muted group-hover:text-text-main text-sm font-medium leading-normal transition-colors">Dashboard Home</p>
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-50 transition-colors group"
+              href="../admin-blog/">
+              <span class="material-symbols-outlined text-text-muted group-hover:text-primary transition-colors">article</span>
+              <p class="text-text-muted group-hover:text-text-main text-sm font-medium leading-normal transition-colors">Blog Management</p>
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/10 border-l-4 border-primary shadow-sm"
+              href="../admin-sections/">
+              <span class="material-symbols-outlined text-primary fill-current">category</span>
+              <p class="text-primary text-sm font-bold leading-normal">Team Sections</p>
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-50 transition-colors group"
+              href="../admin-team/">
+              <span class="material-symbols-outlined text-text-muted group-hover:text-primary transition-colors">group</span>
+              <p class="text-text-muted group-hover:text-text-main text-sm font-medium leading-normal transition-colors">Team Management</p>
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-50 transition-colors group"
+              href="../admin-events/">
+              <span class="material-symbols-outlined text-text-muted group-hover:text-primary transition-colors">event</span>
+              <p class="text-text-muted group-hover:text-text-main text-sm font-medium leading-normal transition-colors">Activities Management</p>
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-50 transition-colors group"
+              href="../admin-contact/">
+              <span class="material-symbols-outlined text-text-muted group-hover:text-primary transition-colors">contact_page</span>
+              <p class="text-text-muted group-hover:text-text-main text-sm font-medium leading-normal transition-colors">Contact Page Content</p>
+            </a>
+          </nav>
+        </div>
+        <div class="flex flex-col gap-2 border-t border-border-light pt-4">
+          <a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-red-50 text-text-muted hover:text-red-600 transition-colors group"
+            href="../admin-login/">
+            <span class="material-symbols-outlined">logout</span>
+            <p class="text-sm font-medium leading-normal">Log Out</p>
+          </a>
+        </div>
+      </div>
+    </aside>
+
+    <main class="flex-1 flex flex-col h-full min-h-screen overflow-y-auto bg-gray-50/50">
+      <header class="flex items-center justify-between whitespace-nowrap border-b border-border-light bg-surface-light/80 backdrop-blur-md px-6 py-4 sticky top-0 z-20 shadow-sm">
+        <div class="flex items-center gap-4 text-text-main">
+          <button id="mobile-menu-btn" class="md:hidden p-1 text-text-secondary">
+            <span class="material-symbols-outlined">menu</span>
+          </button>
+          <div class="flex flex-col">
+            <div class="flex items-center gap-2 text-text-secondary text-xs">
+              <span>Admin</span>
+              <span class="material-symbols-outlined text-[10px]">chevron_right</span>
+              <span class="text-text-main font-medium">Team Sections</span>
+            </div>
+            <h2 class="text-text-main text-lg font-bold leading-tight tracking-[-0.015em]">Manage Team Sections</h2>
+          </div>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="bg-center bg-no-repeat bg-cover rounded-full size-9 border border-border-light shadow-sm"
+            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD3SGRhumRt1dMJma6YAdChVPLDBdkpLE-fJn5cEA6E4BMd64UjSn7ZepgBDqDvhj05_JBIFGI2IPTbl5lVlBW6pHKNeQ_0E2CtTIatywfQKzBGEMZ2zCNTrYuXUGDYYRO-Dxjg6HXe9Nf1RrW6_tNKRtw_dCKUuan8PHrO7k4lkpLwLGb4QgIAwZhI_vHizlDrZBUXTamDycwiTrQw756xHw303Ei8im97QWnaylnPjxVUnCSMV5lvzkfaauJapAZt1a9JcBeZocCU");'>
+          </div>
+          <div class="hidden md:flex flex-col">
+            <span class="text-sm font-semibold text-text-main leading-none">Admin User</span>
+            <span class="text-xs text-text-secondary leading-tight mt-1">Super Admin</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="flex-1 max-w-[1200px] w-full mx-auto p-4 md:p-8 lg:p-12">
+        <!-- Breadcrumb -->
+        <div class="flex flex-wrap gap-2 mb-6 items-center">
+          <a class="text-text-muted text-sm font-medium hover:text-primary transition-colors" href="../admin-dashboard/">Dashboard</a>
+          <span class="material-symbols-outlined text-gray-400 text-sm">chevron_right</span>
+          <span class="text-text-main text-sm font-medium">Team Sections</span>
+        </div>
+
+        <!-- Page Header -->
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 mb-8">
+          <div class="flex flex-col gap-2">
+            <h1 class="text-text-main text-3xl md:text-4xl font-black tracking-[-0.033em]">Team Sections</h1>
+            <p class="text-text-muted text-base font-normal max-w-2xl">Define sections with headers and taglines. Team members are grouped by their position/role matching a section.</p>
+          </div>
+          <button id="add-section-btn"
+            class="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-primary hover:bg-primary/90 text-white font-bold text-sm transition-all shadow-md">
+            <span class="material-symbols-outlined text-lg">add</span>
+            Add New Section
+          </button>
+        </div>
+
+        <!-- Sections List -->
+        <div id="sections-list" class="flex flex-col gap-4">
+          <!-- Loading -->
+          <div class="flex justify-center p-10">
+            <span class="material-symbols-outlined animate-spin text-4xl text-primary">progress_activity</span>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Add/Edit Section Modal -->
+  <div id="section-modal" class="fixed inset-0 z-50 hidden">
+    <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" id="modal-overlay"></div>
+    <div class="absolute inset-0 flex items-center justify-center p-4">
+      <div class="bg-white rounded-xl shadow-2xl w-full max-w-lg max-h-[90vh] overflow-y-auto">
+        <div class="p-6 border-b border-border-light">
+          <h3 id="modal-title" class="text-xl font-bold text-text-main">Add New Section</h3>
+        </div>
+        <form id="section-form" class="p-6 flex flex-col gap-5">
+          <input type="hidden" id="section-id" />
+
+          <div class="flex flex-col gap-2">
+            <label class="text-text-muted text-xs font-semibold uppercase tracking-wider" for="section-name">Section Name *</label>
+            <input class="w-full bg-white text-text-main border border-gray-300 rounded-lg px-4 py-2.5 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all placeholder:text-gray-400 shadow-sm"
+              id="section-name" placeholder="e.g. Core Team, Faculty, Design Team" type="text" required />
+          </div>
+
+          <div class="flex flex-col gap-2">
+            <label class="text-text-muted text-xs font-semibold uppercase tracking-wider" for="section-tagline">Tagline / Quote *</label>
+            <input class="w-full bg-white text-text-main border border-gray-300 rounded-lg px-4 py-2.5 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all placeholder:text-gray-400 shadow-sm"
+              id="section-tagline" placeholder="e.g. Leadership is the capacity to translate vision into reality" type="text" required />
+          </div>
+
+          <div class="flex flex-col gap-2">
+            <label class="text-text-muted text-xs font-semibold uppercase tracking-wider" for="section-order">Display Order *</label>
+            <input class="w-full bg-white text-text-main border border-gray-300 rounded-lg px-4 py-2.5 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all placeholder:text-gray-400 shadow-sm"
+              id="section-order" placeholder="1, 2, 3..." type="number" min="1" required />
+            <p class="text-text-muted text-xs">Sections are displayed in ascending order (1 first, 2 second, etc.)</p>
+          </div>
+
+          <div class="flex flex-col gap-2">
+            <label class="text-text-muted text-xs font-semibold uppercase tracking-wider">Positions in this Section *</label>
+            <p class="text-text-muted text-xs mb-2">Add positions/roles that belong to this section. Team members with these roles will appear under this section.</p>
+
+            <div id="positions-container" class="flex flex-col gap-2">
+              <!-- Positions will be added here dynamically -->
+            </div>
+
+            <button type="button" id="add-position-btn" class="flex items-center gap-1 text-primary text-sm font-medium hover:underline mt-2">
+              <span class="material-symbols-outlined text-lg">add</span>
+              Add Position
+            </button>
+          </div>
+
+          <div class="flex items-center justify-end gap-3 pt-4 border-t border-border-light mt-2">
+            <button type="button" id="cancel-btn" class="px-5 py-2 rounded-lg text-text-muted font-medium text-sm hover:bg-gray-100 transition-colors">
+              Cancel
+            </button>
+            <button type="submit" class="flex items-center gap-2 px-5 py-2 rounded-lg bg-primary hover:bg-primary/90 text-white font-bold text-sm transition-all shadow-md">
+              <span class="material-symbols-outlined text-lg">save</span>
+              <span id="save-btn-text">Save Section</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Mobile menu toggle
+    document.addEventListener('DOMContentLoaded', function () {
+      const menuBtn = document.getElementById('mobile-menu-btn');
+      const sidebar = document.getElementById('sidebar');
+      if (menuBtn && sidebar) {
+        menuBtn.addEventListener('click', () => {
+          sidebar.classList.toggle('-translate-x-full');
+        });
+      }
+    });
+  </script>
+
+  <script type="module">
+    import { db } from '../assets/js/firebase_config.js';
+    import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc, query, orderBy } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+    const sectionsList = document.getElementById('sections-list');
+    const modal = document.getElementById('section-modal');
+    const modalOverlay = document.getElementById('modal-overlay');
+    const modalTitle = document.getElementById('modal-title');
+    const sectionForm = document.getElementById('section-form');
+    const sectionIdInput = document.getElementById('section-id');
+    const sectionNameInput = document.getElementById('section-name');
+    const sectionTaglineInput = document.getElementById('section-tagline');
+    const sectionOrderInput = document.getElementById('section-order');
+    const positionsContainer = document.getElementById('positions-container');
+    const addPositionBtn = document.getElementById('add-position-btn');
+    const addSectionBtn = document.getElementById('add-section-btn');
+    const cancelBtn = document.getElementById('cancel-btn');
+    const saveBtnText = document.getElementById('save-btn-text');
+
+    // Load all sections
+    async function loadSections() {
+      try {
+        const q = query(collection(db, "team_sections"), orderBy("order", "asc"));
+        const snapshot = await getDocs(q);
+
+        if (snapshot.empty) {
+          sectionsList.innerHTML = `
+            <div class="text-center p-10 bg-white rounded-xl border border-border-light">
+              <span class="material-symbols-outlined text-5xl text-gray-300 mb-4">category</span>
+              <p class="text-text-muted">No team sections defined yet.</p>
+              <p class="text-text-muted text-sm mt-1">Click "Add New Section" to create your first section.</p>
+            </div>
+          `;
+          return;
+        }
+
+        sectionsList.innerHTML = '';
+        snapshot.forEach(docSnap => {
+          const section = docSnap.data();
+          const card = createSectionCard(docSnap.id, section);
+          sectionsList.appendChild(card);
+        });
+
+      } catch (error) {
+        console.error("Error loading sections:", error);
+        sectionsList.innerHTML = `<div class="text-center text-red-500 p-10">Failed to load sections: ${error.message}</div>`;
+      }
+    }
+
+    // Create section card
+    function createSectionCard(id, section) {
+      const div = document.createElement('div');
+      div.className = "bg-white rounded-xl border border-border-light shadow-sm p-6 hover:shadow-md transition-shadow";
+
+      const positionsList = (section.positions || []).map(p =>
+        `<span class="inline-block px-2 py-1 bg-slate-100 text-slate-700 text-xs rounded-full">${p}</span>`
+      ).join(' ');
+
+      div.innerHTML = `
+        <div class="flex flex-col md:flex-row md:items-start justify-between gap-4">
+          <div class="flex-1">
+            <div class="flex items-center gap-3 mb-2">
+              <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-primary/10 text-primary font-bold text-sm">${section.order || '?'}</span>
+              <h3 class="text-xl font-bold text-text-main">${section.name}</h3>
+            </div>
+            <p class="text-text-muted italic mb-4">"${section.tagline}"</p>
+            <div class="flex flex-wrap gap-2">
+              ${positionsList || '<span class="text-text-muted text-sm">No positions defined</span>'}
+            </div>
+          </div>
+          <div class="flex items-center gap-2">
+            <button class="edit-btn p-2 rounded-lg hover:bg-slate-100 text-text-muted hover:text-primary transition-colors" data-id="${id}">
+              <span class="material-symbols-outlined">edit</span>
+            </button>
+            <button class="delete-btn p-2 rounded-lg hover:bg-red-50 text-text-muted hover:text-red-600 transition-colors" data-id="${id}" data-name="${section.name}">
+              <span class="material-symbols-outlined">delete</span>
+            </button>
+          </div>
+        </div>
+      `;
+
+      // Edit button handler
+      div.querySelector('.edit-btn').addEventListener('click', () => editSection(id, section));
+
+      // Delete button handler
+      div.querySelector('.delete-btn').addEventListener('click', () => deleteSection(id, section.name));
+
+      return div;
+    }
+
+    // Add position input field
+    function addPositionInput(value = '') {
+      const div = document.createElement('div');
+      div.className = 'flex items-center gap-2 position-row';
+      div.innerHTML = `
+        <input type="text" class="position-input flex-1 bg-white text-text-main border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all placeholder:text-gray-400 shadow-sm text-sm"
+          placeholder="e.g. President, Vice President, Web Master" value="${value}" />
+        <button type="button" class="remove-position-btn p-2 rounded-lg hover:bg-red-50 text-text-muted hover:text-red-600 transition-colors">
+          <span class="material-symbols-outlined text-lg">close</span>
+        </button>
+      `;
+
+      div.querySelector('.remove-position-btn').addEventListener('click', () => {
+        // Keep at least one position input
+        if (positionsContainer.querySelectorAll('.position-row').length > 1) {
+          div.remove();
+        } else {
+          div.querySelector('.position-input').value = '';
+        }
+      });
+
+      positionsContainer.appendChild(div);
+    }
+
+    // Open modal for adding new section
+    function openAddModal() {
+      modalTitle.textContent = 'Add New Section';
+      saveBtnText.textContent = 'Save Section';
+      sectionIdInput.value = '';
+      sectionNameInput.value = '';
+      sectionTaglineInput.value = '';
+      sectionOrderInput.value = '';
+      positionsContainer.innerHTML = '';
+      addPositionInput(); // Add one empty position input
+      modal.classList.remove('hidden');
+    }
+
+    // Open modal for editing section
+    function editSection(id, section) {
+      modalTitle.textContent = 'Edit Section';
+      saveBtnText.textContent = 'Update Section';
+      sectionIdInput.value = id;
+      sectionNameInput.value = section.name || '';
+      sectionTaglineInput.value = section.tagline || '';
+      sectionOrderInput.value = section.order || '';
+
+      positionsContainer.innerHTML = '';
+      const positions = section.positions || [];
+      if (positions.length > 0) {
+        positions.forEach(pos => addPositionInput(pos));
+      } else {
+        addPositionInput();
+      }
+
+      modal.classList.remove('hidden');
+    }
+
+    // Close modal
+    function closeModal() {
+      modal.classList.add('hidden');
+    }
+
+    // Delete section
+    async function deleteSection(id, name) {
+      if (!confirm(`Are you sure you want to delete the "${name}" section? Team members won't be deleted but will appear in "Other Members" section.`)) {
+        return;
+      }
+
+      try {
+        await deleteDoc(doc(db, "team_sections", id));
+        alert('Section deleted successfully!');
+        loadSections();
+      } catch (error) {
+        console.error("Error deleting section:", error);
+        alert('Error deleting section: ' + error.message);
+      }
+    }
+
+    // Save section (add or update)
+    async function saveSection(e) {
+      e.preventDefault();
+
+      const id = sectionIdInput.value;
+      const name = sectionNameInput.value.trim();
+      const tagline = sectionTaglineInput.value.trim();
+      const order = parseInt(sectionOrderInput.value);
+
+      // Get all positions
+      const positionInputs = positionsContainer.querySelectorAll('.position-input');
+      const positions = Array.from(positionInputs)
+        .map(input => input.value.trim())
+        .filter(v => v !== '');
+
+      if (!name || !tagline || !order) {
+        alert('Please fill in all required fields.');
+        return;
+      }
+
+      if (positions.length === 0) {
+        alert('Please add at least one position.');
+        return;
+      }
+
+      const sectionData = {
+        name,
+        tagline,
+        order,
+        positions,
+        updatedAt: new Date()
+      };
+
+      try {
+        if (id) {
+          // Update existing
+          await updateDoc(doc(db, "team_sections", id), sectionData);
+          alert('Section updated successfully!');
+        } else {
+          // Add new
+          sectionData.createdAt = new Date();
+          await addDoc(collection(db, "team_sections"), sectionData);
+          alert('Section added successfully!');
+        }
+
+        closeModal();
+        loadSections();
+      } catch (error) {
+        console.error("Error saving section:", error);
+        alert('Error saving section: ' + error.message);
+      }
+    }
+
+    // Event listeners
+    addSectionBtn.addEventListener('click', openAddModal);
+    cancelBtn.addEventListener('click', closeModal);
+    modalOverlay.addEventListener('click', closeModal);
+    addPositionBtn.addEventListener('click', () => addPositionInput());
+    sectionForm.addEventListener('submit', saveSection);
+
+    // Load on page load
+    loadSections();
+  </script>
+</body>
+
+</html>

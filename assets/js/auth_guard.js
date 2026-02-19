@@ -13,7 +13,7 @@ function checkAuth() {
             console.log("User not logged in. Redirecting...");
             // Simple heuristic to find the login page relative to admin pages
             // Most admin pages are 1 level deep from root.
-            window.location.href = "../admin_panel_login_screen/code.html";
+            window.location.href = "../admin-login/";
         } else {
             // User is signed in
             console.log("User is logged in:", user.email);

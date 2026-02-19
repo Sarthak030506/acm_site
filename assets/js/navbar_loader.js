@@ -11,11 +11,11 @@ const navbarHTML = `
             <nav class="hidden lg:flex items-center gap-8">
                 <!-- Home -->
                 <a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary nav-link"
-                    href="../home_page/code.html" data-page="home_page">
+                    href="../home/" data-page="home">
                     Home
                 </a>
                 <a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary nav-link"
-                    href="../what_is_acm_page/code.html" data-page="what_is_acm_page">
+                    href="../what-is-acm/" data-page="what-is-acm">
                     What is ACM
                 </a>
                 <!-- Dropdown Menu -->
@@ -31,23 +31,23 @@ const navbarHTML = `
                         <div
                             class="bg-white dark:bg-slate-800 rounded-xl shadow-xl border border-slate-100 dark:border-slate-700 overflow-hidden ring-1 ring-black ring-opacity-5 p-1">
                             <a class="flex items-center gap-3 px-4 py-3 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700/50 hover:text-primary rounded-lg"
-                                href="../acm_nmiet_page/code.html">
+                                href="../about/">
                                 <span class="material-symbols-outlined text-lg text-slate-400">info</span>
                                 About
                             </a>
                             <a class="flex items-center gap-3 px-4 py-3 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700/50 hover:text-primary rounded-lg"
-                                href="../acm_nmiet_page/code.html#vision">
+                                href="../about/#vision">
                                 <span class="material-symbols-outlined text-lg text-slate-400">visibility</span>
                                 Vision
                             </a>
                             <a class="flex items-center gap-3 px-4 py-3 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700/50 hover:text-primary rounded-lg"
-                                href="../acm_nmiet_page/code.html#mission">
+                                href="../about/#mission">
                                 <span class="material-symbols-outlined text-lg text-slate-400">flag</span>
                                 Mission
                             </a>
                             <div class="h-px bg-slate-100 dark:bg-slate-700 my-1 mx-2"></div>
                             <a class="flex items-center gap-3 px-4 py-3 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700/50 hover:text-primary rounded-lg"
-                                href="../acm_nmiet_page/code.html#roadmap">
+                                href="../about/#roadmap">
                                 <span class="material-symbols-outlined text-lg text-slate-400">map</span>
                                 Roadmap
                             </a>
@@ -55,11 +55,11 @@ const navbarHTML = `
                     </div>
                 </div>
                 <a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary nav-link"
-                    href="../focus_areas_page/code.html" data-page="focus_areas_page">
+                    href="../focus-areas/" data-page="focus-areas">
                     Focus Areas
                 </a>
                 <a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary nav-link"
-                    href="../our_team_page/code.html" data-page="our_team_page">
+                    href="../team/" data-page="team">
                     Our Team
                 </a>
                 <!-- ACM Events Dropdown -->
@@ -75,12 +75,12 @@ const navbarHTML = `
                         <div
                             class="bg-white dark:bg-slate-800 rounded-xl shadow-xl border border-slate-100 dark:border-slate-700 overflow-hidden ring-1 ring-black ring-opacity-5 p-1">
                             <a class="flex items-center gap-3 px-4 py-3 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700/50 hover:text-primary rounded-lg"
-                                href="../upcoming_activities_page/code.html">
+                                href="../events/">
                                 <span class="material-symbols-outlined text-lg text-slate-400">event_upcoming</span>
                                 Upcoming Events
                             </a>
                             <a class="flex items-center gap-3 px-4 py-3 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700/50 hover:text-primary rounded-lg"
-                                href="../past_events_page/code.html">
+                                href="../past-events/">
                                 <span class="material-symbols-outlined text-lg text-slate-400">history</span>
                                 Past Events
                             </a>
@@ -88,7 +88,7 @@ const navbarHTML = `
                     </div>
                 </div>
                 <a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary nav-link"
-                    href="../contact_page/code.html" data-page="contact_page">
+                    href="../contact/" data-page="contact">
                     Contact Us
                 </a>
             </nav>
@@ -96,7 +96,7 @@ const navbarHTML = `
             <div class="flex items-center gap-4">
                 <!-- CTA Button -->
                 <a class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 text-sm font-bold text-white bg-primary border border-transparent rounded-lg hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary shadow-sm"
-                    href="../join_acm_page/code.html">
+                    href="../join/">
                     Join ACM
                 </a>
                 <!-- Mobile Menu Button -->
@@ -114,38 +114,38 @@ const navbarHTML = `
         class="hidden lg:hidden border-t border-slate-100 dark:border-slate-800 bg-white dark:bg-background-dark absolute w-full left-0 shadow-lg">
         <div class="px-4 pt-2 pb-6 space-y-1">
             <a class="block px-3 py-3 rounded-md text-base font-medium text-slate-600 dark:text-slate-300 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800 nav-link-mobile"
-                href="../home_page/code.html" data-page="home_page">Home</a>
+                href="../home/" data-page="home">Home</a>
             <a class="block px-3 py-3 rounded-md text-base font-medium text-slate-600 dark:text-slate-300 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800 nav-link-mobile"
-                href="../what_is_acm_page/code.html" data-page="what_is_acm_page">What is ACM</a>
+                href="../what-is-acm/" data-page="what-is-acm">What is ACM</a>
             <!-- Mobile Submenu -->
             <div class="pl-4 border-l-2 border-slate-100 dark:border-slate-700 ml-3 my-2 space-y-1">
                 <p class="px-3 py-2 text-xs font-bold uppercase tracking-wider text-slate-400">ACM NMIET</p>
                 <a class="block px-3 py-2 rounded-md text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary"
-                    href="../acm_nmiet_page/code.html">About</a>
+                    href="../about/">About</a>
                 <a class="block px-3 py-2 rounded-md text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary"
-                    href="../acm_nmiet_page/code.html#vision">Vision</a>
+                    href="../about/#vision">Vision</a>
                 <a class="block px-3 py-2 rounded-md text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary"
-                    href="../acm_nmiet_page/code.html#mission">Mission</a>
+                    href="../about/#mission">Mission</a>
                 <a class="block px-3 py-2 rounded-md text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary"
-                    href="../acm_nmiet_page/code.html#roadmap">Roadmap</a>
+                    href="../about/#roadmap">Roadmap</a>
             </div>
             <a class="block px-3 py-3 rounded-md text-base font-medium text-slate-600 dark:text-slate-300 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800 nav-link-mobile"
-                href="../focus_areas_page/code.html" data-page="focus_areas_page">Focus Areas</a>
+                href="../focus-areas/" data-page="focus-areas">Focus Areas</a>
             <a class="block px-3 py-3 rounded-md text-base font-medium text-slate-600 dark:text-slate-300 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800 nav-link-mobile"
-                href="../our_team_page/code.html" data-page="our_team_page">Our Team</a>
+                href="../team/" data-page="team">Our Team</a>
             <!-- Mobile ACM Events Submenu -->
             <div class="pl-4 border-l-2 border-slate-100 dark:border-slate-700 ml-3 my-2 space-y-1">
                 <p class="px-3 py-2 text-xs font-bold uppercase tracking-wider text-slate-400">ACM Events</p>
                 <a class="block px-3 py-2 rounded-md text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary"
-                    href="../upcoming_activities_page/code.html">Upcoming Events</a>
+                    href="../events/">Upcoming Events</a>
                 <a class="block px-3 py-2 rounded-md text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary"
-                    href="../past_events_page/code.html">Past Events</a>
+                    href="../past-events/">Past Events</a>
             </div>
             <a class="block px-3 py-3 rounded-md text-base font-medium text-slate-600 dark:text-slate-300 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800 nav-link-mobile"
-                href="../contact_page/code.html" data-page="contact_page">Contact Us</a>
+                href="../contact/" data-page="contact">Contact Us</a>
             <div class="pt-4">
                 <a class="flex w-full items-center justify-center px-4 py-3 rounded-lg text-base font-bold text-white bg-primary hover:bg-primary/90"
-                    href="../join_acm_page/code.html">
+                    href="../join/">
                     Join ACM Now
                 </a>
             </div>
@@ -204,7 +204,7 @@ function initMobileMenu() {
 }
 
 function highlightActivePage() {
-    // Get current path folder name (e.g. 'home_page')
+    // Get current path folder name (e.g. 'home')
     const pathSegments = window.location.pathname.split('/');
     // Check various segments to handle different local/production structures
     const currentFolder = pathSegments[pathSegments.length - 2] || '';

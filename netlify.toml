@@ -4,32 +4,32 @@
 
 [[redirects]]
   from = "/"
-  to = "/home_page/code.html"
+  to = "/home/"
   status = 200
 
 [[redirects]]
   from = "/home"
-  to = "/home_page/code.html"
+  to = "/home/"
   status = 200
 
 [[redirects]]
   from = "/team"
-  to = "/our_team_page/code.html"
+  to = "/team/"
   status = 200
 
 [[redirects]]
   from = "/events"
-  to = "/upcoming_activities_page/code.html"
+  to = "/events/"
   status = 200
 
 [[redirects]]
   from = "/past-events"
-  to = "/past_events_page/code.html"
+  to = "/past-events/"
   status = 200
 
 [[redirects]]
   from = "/contact"
-  to = "/contact_page/code.html"
+  to = "/contact/"
   status = 200
 
 [[headers]]

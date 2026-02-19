@@ -173,7 +173,7 @@ If you want to hide Firebase config (optional):
 
 ### "Page not found" errors
 
-**Problem**: Direct navigation to `/upcoming_activities_page/code.html` works, but friendly URLs don't.
+**Problem**: Direct navigation to `/events/` works, but friendly URLs don't.
 
 **Solution**: The `netlify.toml` file handles redirects. Make sure it's in the project root.
 
@@ -246,7 +246,7 @@ https://acm-nmiet-site.netlify.app
 - ✅ Use as staging site
 
 ### Admin Can:
-- ✅ Still log in at: `https://your-site.netlify.app/admin_panel_login_screen/code.html`
+- ✅ Still log in at: `https://your-site.netlify.app/admin-login/`
 - ✅ Add team members
 - ✅ Create activities
 - ✅ Everything works the same (uses Firebase)

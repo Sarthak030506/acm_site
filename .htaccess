@@ -1,0 +1,10 @@
+Options -Indexes
+
+# Redirect root to home
+DirectoryIndex index.html
+
+# Add trailing slash to directories (prevents 404 on /home without slash)
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteCond %{REQUEST_URI} !/$
+RewriteRule ^(.*)$ /$1/ [L,R=301]

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link rel="icon" type="image/png" href="../components/ACM_NMIET_LOGO.png" />
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Material Symbols -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Theme Config -->
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0a82c2",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#101c22",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark font-display min-h-screen flex flex-col text-text-main-light dark:text-text-main-dark antialiased transition-colors duration-200">
+    <!-- Navbar Component (Loaded Dynamically) -->
+    <div id="acm-navbar"></div>
+    <main class="flex-grow w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12">
+        <!-- Page Hero -->
+        <section class="flex flex-col gap-4 pt-8 pb-4">
+            <h1 class="text-4xl md:text-5xl font-black leading-tight tracking-tight">
+                Upcoming Activities
+            </h1>
+            <p class="text-text-sub-light dark:text-text-sub-dark text-lg max-w-2xl">
+                Exciting initiatives we're planning for the semester. Stay ahead of the curve with our technical
+                roadmap.
+            </p>
+        </section>
+        <!-- Intro / Newsletter Section (CTA Section) -->
+        <section class="@container">
+            <div
+                class="bg-card-light dark:bg-card-dark border border-[#e6eff4] dark:border-[#2a3b47] rounded-xl p-8 md:p-12 flex flex-col md:flex-row gap-8 items-center justify-between shadow-sm relative overflow-hidden">
+                <!-- Abstract decorative background element -->
+                <div
+                    class="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-primary/5 rounded-full blur-3xl pointer-events-none">
+                </div>
+                <div class="flex flex-col gap-4 max-w-xl z-10">
+                    <div class="flex items-center gap-2 text-primary font-bold text-sm uppercase tracking-wider">
+                        <span class="material-symbols-outlined text-lg">campaign</span>
+                        <span>Note from the team</span>
+                    </div>
+                    <h2 class="text-2xl md:text-3xl font-bold leading-tight">What's in the pipeline?</h2>
+                    <p class="text-sm text-text-sub-light dark:text-text-sub-dark">
+                        We are currently curating a series of technical workshops and hackathons. Sign up to get
+                        notified as soon as dates are confirmed.
+                    </p>
+                </div>
+                <div class="w-full max-w-md z-10">
+                    <label class="flex flex-col w-full">
+                        <div id="notify-form" class="flex w-full items-stretch rounded-lg shadow-sm">
+                            <input
+                                id="notify-email"
+                                class="flex-1 rounded-l-lg border border-r-0 border-[#e6eff4] dark:border-[#2a3b47] bg-[#f8fbfc] dark:bg-[#0f1c23] px-4 py-3 text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none min-w-0"
+                                placeholder="Enter your email address" type="email" />
+                            <button
+                                id="notify-btn"
+                                type="button"
+                                class="bg-primary hover:bg-primary/90 text-white font-bold px-6 py-3 rounded-r-lg text-sm whitespace-nowrap transition-all flex items-center gap-2">
+                                <span>Notify Me</span>
+                                <span class="material-symbols-outlined text-[18px]">send</span>
+                            </button>
+                        </div>
+                        <div id="notify-success" class="hidden flex items-center gap-2 bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400 px-4 py-3 rounded-lg">
+                            <span class="material-symbols-outlined text-[20px]">check_circle</span>
+                            <span class="text-sm font-medium">You're on the list! We'll notify you about upcoming events.</span>
+                        </div>
+                        <p id="notify-hint" class="text-xs text-text-sub-light dark:text-text-sub-dark mt-2 ml-1">
+                            No spam, just updates on upcoming tech events.
+                        </p>
+                    </label>
+                </div>
+            </div>
+        </section>
+        <!-- Filters & Title -->
+        <section class="space-y-6">
+            <div
+                class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#e6eff4] dark:border-[#2a3b47] pb-4">
+                <h3 class="text-2xl font-bold">Planned Activities</h3>
+                <!-- Chips / Filters -->
+                <div class="flex flex-wrap gap-2">
+                    <button
+                        class="flex items-center gap-2 px-4 py-2 rounded-full bg-primary text-white shadow-md text-sm font-medium transition-transform hover:scale-105">
+                        <span class="material-symbols-outlined text-[18px]">star</span>
+                        All
+                    </button>
+                    <button
+                        class="flex items-center gap-2 px-4 py-2 rounded-full bg-card-light dark:bg-card-dark border border-[#e6eff4] dark:border-[#2a3b47] text-text-sub-light dark:text-text-sub-dark hover:text-primary hover:border-primary text-sm font-medium transition-all hover:shadow-sm">
+                        <span class="material-symbols-outlined text-[18px]">code</span>
+                        Workshops
+                    </button>
+                    <button
+                        class="flex items-center gap-2 px-4 py-2 rounded-full bg-card-light dark:bg-card-dark border border-[#e6eff4] dark:border-[#2a3b47] text-text-sub-light dark:text-text-sub-dark hover:text-primary hover:border-primary text-sm font-medium transition-all hover:shadow-sm">
+                        <span class="material-symbols-outlined text-[18px]">trophy</span>
+                        Competitions
+                    </button>
+                    <button
+                        class="flex items-center gap-2 px-4 py-2 rounded-full bg-card-light dark:bg-card-dark border border-[#e6eff4] dark:border-[#2a3b47] text-text-sub-light dark:text-text-sub-dark hover:text-primary hover:border-primary text-sm font-medium transition-all hover:shadow-sm">
+                        <span class="material-symbols-outlined text-[18px]">mic</span>
+                        Guest Lectures
+                    </button>
+                </div>
+            </div>
+            <!-- Activity Cards Grid -->
+            <div id="activities-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Data loading... -->
+                <div class="col-span-full flex justify-center py-20">
+                    <span class="material-symbols-outlined animate-spin text-4xl text-primary">progress_activity</span>
+                </div>
+            </div>
+
+            <script type="module">
+                import { db } from '../assets/js/firebase_config.js';
+                import { collection, getDocs, query, orderBy, where } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+                const grid = document.getElementById('activities-grid');
+                const filterButtons = document.querySelectorAll('.flex.flex-wrap.gap-2 button');
+
+                // Helper to render cards
+                function renderActivities(docs) {
+                    grid.innerHTML = '';
+
+                    if (docs.length === 0) {
+                        grid.innerHTML = `
+                        <div class="col-span-full flex flex-col items-center justify-center py-20 text-center border-2 border-dashed border-[#e6eff4] dark:border-[#2a3b47] rounded-xl bg-card-light/50 dark:bg-card-dark/50">
+                            <div class="bg-gray-100 dark:bg-gray-800 rounded-full p-4 mb-4">
+                                <span class="material-symbols-outlined text-4xl text-gray-400">event_busy</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-text-main-light dark:text-text-main-dark mb-2">No Activities Found</h3>
+                        </div>`;
+                        return;
+                    }
+
+                    docs.forEach(doc => {
+                        const data = doc.data();
+                        const card = document.createElement('a');
+                        card.href = `../event/?id=${doc.id}`;
+                        card.className = "group relative flex flex-col bg-card-light dark:bg-card-dark rounded-xl border border-[#e6eff4] dark:border-[#2a3b47] overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer";
+
+                        // Status Logic
+                        let statusColor = "bg-blue-50 text-blue-700 ring-blue-700/10";
+                        if (data.status === 'upcoming') statusColor = "bg-blue-50 text-blue-700 ring-blue-700/10";
+                        if (data.status === 'ongoing') statusColor = "bg-green-50 text-green-700 ring-green-700/10";
+                        if (data.status === 'completed') statusColor = "bg-gray-100 text-gray-600 ring-gray-500/10";
+
+                        // Icon Logic
+                        let icon = "event";
+                        if (data.activityType === 'workshop') icon = "code_blocks";
+                        if (data.activityType === 'competition') icon = "trophy";
+                        if (data.activityType === 'seminar') icon = "record_voice_over";
+                        if (data.activityType === 'hackathon') icon = "code";
+
+                        card.innerHTML = `
+                        <div class="h-48 w-full bg-slate-100 dark:bg-slate-800 relative p-6 flex items-center justify-center">
+                            <div class="absolute inset-0 bg-cover bg-center opacity-30"
+                                style="background-image: url('${data.imageURL || 'https://via.placeholder.com/400x200'}');">
+                            </div>
+                            <div class="size-16 bg-white dark:bg-slate-800 rounded-full flex items-center justify-center shadow-md relative z-10 text-primary">
+                                <span class="material-symbols-outlined text-3xl">${icon}</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-col flex-1 p-5 gap-3">
+                            <div class="flex justify-between items-start">
+                                <span class="inline-flex items-center rounded-md px-2 py-1 text-xs font-medium ring-1 ring-inset ${statusColor} capitalize">
+                                    ${data.status.replace('_', ' ')}
+                                </span>
+                                <span class="text-xs font-medium text-text-sub-light dark:text-text-sub-dark flex items-center gap-1">
+                                    <span class="material-symbols-outlined text-sm">calendar_month</span>
+                                    ${data.date}
+                                </span>
+                            </div>
+                            <h3 class="text-lg font-bold text-text-main-light dark:text-text-main-dark group-hover:text-primary transition-colors">
+                                ${data.title}
+                            </h3>
+                            <p class="text-sm text-text-sub-light dark:text-text-sub-dark line-clamp-2">
+                                ${data.description || ''}
+                            </p>
+                            <div class="mt-auto pt-4 flex items-center gap-2">
+                                <span class="inline-flex items-center gap-1 rounded-full bg-slate-100 dark:bg-slate-800 px-2.5 py-0.5 text-xs font-medium text-slate-600 dark:text-slate-300">
+                                    #${data.activityType}
+                                </span>
+                            </div>
+                        </div>
+                        `;
+                        grid.appendChild(card);
+                    });
+                }
+
+                // Initial Load
+                let allDocs = [];
+
+                async function loadAll() {
+                    try {
+                        // Only fetch upcoming and ongoing activities (exclude completed)
+                        const q = query(
+                            collection(db, "activities"),
+                            where("status", "in", ["upcoming", "ongoing"]),
+                            orderBy("createdAt", "desc")
+                        );
+                        const snapshot = await getDocs(q);
+                        allDocs = snapshot.docs; // Cache all docs
+                        renderActivities(allDocs);
+                    } catch (e) {
+                        console.error(e);
+                        grid.innerHTML = '<div class="col-span-full text-center text-red-500">Failed to load activities.</div>';
+                    }
+                }
+
+                loadAll();
+
+                // Simple client-side filtering (optimization: fetch all, filter locally since dataset is small)
+                filterButtons.forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        // Visual toggle
+                        filterButtons.forEach(b => {
+                            b.classList.remove('bg-primary', 'text-white');
+                            b.classList.add('bg-card-light', 'text-text-sub-light');
+                        });
+                        btn.classList.remove('bg-card-light', 'text-text-sub-light');
+                        btn.classList.add('bg-primary', 'text-white');
+
+                        const filter = btn.innerText.toLowerCase();
+
+                        if (filter.includes("all")) {
+                            renderActivities(allDocs);
+                        } else {
+                            const filtered = allDocs.filter(doc => {
+                                const cat = doc.data().activityType || '';
+                                // Simple mapping based on button text
+                                if (filter.includes("workshop") && cat === 'workshop') return true;
+                                if (filter.includes("competition") && cat === 'competition') return true;
+                                if (filter.includes("guest") && cat === 'guest_lecture') return true;
+                                return false;
+                            });
+                            renderActivities(filtered);
+                        }
+                    });
+                });
+
+                // Notify Me button handler
+                const notifyBtn = document.getElementById('notify-btn');
+                const notifyEmail = document.getElementById('notify-email');
+                const notifyForm = document.getElementById('notify-form');
+                const notifySuccess = document.getElementById('notify-success');
+                const notifyHint = document.getElementById('notify-hint');
+
+                notifyBtn.addEventListener('click', () => {
+                    const email = notifyEmail.value.trim();
+
+                    // Basic email validation
+                    if (!email || !email.includes('@') || !email.includes('.')) {
+                        notifyEmail.classList.add('ring-2', 'ring-red-500', 'border-red-500');
+                        setTimeout(() => {
+                            notifyEmail.classList.remove('ring-2', 'ring-red-500', 'border-red-500');
+                        }, 2000);
+                        return;
+                    }
+
+                    // Show loading state
+                    notifyBtn.disabled = true;
+                    notifyBtn.innerHTML = `<span class="material-symbols-outlined animate-spin text-[18px]">progress_activity</span>`;
+
+                    // Simulate submission delay
+                    setTimeout(() => {
+                        notifyForm.classList.add('hidden');
+                        notifySuccess.classList.remove('hidden');
+                        notifyHint.classList.add('hidden');
+                    }, 800);
+                });
+            </script>
+            <!-- Empty State (Hidden by default, shown if no items) -->
+            <!-- 
+            <div class="flex flex-col items-center justify-center py-20 text-center border-2 border-dashed border-[#e6eff4] dark:border-[#2a3b47] rounded-xl bg-card-light/50 dark:bg-card-dark/50">
+                <div class="bg-gray-100 dark:bg-gray-800 rounded-full p-4 mb-4">
+                    <span class="material-symbols-outlined text-4xl text-gray-400">event_busy</span>
+                </div>
+                <h3 class="text-xl font-bold text-text-main-light dark:text-text-main-dark mb-2">No Activities Found</h3>
+                <p class="text-text-sub-light dark:text-text-sub-dark max-w-sm">We couldn't find any activities matching your filters. Try checking back later or adjust your search.</p>
+            </div> 
+            -->
+        </section>
+    </main>
+    <!-- Bottom Section / Footer CTA -->
+    <!-- Dynamic Footer -->
+    <div id="acm-footer"></div>
+    <script src="../assets/js/navbar_loader.js"></script>
+    <script src="../assets/js/footer_loader.js"></script>
+</body>
+
+</html>

@@ -2,6 +2,8 @@
 
 Official website for the ACM (Association for Computing Machinery) student chapter at NMIET. A full-stack web application featuring a public-facing site and a protected admin panel for content management.
 
+**Live Site:** [https://nmiet.acm.org/home/](https://nmiet.acm.org/home/)
+
 ---
 
 ## Tech Stack
@@ -12,7 +14,7 @@ Official website for the ACM (Association for Computing Machinery) student chapt
 | Styling | Tailwind CSS v3 (CDN), Material Symbols |
 | Database | Firebase Firestore |
 | Auth | Firebase Authentication |
-| Hosting | Firebase Hosting / Netlify |
+| Hosting | Firebase Hosting / ACM Official Domain |
 | Analytics | Firebase Analytics |
 
 ---
@@ -163,9 +165,9 @@ Redirect rules are configured in `netlify.toml`:
 
 | URL | Redirects To |
 |-----|-------------|
-| `/` | `/home_page/code.html` |
-| `/home` | `/home_page/code.html` |
-| `/team` | `/our_team_page/code.html` |
+| `/` | `/home/` |
+| `/home` | `/home/` |
+| `/team` | `/team/` |
 
 ---
 
@@ -181,7 +183,7 @@ Redirect rules are configured in `netlify.toml`:
 
 ## Admin Access
 
-1. Navigate to `/admin_panel_login_screen/code.html`
+1. Navigate to `/admin-login/`
 2. Sign in with your Firebase Authentication credentials
 3. You will be redirected to the admin dashboard
 

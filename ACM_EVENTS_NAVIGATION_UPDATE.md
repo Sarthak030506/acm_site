@@ -29,7 +29,7 @@ Home | What is ACM | ACM NMIET ▼ | Focus Areas | Our Team | ACM Events ▼ | C
 ## New Pages Structure
 
 ### 1. Upcoming Events Page
-**Path**: `upcoming_activities_page/code.html`
+**Path**: `events/`
 
 **Shows**:
 - Activities with `status: "upcoming"`
@@ -48,7 +48,7 @@ query(
 ---
 
 ### 2. Past Events Page (NEW!)
-**Path**: `past_events_page/code.html`
+**Path**: `past-events/`
 
 **Shows**:
 - Activities with `status: "completed"`
@@ -120,17 +120,17 @@ Contact Us
 - Replaced "Upcoming Activities" link with dropdown
 - Added "ACM Events" button with dropdown arrow
 - Added dropdown panel with two links:
-  - Upcoming Events → `upcoming_activities_page/code.html`
-  - Past Events → `past_events_page/code.html`
+  - Upcoming Events → `events/`
+  - Past Events → `past-events/`
 
 **Mobile Menu** (Lines 136-143):
 - Replaced "Upcoming Activities" link with submenu
 - Added "ACM EVENTS" section header
 - Added two sub-links (Upcoming/Past)
 
-### 2. `past_events_page/code.html` (NEW FILE)
+### 2. `past-events/` (NEW FILE)
 
-**Created by copying** `upcoming_activities_page/code.html`
+**Created by copying** `events/`
 
 **Changes made**:
 - Title: "Upcoming Activities" → "Past Events"
@@ -195,7 +195,7 @@ If you get an index error, Firebase will provide a link to create it automatical
 ### Test Past Events Page
 
 **Option 1: If you have completed events**:
-1. Go to: `http://localhost:8000/past_events_page/code.html`
+1. Go to: `http://localhost:8000/past-events/`
 2. Should show all activities with `status: "completed"`
 3. Filter buttons should work (Workshop/Competition/etc)
 

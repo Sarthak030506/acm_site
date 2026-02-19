@@ -95,7 +95,7 @@ For each activity:
 
 ### Step 1: Open Home Page
 ```
-http://localhost:8000/home_page/code.html
+http://localhost:8000/home/
 ```
 
 ### Step 2: Scroll to "What's Coming Up"
@@ -106,7 +106,7 @@ You should see:
 ### Step 3: Test with Real Data
 
 **Add an upcoming activity**:
-1. Go to: `http://localhost:8000/admin_activity_editor_page/code.html`
+1. Go to: `http://localhost:8000/admin-events-editor/`
 2. Fill in:
    - Title: "Test Workshop"
    - Category: "Workshop"
@@ -266,7 +266,7 @@ if (activity.registrationLink) {
 
 ## Files Modified
 
-1. ✅ `home_page/code.html`
+1. ✅ `home/`
    - Added container ID (`activities-container`)
    - Added Firebase imports
    - Added dynamic card generation

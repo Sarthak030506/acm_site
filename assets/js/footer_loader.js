@@ -46,25 +46,25 @@ document.addEventListener("DOMContentLoaded", function () {
                     <h3 class="text-white text-base font-bold uppercase tracking-wider mb-6 border-l-2 border-blue-400 pl-3">Quick Links</h3>
                     <ul class="flex flex-col gap-3">
                         <li>
-                            <a class="text-blue-100/70 hover:text-white hover:translate-x-1 transition-all duration-200 text-sm flex items-center gap-2" href="../home_page/code.html">
+                            <a class="text-blue-100/70 hover:text-white hover:translate-x-1 transition-all duration-200 text-sm flex items-center gap-2" href="../home/">
                                 <span class="material-symbols-outlined text-[16px] opacity-0 -ml-6 transition-all duration-200 hover-target:opacity-100 hover-target:ml-0">chevron_right</span>
                                 Home
                             </a>
                         </li>
                         <li>
-                            <a class="text-blue-100/70 hover:text-white hover:translate-x-1 transition-all duration-200 text-sm" href="../what_is_acm_page/code.html">What is ACM</a>
+                            <a class="text-blue-100/70 hover:text-white hover:translate-x-1 transition-all duration-200 text-sm" href="../what-is-acm/">What is ACM</a>
                         </li>
                         <li>
-                            <a class="text-blue-100/70 hover:text-white hover:translate-x-1 transition-all duration-200 text-sm" href="../our_team_page/code.html">Our Team</a>
+                            <a class="text-blue-100/70 hover:text-white hover:translate-x-1 transition-all duration-200 text-sm" href="../team/">Our Team</a>
                         </li>
                         <li>
-                            <a class="text-blue-100/70 hover:text-white hover:translate-x-1 transition-all duration-200 text-sm" href="../join_acm_page/code.html">Join ACM</a>
+                            <a class="text-blue-100/70 hover:text-white hover:translate-x-1 transition-all duration-200 text-sm" href="../join/">Join ACM</a>
                         </li>
                         <li>
-                            <a class="text-blue-100/70 hover:text-white hover:translate-x-1 transition-all duration-200 text-sm" href="../contact_page/code.html">Contact Us</a>
+                            <a class="text-blue-100/70 hover:text-white hover:translate-x-1 transition-all duration-200 text-sm" href="../contact/">Contact Us</a>
                         </li>
                         <li>
-                            <a class="text-blue-100/70 hover:text-white hover:translate-x-1 transition-all duration-200 text-sm" href="../admin_panel_login_screen/code.html">Admin Dashboard</a>
+                            <a class="text-blue-100/70 hover:text-white hover:translate-x-1 transition-all duration-200 text-sm" href="../admin-login/">Admin Dashboard</a>
                         </li>
                     </ul>
                 </div>
@@ -73,25 +73,25 @@ document.addEventListener("DOMContentLoaded", function () {
                     <h3 class="text-white text-base font-bold uppercase tracking-wider mb-6 border-l-2 border-blue-400 pl-3">Focus Areas</h3>
                     <ul class="flex flex-col gap-3">
                         <li>
-                            <a class="text-blue-100/70 hover:text-white hover:translate-x-1 transition-all duration-200 text-sm group flex items-center gap-2" href="../focus_areas_page/code.html">
+                            <a class="text-blue-100/70 hover:text-white hover:translate-x-1 transition-all duration-200 text-sm group flex items-center gap-2" href="../focus-areas/">
                                 <span class="w-1.5 h-1.5 rounded-full bg-blue-400 opacity-50 group-hover:opacity-100"></span>
                                 AI / ML
                             </a>
                         </li>
                         <li>
-                            <a class="text-blue-100/70 hover:text-white hover:translate-x-1 transition-all duration-200 text-sm group flex items-center gap-2" href="../focus_areas_page/code.html">
+                            <a class="text-blue-100/70 hover:text-white hover:translate-x-1 transition-all duration-200 text-sm group flex items-center gap-2" href="../focus-areas/">
                                 <span class="w-1.5 h-1.5 rounded-full bg-blue-400 opacity-50 group-hover:opacity-100"></span>
                                 Web Development
                             </a>
                         </li>
                         <li>
-                            <a class="text-blue-100/70 hover:text-white hover:translate-x-1 transition-all duration-200 text-sm group flex items-center gap-2" href="../focus_areas_page/code.html">
+                            <a class="text-blue-100/70 hover:text-white hover:translate-x-1 transition-all duration-200 text-sm group flex items-center gap-2" href="../focus-areas/">
                                 <span class="w-1.5 h-1.5 rounded-full bg-blue-400 opacity-50 group-hover:opacity-100"></span>
                                 Cyber Security
                             </a>
                         </li>
                         <li>
-                            <a class="text-blue-100/70 hover:text-white hover:translate-x-1 transition-all duration-200 text-sm group flex items-center gap-2" href="../focus_areas_page/code.html">
+                            <a class="text-blue-100/70 hover:text-white hover:translate-x-1 transition-all duration-200 text-sm group flex items-center gap-2" href="../focus-areas/">
                                 <span class="w-1.5 h-1.5 rounded-full bg-blue-400 opacity-50 group-hover:opacity-100"></span>
                                 Cloud Computing
                             </a>

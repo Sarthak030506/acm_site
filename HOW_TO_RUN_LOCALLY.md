@@ -16,10 +16,10 @@ Opening HTML files directly (`file:///`) doesn't work with ES6 modules due to CO
    Starting server on http://localhost:8000
    ```
 3. Open your browser and go to:
-   - **Admin Panel**: http://localhost:8000/admin_panel_login_screen/code.html
-   - **Public Site**: http://localhost:8000/home_page/code.html
-   - **Team Page**: http://localhost:8000/our_team_page/code.html
-   - **Activities**: http://localhost:8000/upcoming_activities_page/code.html
+   - **Admin Panel**: http://localhost:8000/admin-login/
+   - **Public Site**: http://localhost:8000/home/
+   - **Team Page**: http://localhost:8000/team/
+   - **Activities**: http://localhost:8000/events/
 
 4. **To Stop**: Press `Ctrl+C` in the terminal window
 
@@ -35,7 +35,7 @@ cd C:\Users\hp\Desktop\stitch_acm_site\stitch_acm_site
 python -m http.server 8000
 
 # Open browser to:
-# http://localhost:8000/admin_panel_login_screen/code.html
+# http://localhost:8000/admin-login/
 ```
 
 ---
@@ -71,14 +71,14 @@ http-server -p 8000
 cd C:\Users\hp\Desktop\stitch_acm_site\stitch_acm_site
 python -m http.server 8000
 ```
-Open: http://localhost:8000/admin_panel_login_screen/code.html
+Open: http://localhost:8000/admin-login/
 
 ### Terminal 2 - Public Site (Optional - Different Port):
 ```bash
 cd C:\Users\hp\Desktop\stitch_acm_site\stitch_acm_site
 python -m http.server 8001
 ```
-Open: http://localhost:8001/home_page/code.html
+Open: http://localhost:8001/home/
 
 **OR** just use one server on port 8000 for both (recommended)
 
@@ -116,7 +116,7 @@ python -m http.server 8080
 ## Quick Test
 
 1. Run: `START_SERVER.bat`
-2. Open: http://localhost:8000/admin_panel_login_screen/code.html
+2. Open: http://localhost:8000/admin-login/
 3. Open browser console (F12)
 4. Try to login
 5. Check console for errors (should see Firebase auth messages)

@@ -64,7 +64,7 @@ User sees live statistics!
 
 ### Code Changes
 
-**File**: `admin_panel_dashboard/code.html`
+**File**: `admin-dashboard/`
 
 **Added**:
 1. Firebase module imports (`db`, `getDocs`, `query`, etc.)
@@ -110,7 +110,7 @@ These can be connected later when you implement blog and contact features.
 
 ### Step 1: Open Dashboard
 ```
-http://localhost:8000/admin_panel_dashboard/code.html
+http://localhost:8000/admin-dashboard/
 ```
 
 ### Step 2: Check Statistics
@@ -136,7 +136,7 @@ Scroll down to "Activities Management" section:
 
 ### Step 5: Test Live Updates
 1. Open dashboard in one tab
-2. Open team editor in another tab: `http://localhost:8000/admin_team_member_editor_page/code.html`
+2. Open team editor in another tab: `http://localhost:8000/admin-team-editor/`
 3. Add a new team member
 4. Go back to dashboard tab
 5. **Refresh page** (Ctrl + R)
@@ -251,7 +251,7 @@ setInterval(loadDashboardData, 30000);
 
 ## Files Modified
 
-1. ✅ `admin_panel_dashboard/code.html` - Added Firebase connectivity
+1. ✅ `admin-dashboard/` - Added Firebase connectivity
 
 **Total Lines Added**: ~140 lines of JavaScript
 

@@ -12,7 +12,7 @@ Completed a comprehensive audit of all admin panel and public website pages. Fou
 
 ### 1. Team Members Collection
 
-#### Admin Team Member Editor (`admin_team_member_editor_page/code.html`)
+#### Admin Team Member Editor (`admin-team-editor/`)
 
 **Issues Fixed**:
 - ❌ `fullName` → ✅ `name`
@@ -38,7 +38,7 @@ Completed a comprehensive audit of all admin panel and public website pages. Fou
 
 ---
 
-#### Admin Team List (`admin_team_members_list_view_page/code.html`)
+#### Admin Team List (`admin-team/`)
 
 **Issues Fixed**:
 - ❌ `member.fullName` → ✅ `member.name`
@@ -46,7 +46,7 @@ Completed a comprehensive audit of all admin panel and public website pages. Fou
 
 ---
 
-#### Public Team Page (`our_team_page/code.html`)
+#### Public Team Page (`team/`)
 
 **Issues Fixed**:
 - ❌ `member.fullName` → ✅ `member.name`
@@ -56,7 +56,7 @@ Completed a comprehensive audit of all admin panel and public website pages. Fou
 
 ### 2. Activities Collection
 
-#### Admin Activity Editor (`admin_activity_editor_page/code.html`)
+#### Admin Activity Editor (`admin-events-editor/`)
 
 **Issues Fixed**:
 - ❌ `category` → ✅ `activityType` (with `.toLowerCase()`)
@@ -95,7 +95,7 @@ Completed a comprehensive audit of all admin panel and public website pages. Fou
 
 ---
 
-#### Admin Activities List (`admin_activities_list_view_page/code.html`)
+#### Admin Activities List (`admin-events/`)
 
 **Issues Fixed**:
 - ❌ `activity.category` → ✅ `activity.activityType`
@@ -122,7 +122,7 @@ if (activity.status === 'upcoming') {
 
 ---
 
-#### Public Activities Page (`upcoming_activities_page/code.html`)
+#### Public Activities Page (`events/`)
 
 **Issues Fixed (4 locations)**:
 1. ❌ `data.category` → ✅ `data.activityType` (icon selection)
@@ -244,12 +244,12 @@ if (data.activityType === 'hackathon') icon = "code";
 
 ## Files Modified (7 files)
 
-1. ✅ `admin_team_member_editor_page/code.html` - Fixed 3 field names
-2. ✅ `admin_team_members_list_view_page/code.html` - Fixed 2 field names
-3. ✅ `our_team_page/code.html` - Fixed 2 field names
-4. ✅ `admin_activity_editor_page/code.html` - Fixed 3 field names + dropdown values
-5. ✅ `admin_activities_list_view_page/code.html` - Fixed 1 field name + status logic
-6. ✅ `upcoming_activities_page/code.html` - Fixed 5 field references + status/icon logic
+1. ✅ `admin-team-editor/` - Fixed 3 field names
+2. ✅ `admin-team/` - Fixed 2 field names
+3. ✅ `team/` - Fixed 2 field names
+4. ✅ `admin-events-editor/` - Fixed 3 field names + dropdown values
+5. ✅ `admin-events/` - Fixed 1 field name + status logic
+6. ✅ `events/` - Fixed 5 field references + status/icon logic
 7. ✅ `firestore.rules` - Deployed correct security rules
 
 ---

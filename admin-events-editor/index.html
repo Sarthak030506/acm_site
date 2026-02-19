@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Admin Activity Editor - ACM NMIET</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#118dd4",
+                        "background-light": "#f8fafc", "background-page": "#f8fafc",
+                        "surface-light": "#ffffff", "surface": "#ffffff",
+                        "surface-highlight": "#f1f5f9",
+                        "text-main": "#0f172a",
+                        "text-secondary": "#64748b",
+                        "border-light": "#e2e8f0", "border-color": "#e2e8f0",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings:
+                'FILL' 0,
+                'wght' 400,
+                'GRAD' 0,
+                'opsz' 24
+        }
+
+        select {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
+    </style>
+</head>
+
+<body class="bg-background-page text-text-main font-display min-h-screen flex overflow-hidden">
+    <!-- Auth Guard protection -->
+    <script type="module" src="../assets/js/auth_guard.js"></script>
+    <aside id="sidebar"
+        class="fixed inset-y-0 left-0 z-50 w-64 flex flex-col border-r border-border-color bg-surface h-full shrink-0 transition-transform duration-300 transform -translate-x-full md:translate-x-0 md:relative md:flex shadow-[4px_0_24px_-12px_rgba(0,0,0,0.1)]">
+        <div class="flex h-full flex-col justify-between p-4">
+            <div class="flex flex-col gap-6">
+                <div class="flex items-center gap-3 px-2">
+                    <div class="bg-center bg-no-repeat bg-cover rounded-full size-10 shadow-md ring-2 ring-primary/20"
+                        data-alt="ACM NMIET Logo abstract geometric blue shape"
+                        style="background-image: linear-gradient(135deg, #118dd4 0%, #0a4d75 100%);"></div>
+                    <div class="flex flex-col">
+                        <h1 class="text-text-main text-base font-bold leading-normal tracking-wide">ACM NMIET</h1>
+                        <p class="text-primary text-xs font-medium leading-normal">Admin Portal</p>
+                    </div>
+                </div>
+                <nav class="flex flex-col gap-2">
+                    <a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-surface-highlight transition-colors group"
+                        href="../admin-dashboard/">
+                        <span
+                            class="material-symbols-outlined text-text-secondary group-hover:text-primary transition-colors">dashboard</span>
+                        <p
+                            class="text-text-secondary group-hover:text-text-main text-sm font-medium leading-normal transition-colors">
+                            Dashboard Home</p>
+                    </a>
+                    <a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-surface-highlight transition-colors group"
+                        href="../admin-blog/">
+                        <span
+                            class="material-symbols-outlined text-text-secondary group-hover:text-primary transition-colors">article</span>
+                        <p
+                            class="text-text-secondary group-hover:text-text-main text-sm font-medium leading-normal transition-colors">
+                            Blog Management</p>
+                    </a>
+                    <a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-surface-highlight transition-colors group"
+                        href="../admin-team/">
+                        <span
+                            class="material-symbols-outlined text-text-secondary group-hover:text-primary transition-colors">group</span>
+                        <p
+                            class="text-text-secondary group-hover:text-text-main text-sm font-medium leading-normal transition-colors">
+                            Team Management</p>
+                    </a>
+                    <a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/10 border-l-4 border-primary shadow-sm"
+                        href="../admin-events/">
+                        <span class="material-symbols-outlined text-primary fill-current">event</span>
+                        <p class="text-primary text-sm font-bold leading-normal">Activities Management</p>
+                    </a>
+                    <a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-surface-highlight transition-colors group"
+                        href="../admin-contact/">
+                        <span
+                            class="material-symbols-outlined text-text-secondary group-hover:text-primary transition-colors">contact_page</span>
+                        <p
+                            class="text-text-secondary group-hover:text-text-main text-sm font-medium leading-normal transition-colors">
+                            Contact Page Content</p>
+                    </a>
+                </nav>
+            </div>
+            <div class="flex flex-col gap-2 border-t border-border-color pt-4">
+                <a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-red-50 text-text-secondary hover:text-red-600 transition-colors group"
+                    href="../admin-login/">
+                    <span class="material-symbols-outlined">logout</span>
+                    <p class="text-sm font-medium leading-normal">Log Out</p>
+                </a>
+            </div>
+        </div>
+    </aside>
+    <main class="flex-1 h-screen overflow-y-auto relative">
+        <header
+            class="flex items-center justify-between whitespace-nowrap border-b border-border-color bg-surface/80 backdrop-blur-md px-6 py-4 sticky top-0 z-20 shadow-sm">
+            <div class="flex items-center gap-4 text-text-main">
+                <button id="mobile-menu-btn" class="md:hidden p-1 text-text-secondary">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+                <div class="flex flex-col">
+                    <div class="flex items-center gap-2 text-text-secondary text-xs">
+                        <span>Admin</span>
+                        <span class="material-symbols-outlined text-[10px]">chevron_right</span>
+                        <span class="text-text-main font-medium">Activities Management</span>
+                    </div>
+                    <h2 class="text-text-main text-lg font-bold leading-tight tracking-[-0.015em]">Create New Activity
+                    </h2>
+                </div>
+            </div>
+            <div class="flex items-center gap-4">
+                <div class="hidden sm:flex items-center gap-2">
+                    <button
+                        class="flex size-9 cursor-pointer items-center justify-center rounded-lg bg-surface hover:bg-slate-200 text-text-secondary hover:text-text-main transition-colors relative border border-border-color">
+                        <span class="material-symbols-outlined text-[20px]">notifications</span>
+                        <span class="absolute top-2 right-2 size-2 bg-red-500 rounded-full border border-white"></span>
+                    </button>
+                    <button
+                        class="flex size-9 cursor-pointer items-center justify-center rounded-lg bg-surface hover:bg-slate-200 text-text-secondary hover:text-text-main transition-colors border border-border-color">
+                        <span class="material-symbols-outlined text-[20px]">settings</span>
+                    </button>
+                </div>
+                <div class="h-8 w-[1px] bg-border-color mx-2 hidden sm:block"></div>
+                <div class="flex items-center gap-3">
+                    <div class="bg-center bg-no-repeat bg-cover rounded-full size-9 border border-border-color shadow-sm"
+                        data-alt="User profile picture placeholder gradient"
+                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD3SGRhumRt1dMJma6YAdChVPLDBdkpLE-fJn5cEA6E4BMd64UjSn7ZepgBDqDvhj05_JBIFGI2IPTbl5lVlBW6pHKNeQ_0E2CtTIatywfQKzBGEMZ2zCNTrYuXUGDYYRO-Dxjg6HXe9Nf1RrW6_tNKRtw_dCKUuan8PHrO7k4lkpLwLGb4QgIAwZhI_vHizlDrZBUXTamDycwiTrQw756xHw303Ei8im97QWnaylnPjxVUnCSMV5lvzkfaauJapAZt1a9JcBeZocCU");'>
+                    </div>
+                    <div class="hidden md:flex flex-col">
+                        <span class="text-sm font-semibold text-text-main leading-none">Admin User</span>
+                        <span class="text-xs text-text-secondary leading-tight mt-1">Super Admin</span>
+                    </div>
+                    <span
+                        class="material-symbols-outlined text-text-secondary text-sm hidden md:block">expand_more</span>
+                </div>
+            </div>
+        </header>
+        <div class="max-w-5xl mx-auto px-6 py-8 md:px-12 md:py-10">
+            <div class="flex flex-wrap gap-2 mb-6">
+                <a class="text-text-secondary hover:text-primary text-sm font-medium transition-colors"
+                    href="../admin-dashboard/">Admin</a>
+                <span class="text-text-secondary text-sm font-medium">/</span>
+                <a class="text-text-secondary hover:text-primary text-sm font-medium transition-colors"
+                    href="../admin-events/">Activities</a>
+                <span class="text-text-secondary text-sm font-medium">/</span>
+                <span class="text-text-main text-sm font-medium">Create New Activity</span>
+            </div>
+            <div class="flex flex-col gap-2 mb-10">
+                <h1 class="text-text-main text-3xl md:text-4xl font-black leading-tight tracking-[-0.033em]">Create New
+                    Activity</h1>
+                <p class="text-text-secondary text-base font-normal">Add details for upcoming events, workshops, or
+                    competitions.</p>
+            </div>
+            <div class="bg-surface rounded-xl border border-border-color shadow-sm overflow-hidden">
+                <div class="p-6 md:p-8 flex flex-col gap-8">
+                    <div class="grid grid-cols-1 gap-6">
+                        <div class="flex flex-col gap-2">
+                            <label class="text-text-main text-sm font-medium" for="title">Activity Title</label>
+                            <input
+                                class="w-full rounded-lg bg-input-bg border border-border-color text-text-main placeholder-text-placeholder focus:border-primary focus:ring-1 focus:ring-primary h-12 px-4 transition-all shadow-sm"
+                                id="title" placeholder="e.g., Annual Hackathon 2024" type="text" />
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="flex flex-col gap-2 relative">
+                                <label class="text-text-main text-sm font-medium" for="category">Category</label>
+                                <div class="relative">
+                                    <select
+                                        class="w-full rounded-lg bg-input-bg border border-border-color text-text-main focus:border-primary focus:ring-1 focus:ring-primary h-12 px-4 pr-10 appearance-none transition-all cursor-pointer shadow-sm"
+                                        id="category">
+                                        <option disabled="" selected="" value="">Select Category</option>
+                                        <option value="workshop">Workshop</option>
+                                        <option value="competition">Competition</option>
+                                        <option value="guest_lecture">Guest Lecture</option>
+                                        <option value="seminar">Seminar</option>
+                                    </select>
+                                    <div
+                                        class="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-text-secondary">
+                                        <span class="material-symbols-outlined">expand_more</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex flex-col gap-2 relative">
+                                <label class="text-text-main text-sm font-medium" for="status">Status</label>
+                                <div class="relative">
+                                    <select
+                                        class="w-full rounded-lg bg-input-bg border border-border-color text-text-main focus:border-primary focus:ring-1 focus:ring-primary h-12 px-4 pr-10 appearance-none transition-all cursor-pointer shadow-sm"
+                                        id="status">
+                                        <option value="upcoming">Upcoming</option>
+                                        <option value="ongoing">Ongoing</option>
+                                        <option value="completed">Completed</option>
+                                    </select>
+                                    <div
+                                        class="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-text-secondary">
+                                        <span class="material-symbols-outlined">expand_more</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-2 md:max-w-[50%]">
+                            <label class="text-text-main text-sm font-medium" for="date">Tentative Date</label>
+                            <div class="relative">
+                                <input
+                                    class="w-full rounded-lg bg-input-bg border border-border-color text-text-main placeholder-text-placeholder focus:border-primary focus:ring-1 focus:ring-primary h-12 px-4 transition-all shadow-sm [&amp;::-webkit-calendar-picker-indicator]:cursor-pointer"
+                                    id="date" type="date" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="h-px bg-border-color w-full"></div>
+                    <div class="grid grid-cols-1 gap-6">
+                        <div class="flex flex-col gap-2">
+                            <label class="text-text-main text-sm font-medium" for="description">Description</label>
+                            <textarea
+                                class="w-full rounded-lg bg-input-bg border border-border-color text-text-main placeholder-text-placeholder focus:border-primary focus:ring-1 focus:ring-primary p-4 resize-y transition-all shadow-sm"
+                                id="description" placeholder="Describe the event details, agenda, and prerequisites..."
+                                rows="5"></textarea>
+                        </div>
+                        <div class="flex flex-col gap-2">
+
+                            <label class="text-text-main text-sm font-medium">Banner Image URL</label>
+                            <input
+                                class="w-full rounded-lg bg-input-bg border border-border-color text-text-main placeholder-text-placeholder focus:border-primary focus:ring-1 focus:ring-primary h-12 px-4 transition-all shadow-sm"
+                                id="bannerUrl" placeholder="https://example.com/banner.jpg" type="url" />
+                            <p class="text-text-secondary text-xs mt-1">Paste a public link to the event banner image.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="h-px bg-border-color w-full"></div>
+                    <!-- Event Images Gallery Section -->
+                    <div class="grid grid-cols-1 gap-6">
+                        <div class="flex flex-col gap-4">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <label class="text-text-main text-sm font-medium" id="images-section-label">Event Images</label>
+                                    <p class="text-text-secondary text-xs mt-1" id="images-section-hint">Add posters for upcoming events or photos for completed events.</p>
+                                </div>
+                            </div>
+
+                            <!-- Current Images Grid -->
+                            <div id="images-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                                <!-- Images will be dynamically inserted here -->
+                            </div>
+
+                            <!-- Empty State -->
+                            <div id="images-empty" class="text-center py-6 border-2 border-dashed border-border-color rounded-lg">
+                                <span class="material-symbols-outlined text-3xl text-text-secondary mb-2">photo_library</span>
+                                <p class="text-text-secondary text-sm">No images added yet</p>
+                            </div>
+
+                            <!-- Add Image Form -->
+                            <div class="flex flex-col gap-3 p-4 bg-surface-highlight rounded-lg border border-border-color">
+                                <label class="text-text-main text-sm font-medium">Add New Image</label>
+                                <div class="flex flex-col sm:flex-row gap-3">
+                                    <input
+                                        class="flex-1 rounded-lg bg-white border border-border-color text-text-main placeholder-text-placeholder focus:border-primary focus:ring-1 focus:ring-primary h-10 px-3 text-sm transition-all shadow-sm"
+                                        id="newImageUrl" placeholder="https://example.com/image.jpg" type="url" />
+                                    <input
+                                        class="flex-1 rounded-lg bg-white border border-border-color text-text-main placeholder-text-placeholder focus:border-primary focus:ring-1 focus:ring-primary h-10 px-3 text-sm transition-all shadow-sm"
+                                        id="newImageCaption" placeholder="Optional caption" type="text" />
+                                    <button type="button" id="addImageBtn"
+                                        class="px-4 py-2 rounded-lg bg-primary text-white font-medium hover:bg-primary/90 transition-all text-sm flex items-center gap-2 whitespace-nowrap">
+                                        <span class="material-symbols-outlined text-[18px]">add_photo_alternate</span>
+                                        Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="bg-surface-highlight p-6 border-t border-border-color flex flex-col sm:flex-row items-center justify-end gap-4">
+                    <a href="../admin-events/"
+                        class="w-full sm:w-auto px-6 py-3 rounded-lg border border-border-color text-text-main bg-white font-medium hover:bg-slate-50 transition-colors focus:outline-none focus:ring-2 focus:ring-border-color shadow-sm flex items-center justify-center">
+                        Cancel
+                    </a>
+                    <button
+                        class="w-full sm:w-auto px-8 py-3 rounded-lg bg-primary text-white font-medium hover:bg-primary/90 transition-all shadow-[0_4px_14px_0_rgba(17,141,212,0.39)] hover:shadow-[0_6px_20px_rgba(17,141,212,0.23)] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary flex items-center justify-center gap-2">
+                        <span class="material-symbols-outlined text-[20px]">save</span>
+                        Save Activity
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+<script type="module">
+    import { db } from '../assets/js/firebase_config.js';
+    import { collection, addDoc, doc, getDoc, updateDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+    document.addEventListener('DOMContentLoaded', async function () {
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const sidebar = document.getElementById('sidebar');
+        const saveBtn = document.querySelector('button.bg-primary');
+        const pageTitle = document.querySelector('h1.text-3xl');
+
+        // Form Fields
+        const titleInput = document.getElementById('title');
+        const categoryInput = document.getElementById('category');
+        const statusInput = document.getElementById('status');
+        const dateInput = document.getElementById('date');
+        const descInput = document.getElementById('description');
+        const bannerInput = document.getElementById('bannerUrl');
+
+        // Image Gallery Elements
+        const imagesGrid = document.getElementById('images-grid');
+        const imagesEmpty = document.getElementById('images-empty');
+        const newImageUrl = document.getElementById('newImageUrl');
+        const newImageCaption = document.getElementById('newImageCaption');
+        const addImageBtn = document.getElementById('addImageBtn');
+        const imagesSectionLabel = document.getElementById('images-section-label');
+        const imagesSectionHint = document.getElementById('images-section-hint');
+
+        // Current images array
+        let eventImages = [];
+
+        if (menuBtn && sidebar) {
+            menuBtn.addEventListener('click', () => {
+                sidebar.classList.toggle('-translate-x-full');
+            });
+        }
+
+        // Update section label based on status
+        function updateImageSectionLabels() {
+            const status = statusInput.value;
+            if (status === 'completed') {
+                imagesSectionLabel.textContent = 'Event Photos';
+                imagesSectionHint.textContent = 'Add photos from the completed event.';
+            } else {
+                imagesSectionLabel.textContent = 'Event Posters';
+                imagesSectionHint.textContent = 'Add promotional posters for this upcoming event.';
+            }
+        }
+
+        // Listen for status changes
+        statusInput.addEventListener('change', updateImageSectionLabels);
+
+        // Render images grid
+        function renderImagesGrid() {
+            imagesGrid.innerHTML = '';
+
+            if (eventImages.length === 0) {
+                imagesEmpty.classList.remove('hidden');
+                imagesGrid.classList.add('hidden');
+                return;
+            }
+
+            imagesEmpty.classList.add('hidden');
+            imagesGrid.classList.remove('hidden');
+
+            eventImages.forEach((image, index) => {
+                const imageCard = document.createElement('div');
+                imageCard.className = 'relative group aspect-square rounded-lg overflow-hidden bg-slate-100 border border-border-color';
+                imageCard.innerHTML = `
+                    <img src="${image.url}" alt="${image.caption || 'Event image'}"
+                         class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/200?text=Image+Error'" />
+                    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <button type="button" class="delete-image-btn p-2 bg-red-500 text-white rounded-full hover:bg-red-600 transition-colors" data-index="${index}">
+                            <span class="material-symbols-outlined">delete</span>
+                        </button>
+                    </div>
+                    ${image.caption ? `<div class="absolute bottom-0 left-0 right-0 bg-black/60 text-white text-xs p-2 truncate">${image.caption}</div>` : ''}
+                `;
+                imagesGrid.appendChild(imageCard);
+            });
+
+            // Attach delete handlers
+            document.querySelectorAll('.delete-image-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const index = parseInt(e.currentTarget.dataset.index);
+                    eventImages.splice(index, 1);
+                    renderImagesGrid();
+                });
+            });
+        }
+
+        // Add image handler
+        addImageBtn.addEventListener('click', () => {
+            const url = newImageUrl.value.trim();
+            const caption = newImageCaption.value.trim();
+
+            if (!url) {
+                alert('Please enter an image URL.');
+                return;
+            }
+
+            // Basic URL validation
+            try {
+                new URL(url);
+            } catch (e) {
+                alert('Please enter a valid URL.');
+                return;
+            }
+
+            const status = statusInput.value;
+            const imageType = status === 'completed' ? 'photo' : 'poster';
+
+            eventImages.push({
+                url: url,
+                caption: caption || '',
+                type: imageType
+            });
+
+            newImageUrl.value = '';
+            newImageCaption.value = '';
+            renderImagesGrid();
+        });
+
+        // --- EDIT MODE CHECK ---
+        const urlParams = new URLSearchParams(window.location.search);
+        const activityId = urlParams.get('id');
+
+        if (activityId) {
+            // Switch UI to Edit Mode
+            if (pageTitle) pageTitle.textContent = "Edit Activity";
+            saveBtn.innerHTML = `<span class="material-symbols-outlined text-[20px]">save</span> Update Activity`;
+
+            // Load Data
+            try {
+                const docRef = doc(db, "activities", activityId);
+                const docSnap = await getDoc(docRef);
+
+                if (docSnap.exists()) {
+                    const data = docSnap.data();
+                    titleInput.value = data.title || '';
+                    categoryInput.value = data.activityType || 'workshop';
+                    statusInput.value = data.status || 'upcoming';
+                    dateInput.value = data.date || '';
+                    descInput.value = data.description || '';
+                    bannerInput.value = data.imageURL || '';
+
+                    // Load existing images
+                    if (data.images && Array.isArray(data.images)) {
+                        eventImages = data.images;
+                        renderImagesGrid();
+                    }
+
+                    // Update labels based on loaded status
+                    updateImageSectionLabels();
+                } else {
+                    alert("Activity not found!");
+                    window.location.href = "../admin-events/";
+                }
+            } catch (e) {
+                console.error("Error loading document:", e);
+                alert("Error loading activity details.");
+            }
+        } else {
+            // Initialize labels for new activity
+            updateImageSectionLabels();
+            renderImagesGrid();
+        }
+
+        // --- SAVE / UPDATE LOGIC ---
+        saveBtn.addEventListener('click', async () => {
+            const title = titleInput.value;
+            const category = categoryInput.value;
+            const status = statusInput.value;
+            const date = dateInput.value;
+            const description = descInput.value;
+            const bannerUrl = bannerInput.value || "https://source.unsplash.com/random/800x600/?tech,event";
+
+            if (!title || !date) {
+                alert("Please enter at least a Title and Date.");
+                return;
+            }
+
+            saveBtn.disabled = true;
+            saveBtn.innerHTML = `<span class="material-symbols-outlined animate-spin">refresh</span> ${activityId ? 'Updating' : 'Saving'}...`;
+
+            try {
+                if (activityId) {
+                    // Update existing
+                    await updateDoc(doc(db, "activities", activityId), {
+                        title: title,
+                        description: description,
+                        activityType: category.toLowerCase(),
+                        date: date,
+                        status: status,
+                        imageURL: bannerUrl,
+                        images: eventImages,
+                        updatedAt: new Date()
+                    });
+                    alert("Activity updated successfully!");
+                } else {
+                    // Create new
+                    await addDoc(collection(db, "activities"), {
+                        title: title,
+                        description: description,
+                        activityType: category.toLowerCase(),
+                        date: date,
+                        status: status,
+                        imageURL: bannerUrl,
+                        images: eventImages,
+                        createdAt: new Date()
+                    });
+                    alert("Activity created successfully!");
+                }
+                window.location.href = "../admin-events/";
+            } catch (e) {
+                console.error(e);
+                alert("Error saving: " + e.message);
+                saveBtn.disabled = false;
+                saveBtn.innerHTML = `<span class="material-symbols-outlined text-[20px]">save</span> ${activityId ? 'Update' : 'Save'} Activity`;
+            }
+        });
+    });
+</script>
+
+</html>
